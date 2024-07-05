@@ -1,0 +1,60 @@
+\documentclass[a4paper]{article}
+
+% Packages
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage[backend=bibtex]{biblatex}
+\usepackage{comment}
+
+
+\addbibresource{references.bib}
+
+\title{Evaluation of Machine Translation in Languages}
+\author{Stefan Liemawan Adji}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Objectives}
+
+This paper aims to evaluate existing techniques and circumstances around the task of machine translation across different languages.
+
+\section{Related Work}
+
+\section{Methodology}
+
+Take the list of most spoken language by population according to Wikipedia \cite{wikipedia-list-languages}, then take one for each branch.
+
+\begin{table}[htbp]
+    \small
+    \centering
+    \begin{tabular}{|l|l|r|l|l|}
+        \hline
+        \textbf{No.} & \textbf{Language} & \textbf{Native speakers} & \textbf{Language family} & \textbf{Branch}   \\
+                     &                   & \textbf{(in millions)}   &                          &                   \\
+        \hline
+        1            & Egyptian Arabic   & 78                       & Afroasiatic              & Semitic           \\
+        2            & German            & 76                       & Indo-European            & Germanic          \\
+        3            & Hausa             & 54                       & Afroasiatic              & Chadic            \\
+        4            & Hindi             & 345                      & Indo-European            & Indo-Aryan        \\
+        6            & Japanese          & 123                      & Japonic                  & Japanese          \\
+        7            & Javanese          & 68                       & Austronesian             & Malayo-Polynesian \\
+        8            & Korean            & 81                       & Koreanic                 & —                 \\
+        9            & Mandarin Chinese  & 941                      & Sino-Tibetan             & Sinitic           \\
+        5            & Persian           & 62                       & Indo-European            & Iranian           \\
+        10           & Russian           & 148                      & Indo-European            & Balto-Slavic      \\
+        11           & Spanish           & 486                      & Indo-European            & Romance           \\
+        13           & Telugu            & 83                       & Dravidian                & South-Central     \\
+        12           & Turkish           & 84                       & Turkic                   & Oghuz             \\
+        14           & Vietnamese        & 85                       & Austroasiatic            & Vietic            \\
+        \hline
+    \end{tabular}
+    \caption{List of most spoken languages per branch}
+\end{table}
+
+Egyptian Arabic, Javanese, and Telugu might be discarded due to low examples in dataset.
+
+\printbibliography
+\end{document}
