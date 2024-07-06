@@ -63,3 +63,5 @@ for src_lang in MBART50_LANG_CODES.keys():
 
     print(translated_df)
     translated_df.to_csv("result/v1/mbart50/translated.csv")
+
+# seems like some language still translated to non_english?

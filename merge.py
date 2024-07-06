@@ -1,9 +1,11 @@
 import pandas as pd
 
-dutch_df = pd.read_csv("result/v1/mbart50/translated_from_dutch.csv")
-finnish_df = pd.read_csv("result/v1/mbart50/translated_from_finnish.csv")
-df = finnish_df.merge(dutch_df)
-df.drop(columns=["Unnamed: 0"], inplace=True)
+langs_df = pd.read_csv("result/v1/mbart50/translated.csv")
+dutch_fin_df = pd.read_csv("result/v1/mbart50/translated_dutch_finnish.csv")
+print(langs_df)
+df = dutch_fin_df.merge(langs_df, how="outer", on=["index", "english"])
+
+df.drop(columns=["Unnamed: 0_x", "Unnamed: 0_y"], inplace=True)
 
 print(df)
 

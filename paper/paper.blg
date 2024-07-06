@@ -21,45 +21,52 @@ Database file #1: paper-blx.bib
 Database file #2: references.bib
 Biblatex version: 3.19
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Warning--you've exceeded 500, the entry-string-size, for entry openai-2024-gpt4-technical-report
+while executing--line 2699 of file biblatex.bst
+*Please notify the bibstyle designer*
+Warning--you've exceeded 500, the entry-string-size, for entry openai-2024-gpt4-technical-report
+while executing--line 2727 of file biblatex.bst
+*Please notify the bibstyle designer*
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 11 entries,
+You've used 14 entries,
             6399 wiz_defined-function locations,
-            1279 strings with 12332 characters,
-and the built_in function-call counts, 91130 in all, are:
-= -- 7547
-> -- 1297
-< -- 445
-+ -- 2766
-- -- 448
-* -- 6134
-:= -- 10411
+            1295 strings with 18501 characters,
+and the built_in function-call counts, 709400 in all, are:
+= -- 71457
+> -- 4192
+< -- 517
++ -- 30102
+- -- 2196
+* -- 49824
+:= -- 102737
 add.period$ -- 0
-call.type$ -- 11
-change.case$ -- 275
+call.type$ -- 14
+change.case$ -- 301
 chr.to.int$ -- 49
-cite$ -- 20
-duplicate$ -- 9752
-empty$ -- 7699
-format.name$ -- 738
-if$ -- 18374
+cite$ -- 26
+duplicate$ -- 80296
+empty$ -- 51087
+format.name$ -- 4546
+if$ -- 128630
 int.to.chr$ -- 0
-int.to.str$ -- 29
+int.to.str$ -- 33
 missing$ -- 0
-newline$ -- 420
-num.names$ -- 614
-pop$ -- 3747
+newline$ -- 2499
+num.names$ -- 731
+pop$ -- 11421
 preamble$ -- 1
-purify$ -- 340
+purify$ -- 1040
 quote$ -- 0
-skip$ -- 2311
+skip$ -- 4399
 stack$ -- 0
-substring$ -- 13489
-swap$ -- 1807
-text.length$ -- 305
-text.prefix$ -- 10
+substring$ -- 139289
+swap$ -- 6855
+text.length$ -- 711
+text.prefix$ -- 13
 top$ -- 1
-type$ -- 362
+type$ -- 464
 warning$ -- 0
-while$ -- 1318
+while$ -- 13483
 width$ -- 0
-write$ -- 410
+write$ -- 2486
+(There were 2 warnings)

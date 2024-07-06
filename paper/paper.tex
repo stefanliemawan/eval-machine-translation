@@ -25,37 +25,27 @@ According to Ethnologue \cite{ethnologue-2024}, 7,164 languages currently exist 
 
 As of July 2024, 243 languages and languages varities are supported by Google Translate (according to Wikipedia \cite{wikipedia-google-translate})
 
-Machine translation (MT) has emerged as a pivotal technology in facilitating cross-cultural communication and global information exchange. With the exponential growth of digital content in diverse languages, the demand for accurate and efficient translation systems has never been greater. This paper aims to evaluate and compare the performance of various machine translation models across multiple languages, shedding light on their effectiveness and limitations in real-world applications.
+Machine translation (MT) can be traced down to as early as 1949 \cite{weaver-1999}, recently growing as a popular research field within Natural Language Processing (NLP).
 
-Effective machine translation hinges on the ability of algorithms to comprehend and accurately render meaning from source text in one language to target text in another. Traditionally, statistical methods dominated the landscape, employing linguistic rules and alignment techniques. However, the advent of neural machine translation (NMT) has revolutionized the field, leveraging deep learning architectures to achieve remarkable improvements in translation quality.
-
-Statistical machine translation, which previously dominated MT research for many years with its reliance on various count-based models, has largely been surpassed by neural machine translation (NMT) \cite{stahlberg-2020-nmt-review}.
-
-The languages chosen for evaluation in this study represent a wide overview, striking a balance between resources and diversity.
-
-The evaluation criteria encompass standard metrics such as BLEU (Bilingual Evaluation Understudy) \cite{papieni-2002-bleu}, METEOR (Metric for Evaluation of Translation with Explicit ORdering) \cite{lavie-2007-meteor} to capture nuances in translation quality. These metrics not only quantify the fidelity of translations but also offer insights into the models' adaptability and robustness across different linguistic pairs.
+Statistical machine translation, which previously dominated MT research for many years with its reliance on various count-based models, has largely been surpassed by neural machine translation (NMT) \cite{stahlberg-2020-nmt-review}. Nowadays, Large Language Models (LLMs) such as mBart \cite{liu-2020-mbart}, M2M-100 \cite{fan-2020-m2m100}, NLLB-200 \cite{nllb200}, T5 \cite{raffel-2023-t5}, and GPT-4 \cite{openai-2024-gpt4-technical-report} dominated the field of machine translation. DeepL \cite{deepl} currently proclaimed itself as 'The world most accurate translator'.
 
 Through simple experimentation and analysis, this paper aims to evaluate existing techniques across different languages
 and contribute valuable insights into the current state of machine translation technology. By comparing metrics among languages, I hope to inform future researchers of the effectiveness of machine translation on each individual languages that are included in this paper.
-
-
-Evaluating languages enhances understanding of linguistic structures, phonetics, syntax, semantics, and other linguistic components. This knowledge contributes to the broader field of linguistics and helps in developing theories about language evolution, language families, and the cognitive processes involved in language acquisition and use.
-
-Machine translation can be tracked to as early as 1949 \cite{weaver-1999}
 
 \section{Related Work}
 
 As is the case of most fields within Natural Language Processing (NLP), the current state-of-the-art (SOTA) in machine translation (MT) is characterised by the significant advancements brought by large language models (LLMs) like OpenAI's GPT-4. These models have surpassed traditional neural machine translation (NMT) systems in several areas, offering more nuanced and accurate translations, especially in handling context and idiomatic expressions.
 
-mBART \cite{liu-2020-mbart} is considered one of the State-of-the-Art as of this moment for multilingual translation.
 
-T5 \cite{raffel-2023-t5}
-
-\section{Tatoeba Dataset}
+\section{Dataset}
 
 \subsection{Overview}
 
 Tatoeba is a vast, continuously expanding database consisting sentences and their translations, built through the contributions of thousands of volunteers, offering a tool that allows users to see examples of how words are used in sentences \cite{tatoeba}. They currently have 12,132,349 sentences and 423 supported languages, with around one to two thousand new sentences added daily, on average
+
+To build the dataset,
+
+Sentences in English are downloaded, 1,898,494 sentences (it is unclear why it is less than the number stated in the Tatoeba website). Then for each langauges, download sentence pairs compared to English. Merge every language sentences into one big dataframe, only keep where sentences exist for every language
 
 \begin{figure}[htbp]
     \centering
@@ -79,13 +69,9 @@ Tatoeba English sentence dataset contains 1,905,089 sentences, the largest one i
 
 Sentences typically consist of everyday phrases such as 'I have to go to sleep', 'That is intriguing', and 'Where do you live?' They may also include single-word exclamations like 'Speak!' or 'Look!' Additionally, multiple sentences such as 'You may write in any language you want. On Tatoeba, all languages are considered equal', and 'Guns don't kill people. People kill people' can be found inside the corpus. A few of them also include human names, 'Compare your answer with Tom's', 'Muiriel is 20 now'. All of the sentences are straightforward and literal, without the use of linguistic devices such as metaphors or sarcasm. Therefore, machine translation process should be straightforward on this level.
 
-\section{Methodology}
+\section{Methodology}.
 
-Take the list of most spoken language by population according to Wikipedia \cite{wikipedia-list-languages}, then take one for each branch.
-
-Sentences in English are downloaded, 1,898,494 sentences (it is unclear why it is less than the number stated in the Tatoeba website). Then for each langauges, download sentence pairs compared to English. Merge every language sentences into one big dataframe, only keep where sentences exist for every language.
-
-Target language will be English, with machine translation task defined as Many-to-English.
+The languages chosen for evaluation in this study represent a wide overview, striking a balance between resources and diversity. Each language will then be translated into English (Many-to-English) and evaluated. The evaluation criteria encompass standard metrics such as BLEU (Bilingual Evaluation Understudy) \cite{papieni-2002-bleu}, METEOR (Metric for Evaluation of Translation with Explicit ORdering) \cite{lavie-2007-meteor} to capture nuances in translation quality. These metrics not only quantify the fidelity of translations but also offer insights into the models' adaptability and robustness across different linguistic pairs.
 
 \begin{table}[htbp]
     \centering
