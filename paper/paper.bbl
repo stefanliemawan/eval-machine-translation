@@ -17,6 +17,384 @@
 \endgroup
 
 \datalist[entry]{nty/global//global/global}
+  \entry{ethnologue-2024}{book}{}
+    \name{editor}{3}{}{%
+      {{hash=EDM}{%
+         family={Eberhard},
+         familyi={E\bibinitperiod},
+         given={David\bibnamedelima M.},
+         giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+      {{hash=SGF}{%
+         family={Simons},
+         familyi={S\bibinitperiod},
+         given={Gary\bibnamedelima F.},
+         giveni={G\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+      {{hash=FCD}{%
+         family={Fennig},
+         familyi={F\bibinitperiod},
+         given={Charles\bibnamedelima D.},
+         giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {SIL International}%
+    }
+    \strng{namehash}{EDMSGFFCD1}
+    \strng{fullhash}{EDMSGFFCD1}
+    \field{labelnamesource}{editor}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \field{edition}{27th}
+    \field{title}{Ethnologue: Languages of the World}
+    \verb{url}
+    \verb http://www.ethnologue.com
+    \endverb
+    \list{location}{1}{%
+      {Dallas, Texas}%
+    }
+    \field{year}{2024}
+  \endentry
+
+  \entry{lavie-2007-meteor}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=LA}{%
+         family={Lavie},
+         familyi={L\bibinitperiod},
+         given={Alon},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=AA}{%
+         family={Agarwal},
+         familyi={A\bibinitperiod},
+         given={Abhaya},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computational Linguistics}%
+    }
+    \strng{namehash}{LAAA1}
+    \strng{fullhash}{LAAA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{abstract}{%
+    Meteor is an automatic metric for Machine Translation evaluation which has been demonstrated to have high levels of correlation with human judgments of translation quality, significantly outperforming the more commonly used Bleu metric. It is one of several automatic metrics used in this year's shared task within the ACL WMT-07 workshop. This paper recaps the technical details underlying the metric and describes recent improvements in the metric. The latest release includes improved metric parameters and extends the metric to support evaluation of MT output in Spanish, French and German, in addition to English.%
+    }
+    \field{booktitle}{Proceedings of the Second Workshop on Statistical Machine Translation}
+    \field{pages}{228–231}
+    \field{series}{StatMT '07}
+    \field{title}{Meteor: an automatic metric for MT evaluation with high levels of correlation with human judgments}
+    \list{location}{1}{%
+      {Prague, Czech Republic}%
+    }
+    \field{year}{2007}
+    \warn{\item Can't use 'location' + 'address'}
+  \endentry
+
+  \entry{liu-2020-mbart}{misc}{}
+    \name{author}{8}{}{%
+      {{hash=LY}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Yinhan},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=GJ}{%
+         family={Gu},
+         familyi={G\bibinitperiod},
+         given={Jiatao},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=GN}{%
+         family={Goyal},
+         familyi={G\bibinitperiod},
+         given={Naman},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=LX}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Xian},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=ES}{%
+         family={Edunov},
+         familyi={E\bibinitperiod},
+         given={Sergey},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=GM}{%
+         family={Ghazvininejad},
+         familyi={G\bibinitperiod},
+         given={Marjan},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=LM}{%
+         family={Lewis},
+         familyi={L\bibinitperiod},
+         given={Mike},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=ZL}{%
+         family={Zettlemoyer},
+         familyi={Z\bibinitperiod},
+         given={Luke},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LY+1}
+    \strng{fullhash}{LYGJGNLXESGMLMZL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \verb{eprint}
+    \verb 2001.08210
+    \endverb
+    \field{title}{Multilingual Denoising Pre-training for Neural Machine Translation}
+    \verb{url}
+    \verb https://arxiv.org/abs/2001.08210
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CL}
+    \field{year}{2020}
+  \endentry
+
+  \entry{papieni-2002-bleu}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=PK}{%
+         family={Papineni},
+         familyi={P\bibinitperiod},
+         given={Kishore},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=RS}{%
+         family={Roukos},
+         familyi={R\bibinitperiod},
+         given={Salim},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=WT}{%
+         family={Ward},
+         familyi={W\bibinitperiod},
+         given={Todd},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=ZWJ}{%
+         family={Zhu},
+         familyi={Z\bibinitperiod},
+         given={Wei-Jing},
+         giveni={W\bibinithyphendelim J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computational Linguistics}%
+    }
+    \strng{namehash}{PK+1}
+    \strng{fullhash}{PKRSWTZWJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{abstract}{%
+    Human evaluations of machine translation are extensive but expensive. Human evaluations can take months to finish and involve human labor that can not be reused. We propose a method of automatic machine translation evaluation that is quick, inexpensive, and language-independent, that correlates highly with human evaluation, and that has little marginal cost per run. We present this method as an automated understudy to skilled human judges which substitutes for them when there is need for quick or frequent evaluations.%
+    }
+    \field{booktitle}{Proceedings of the 40th Annual Meeting on Association for Computational Linguistics}
+    \verb{doi}
+    \verb 10.3115/1073083.1073135
+    \endverb
+    \field{pages}{311–318}
+    \field{series}{ACL '02}
+    \field{title}{BLEU: a method for automatic evaluation of machine translation}
+    \verb{url}
+    \verb https://doi.org/10.3115/1073083.1073135
+    \endverb
+    \list{location}{1}{%
+      {Philadelphia, Pennsylvania}%
+    }
+    \field{year}{2002}
+    \warn{\item Can't use 'location' + 'address'}
+  \endentry
+
+  \entry{raffel-2023-t5}{misc}{}
+    \name{author}{9}{}{%
+      {{hash=RC}{%
+         family={Raffel},
+         familyi={R\bibinitperiod},
+         given={Colin},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=SN}{%
+         family={Shazeer},
+         familyi={S\bibinitperiod},
+         given={Noam},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=RA}{%
+         family={Roberts},
+         familyi={R\bibinitperiod},
+         given={Adam},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=LK}{%
+         family={Lee},
+         familyi={L\bibinitperiod},
+         given={Katherine},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=NS}{%
+         family={Narang},
+         familyi={N\bibinitperiod},
+         given={Sharan},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=MM}{%
+         family={Matena},
+         familyi={M\bibinitperiod},
+         given={Michael},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=ZY}{%
+         family={Zhou},
+         familyi={Z\bibinitperiod},
+         given={Yanqi},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=LW}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Wei},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=LPJ}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Peter\bibnamedelima J.},
+         giveni={P\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{RC+1}
+    \strng{fullhash}{RCSNRALKNSMMZYLWLPJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \verb{eprint}
+    \verb 1910.10683
+    \endverb
+    \field{title}{Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer}
+    \verb{url}
+    \verb https://arxiv.org/abs/1910.10683
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.LG}
+    \field{year}{2023}
+  \endentry
+
+  \entry{stahlberg-2020-nmt-review}{article}{}
+    \name{author}{1}{}{%
+      {{hash=SF}{%
+         family={Stahlberg},
+         familyi={S\bibinitperiod},
+         given={Felix},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {AI Access Foundation}%
+    }
+    \strng{namehash}{SF1}
+    \strng{fullhash}{SF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \verb{doi}
+    \verb 10.1613/jair.1.12007
+    \endverb
+    \field{issn}{1076-9757}
+    \field{pages}{343–418}
+    \field{title}{Neural Machine Translation: A Review}
+    \verb{url}
+    \verb http://dx.doi.org/10.1613/jair.1.12007
+    \endverb
+    \field{volume}{69}
+    \field{journaltitle}{Journal of Artificial Intelligence Research}
+    \field{month}{10}
+    \field{year}{2020}
+  \endentry
+
+  \entry{tatoeba}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=T}{%
+         family={{Tatoeba Community}},
+         familyi={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{T1}
+    \strng{fullhash}{T1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{note}{Accessed: 2024-07-06}
+    \field{title}{About Tatoeba}
+    \verb{url}
+    \verb https://tatoeba.org/en
+    \endverb
+    \field{year}{2024}
+  \endentry
+
+  \entry{weaver-1999}{article}{}
+    \name{author}{1}{}{%
+      {{hash=WW}{%
+         family={Weaver},
+         familyi={W\bibinitperiod},
+         given={Warren},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WW1}
+    \strng{fullhash}{WW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{number}{22}
+    \field{pages}{5\bibrangedash 6, 15}
+    \field{title}{Memorandum on Translation}
+    \field{journaltitle}{MT News International}
+    \field{year}{1999}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{wikipedia-google-translate}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=W}{%
+         family={{Wikipedia contributors}},
+         familyi={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{W1}
+    \strng{fullhash}{W1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{note}{[Online; accessed 6-July-2024]}
+    \field{title}{Google Translate --- {Wikipedia}{,} The Free Encyclopedia}
+    \verb{url}
+    \verb https://en.wikipedia.org/w/index.php?title=Google_Translate&oldid=123
+    \verb 2822378
+    \endverb
+    \field{year}{2024}
+  \endentry
+
   \entry{wikipedia-list-languages}{misc}{}
     \name{author}{1}{}{%
       {{hash=W}{%
