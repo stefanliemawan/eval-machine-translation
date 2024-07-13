@@ -3,48 +3,47 @@ import os
 import pandas as pd
 import torch
 from tqdm import tqdm
-from transformers import MBart50Tokenizer, MBartForConditionalGeneration, MBartTokenizer
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
 os.environ["PYTORCH_ENABLE_MPS_FALLBACK"] = "1"
 
-MODEL_NAME = "facebook/mbart-large-50-many-to-many-mmt"
+MODEL_NAME = "facebook/nllb-200-3.3B"
 
 MBART50_LANG_CODES = {
-    "dutch": "nl_XX",
-    "finnish": "fi_FI",
-    "french": "fr_XX",
-    "german": "de_DE",
+    "dutch": "nld_Latn",
+    "finnish": "fin_Latn",
+    "french": "fra_Latn",
+    "german": "deu_Latn",
     "hebrew": "he_IL",
-    "italian": "it_IT",
-    "japanese": "ja_XX",
-    "chinese": "zh_CN",
-    "polish": "pl_PL",
-    "portuguese": "pt_XX",
-    "russian": "ru_RU",
-    "spanish": "es_XX",
-    "turkish": "tr_TR",
-    "ukrainian": "uk_UA",
+    "italian": "ita_Latn",
+    "japanese": "jpn_Jpan",
+    "chinese": "zho_Hans",
+    "polish": "pol_Latn",
+    "portuguese": "por_Latn",
+    "russian": "rus_Cyrl",
+    "spanish": "spa_Latn",
+    "turkish": "tur_Latn",
+    "ukrainian": "ukr_Cyrl",
 }
 
 tqdm.pandas()
 
-model = MBartForConditionalGeneration.from_pretrained(MODEL_NAME)
+tokeniser = AutoTokenizer.from_pretrained(MODEL_NAME)
+model = AutoModelForSeq2SeqLM.from_pretrained(MODEL_NAME)
 
 df = pd.read_csv("dataset/sentences_v1.csv", index_col=0)
 
 
-def translate_batch(tokeniser, batch_input):
-    inputs = tokeniser(
-        batch_input,
-        return_tensors="pt",
-        padding=True,
-        truncation=True,
-    )
+def translate_batch(batch):
+    inputs = tokeniser(batch, return_tensors="pt", padding=True, truncation=True)
     with torch.no_grad():
         translated_tokens = model.generate(
-            **inputs, forced_bos_token_id=tokeniser.lang_code_to_id["en_XX"]
+            **inputs
         )
     translations = tokeniser.batch_decode(translated_tokens, skip_special_tokens=True)
+    print(batch)
+    print(translations)
+    asd
 
     return translations
 
@@ -54,16 +53,16 @@ translated_df = df[["index", "english"]].copy()
 
 for src_lang, src_lang_code in MBART50_LANG_CODES.items():
     print(f"Translating {src_lang}...")
-    tokeniser = MBart50Tokenizer.from_pretrained(
+    tokeniser = AutoTokenizer.from_pretrained(
         MODEL_NAME,
         src_lang=src_lang_code,
-        tgt_lang="en_XX",
+        tgt_lang="eng_Latn",
     )
     translated_texts = []
 
     for i in tqdm(range(0, len(df), batch_size)):
-        batch_input = df[src_lang][i : i + batch_size].tolist()
-        translations = translate_batch(tokeniser, batch_input)
+        batch = df[src_lang][i : i + batch_size].tolist()
+        translations = translate_batch(batch)
         translated_texts.extend(translations)
 
     translated_df[f"translated_from_{src_lang}"] = translated_texts
@@ -82,12 +81,14 @@ for src_lang, src_lang_code in MBART50_LANG_CODES.items():
 #     "Ik was in de bergen.",
 # ]
 # [
-#     "I have to go to sleep.",
-#     "Muiriel is now 20 years old.",
-#     'The password is "Muiriel."',
-#     "I'm so back.",
-#     "I don't have words for it. | Words scare me.",
-#     "This is never going to end. | This is never going to end.",
-#     "I just don't know what to say. | I just don't know what to say.",
-#     "I was in the mountains.",
+#     "Lo egin beharko nuke.",
+#     "Muiriel nun estas dudekjara.",
+#     'La pasvorto estas "Muiriel".',
+#     "Berehala etorriko naiz.",
+#     "I don't have the words. I'm at a loss for words.",
+#     "Ez da inoiz amaituko.",
+#     "I just don't know what to say... I just don't know what to say...",
+#     "Mi estis en la montaro.",
 # ]
+
+# wrong config? translation seems weird
