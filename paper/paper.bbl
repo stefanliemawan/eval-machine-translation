@@ -35,6 +35,51 @@
     \field{title}{{DeepL Translator}}
   \endentry
 
+  \entry{devlin-2019-bert}{misc}{}
+    \name{author}{4}{}{%
+      {{hash=DJ}{%
+         family={Devlin},
+         familyi={D\bibinitperiod},
+         given={Jacob},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=CMW}{%
+         family={Chang},
+         familyi={C\bibinitperiod},
+         given={Ming-Wei},
+         giveni={M\bibinithyphendelim W\bibinitperiod},
+      }}%
+      {{hash=LK}{%
+         family={Lee},
+         familyi={L\bibinitperiod},
+         given={Kenton},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=TK}{%
+         family={Toutanova},
+         familyi={T\bibinitperiod},
+         given={Kristina},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DJ+1}
+    \strng{fullhash}{DJCMWLKTK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \verb{eprint}
+    \verb 1810.04805
+    \endverb
+    \field{title}{BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding}
+    \verb{url}
+    \verb https://arxiv.org/abs/1810.04805
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CL}
+    \field{year}{2019}
+  \endentry
+
   \entry{ethnologue-2024}{book}{}
     \name{editor}{3}{}{%
       {{hash=EDM}{%
@@ -76,127 +121,224 @@
     \field{year}{2024}
   \endentry
 
-  \entry{fan-2020-m2m100}{misc}{}
-    \name{author}{17}{}{%
-      {{hash=FA}{%
-         family={Fan},
-         familyi={F\bibinitperiod},
-         given={Angela},
-         giveni={A\bibinitperiod},
+  \entry{hutchins-1994-research-methods-mt}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=HJ}{%
+         family={Hutchins},
+         familyi={H\bibinitperiod},
+         given={John},
+         giveni={J\bibinitperiod},
       }}%
-      {{hash=BS}{%
-         family={Bhosale},
-         familyi={B\bibinitperiod},
-         given={Shruti},
-         giveni={S\bibinitperiod},
+    }
+    \strng{namehash}{HJ1}
+    \strng{fullhash}{HJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{booktitle}{BCS International Academic Conference}
+    \field{title}{Research methods and system designs in machine translation: a ten-year review, 1984-1994}
+    \verb{url}
+    \verb https://api.semanticscholar.org/CorpusID:15952756
+    \endverb
+    \field{year}{1994}
+  \endentry
+
+  \entry{hutchins-1998-development-mt}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=HJ}{%
+         family={Hutchins},
+         familyi={H\bibinitperiod},
+         given={John},
+         giveni={J\bibinitperiod},
       }}%
-      {{hash=SH}{%
-         family={Schwenk},
+    }
+    \strng{namehash}{HJ1}
+    \strng{fullhash}{HJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{title}{The development and use of machine translation systems and computer-based translation tools in Europe, Asia, and North America}
+    \verb{url}
+    \verb https://api.semanticscholar.org/CorpusID:18918684
+    \endverb
+    \field{year}{1998}
+  \endentry
+
+  \entry{hutchins-2006-first-mt}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=HJ}{%
+         family={Hutchins},
+         familyi={H\bibinitperiod},
+         given={John},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HJ1}
+    \strng{fullhash}{HJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{title}{The first public demonstration of machine translation : the Georgetown-IBM system, 7th January 1954}
+    \verb{url}
+    \verb https://api.semanticscholar.org/CorpusID:132677
+    \endverb
+    \field{year}{2006}
+  \endentry
+
+  \entry{hutchins-2001-mt-50-years}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=HWJ}{%
+         family={Hutchins},
+         familyi={H\bibinitperiod},
+         given={William\bibnamedelima J.},
+         giveni={W\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HWJ1}
+    \strng{fullhash}{HWJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{title}{Machine translation over fifty years}
+    \verb{url}
+    \verb https://api.semanticscholar.org/CorpusID:6196527
+    \endverb
+    \field{year}{2001}
+  \endentry
+
+  \entry{jiang-2023-mistral-7b}{misc}{}
+    \name{author}{18}{}{%
+      {{hash=JAQ}{%
+         family={Jiang},
+         familyi={J\bibinitperiod},
+         given={Albert\bibnamedelima Q.},
+         giveni={A\bibinitperiod\bibinitdelim Q\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={Sablayrolles},
          familyi={S\bibinitperiod},
-         given={Holger},
-         giveni={H\bibinitperiod},
-      }}%
-      {{hash=MZ}{%
-         family={Ma},
-         familyi={M\bibinitperiod},
-         given={Zhiyi},
-         giveni={Z\bibinitperiod},
-      }}%
-      {{hash=EKA}{%
-         family={El-Kishky},
-         familyi={E\bibinithyphendelim K\bibinitperiod},
-         given={Ahmed},
+         given={Alexandre},
          giveni={A\bibinitperiod},
       }}%
-      {{hash=GS}{%
-         family={Goyal},
-         familyi={G\bibinitperiod},
-         given={Siddharth},
-         giveni={S\bibinitperiod},
+      {{hash=MA}{%
+         family={Mensch},
+         familyi={M\bibinitperiod},
+         given={Arthur},
+         giveni={A\bibinitperiod},
       }}%
-      {{hash=BM}{%
-         family={Baines},
+      {{hash=BC}{%
+         family={Bamford},
          familyi={B\bibinitperiod},
-         given={Mandeep},
-         giveni={M\bibinitperiod},
+         given={Chris},
+         giveni={C\bibinitperiod},
       }}%
-      {{hash=CO}{%
-         family={Celebi},
+      {{hash=CDS}{%
+         family={Chaplot},
          familyi={C\bibinitperiod},
-         given={Onur},
-         giveni={O\bibinitperiod},
+         given={Devendra\bibnamedelima Singh},
+         giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod},
       }}%
-      {{hash=WG}{%
-         family={Wenzek},
-         familyi={W\bibinitperiod},
+      {{hash=dlCD}{%
+         prefix={de\bibnamedelima las},
+         prefixi={d\bibinitperiod\bibinitdelim l\bibinitperiod},
+         family={Casas},
+         familyi={C\bibinitperiod},
+         given={Diego},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=BF}{%
+         family={Bressand},
+         familyi={B\bibinitperiod},
+         given={Florian},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=LG}{%
+         family={Lengyel},
+         familyi={L\bibinitperiod},
+         given={Gianna},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=LG}{%
+         family={Lample},
+         familyi={L\bibinitperiod},
          given={Guillaume},
          giveni={G\bibinitperiod},
       }}%
-      {{hash=CV}{%
-         family={Chaudhary},
-         familyi={C\bibinitperiod},
-         given={Vishrav},
-         giveni={V\bibinitperiod},
+      {{hash=SL}{%
+         family={Saulnier},
+         familyi={S\bibinitperiod},
+         given={Lucile},
+         giveni={L\bibinitperiod},
       }}%
-      {{hash=GN}{%
-         family={Goyal},
-         familyi={G\bibinitperiod},
-         given={Naman},
-         giveni={N\bibinitperiod},
+      {{hash=LLR}{%
+         family={Lavaud},
+         familyi={L\bibinitperiod},
+         given={Lélio\bibnamedelima Renard},
+         giveni={L\bibinitperiod\bibinitdelim R\bibinitperiod},
       }}%
-      {{hash=BT}{%
-         family={Birch},
-         familyi={B\bibinitperiod},
-         given={Tom},
+      {{hash=LMA}{%
+         family={Lachaux},
+         familyi={L\bibinitperiod},
+         given={Marie-Anne},
+         giveni={M\bibinithyphendelim A\bibinitperiod},
+      }}%
+      {{hash=SP}{%
+         family={Stock},
+         familyi={S\bibinitperiod},
+         given={Pierre},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=STL}{%
+         family={Scao},
+         familyi={S\bibinitperiod},
+         given={Teven\bibnamedelima Le},
+         giveni={T\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=LT}{%
+         family={Lavril},
+         familyi={L\bibinitperiod},
+         given={Thibaut},
          giveni={T\bibinitperiod},
       }}%
-      {{hash=LV}{%
-         family={Liptchinsky},
+      {{hash=WT}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Thomas},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=LT}{%
+         family={Lacroix},
          familyi={L\bibinitperiod},
-         given={Vitaliy},
-         giveni={V\bibinitperiod},
+         given={Timothée},
+         giveni={T\bibinitperiod},
       }}%
-      {{hash=ES}{%
-         family={Edunov},
-         familyi={E\bibinitperiod},
-         given={Sergey},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=GE}{%
-         family={Grave},
-         familyi={G\bibinitperiod},
-         given={Edouard},
-         giveni={E\bibinitperiod},
-      }}%
-      {{hash=AM}{%
-         family={Auli},
-         familyi={A\bibinitperiod},
-         given={Michael},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=JA}{%
-         family={Joulin},
-         familyi={J\bibinitperiod},
-         given={Armand},
-         giveni={A\bibinitperiod},
+      {{hash=SWE}{%
+         family={Sayed},
+         familyi={S\bibinitperiod},
+         given={William\bibnamedelima El},
+         giveni={W\bibinitperiod\bibinitdelim E\bibinitperiod},
       }}%
     }
-    \strng{namehash}{FA+1}
-    \strng{fullhash}{FABSSHMZEKAGSBMCOWGCVGNBTLVESGEAMJA1}
+    \strng{namehash}{JAQ+1}
+    \strng{fullhash}{JAQSAMABCCDSCDdlBFLGLGSLLLRLMASPSTLLTWTLTSWE1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{F}
-    \field{sortinithash}{F}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
     \verb{eprint}
-    \verb 2010.11125
+    \verb 2310.06825
     \endverb
-    \field{title}{Beyond English-Centric Multilingual Machine Translation}
+    \field{title}{Mistral 7B}
     \verb{url}
-    \verb https://arxiv.org/abs/2010.11125
+    \verb https://arxiv.org/abs/2310.06825
     \endverb
     \field{eprinttype}{arXiv}
     \field{eprintclass}{cs.CL}
-    \field{year}{2020}
+    \field{year}{2023}
   \endentry
 
   \entry{lavie-2007-meteor}{inproceedings}{}
@@ -306,7 +448,47 @@
     \field{year}{2020}
   \endentry
 
-  \entry{openai-2024-gpt4-technical-report}{misc}{}
+  \entry{lopez-2008-smt}{article}{}
+    \name{author}{1}{}{%
+      {{hash=LA}{%
+         family={Lopez},
+         familyi={L\bibinitperiod},
+         given={Adam},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computing Machinery}%
+    }
+    \keyw{Natural language processing, machine translation}
+    \strng{namehash}{LA1}
+    \strng{fullhash}{LA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{abstract}{%
+    Statistical machine translation (SMT) treats the translation of natural language as a machine learning problem. By examining many samples of human-produced translation, SMT algorithms automatically learn how to translate. SMT has made tremendous strides in less than two decades, and new ideas are constantly introduced. This survey presents a tutorial overview of the state of the art. We describe the context of the current research and then move to a formal problem description and an overview of the main subproblems: translation modeling, parameter estimation, and decoding. Along the way, we present a taxonomy of some different approaches within these areas. We conclude with an overview of evaluation and a discussion of future directions.%
+    }
+    \verb{doi}
+    \verb 10.1145/1380584.1380586
+    \endverb
+    \field{issn}{0360-0300}
+    \field{number}{3}
+    \field{title}{Statistical machine translation}
+    \verb{url}
+    \verb https://doi.org/10.1145/1380584.1380586
+    \endverb
+    \field{volume}{40}
+    \list{location}{1}{%
+      {New York, NY, USA}%
+    }
+    \field{journaltitle}{ACM Comput. Surv.}
+    \field{year}{2008}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{openai-2024-gpt4}{misc}{}
     \name{author}{281}{}{%
       {{hash=O}{%
          family={OpenAI},
@@ -2142,39 +2324,6 @@
     \field{year}{2023}
   \endentry
 
-  \entry{stahlberg-2020-nmt-review}{article}{}
-    \name{author}{1}{}{%
-      {{hash=SF}{%
-         family={Stahlberg},
-         familyi={S\bibinitperiod},
-         given={Felix},
-         giveni={F\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {AI Access Foundation}%
-    }
-    \strng{namehash}{SF1}
-    \strng{fullhash}{SF1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{S}
-    \field{sortinithash}{S}
-    \verb{doi}
-    \verb 10.1613/jair.1.12007
-    \endverb
-    \field{issn}{1076-9757}
-    \field{pages}{343–418}
-    \field{title}{Neural Machine Translation: A Review}
-    \verb{url}
-    \verb http://dx.doi.org/10.1613/jair.1.12007
-    \endverb
-    \field{volume}{69}
-    \field{journaltitle}{Journal of Artificial Intelligence Research}
-    \field{month}{10}
-    \field{year}{2020}
-  \endentry
-
   \entry{tatoeba}{misc}{}
     \name{author}{1}{}{%
       {{hash=T}{%
@@ -2451,6 +2600,135 @@
     \field{year}{2022}
   \endentry
 
+  \entry{intento-2020}{report}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{note}{Independent multi-domain evaluation of commercial Machine Translation engines}
+    \field{title}{The State of Machine Translation 2020}
+    \verb{url}
+    \verb https://try.inten.to/mt_report_2020
+    \endverb
+    \list{institution}{1}{%
+      {Intento}%
+    }
+    \field{year}{2020}
+  \endentry
+
+  \entry{vaswani-2017-attention}{inproceedings}{}
+    \name{author}{8}{}{%
+      {{hash=VA}{%
+         family={Vaswani},
+         familyi={V\bibinitperiod},
+         given={Ashish},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=SN}{%
+         family={Shazeer},
+         familyi={S\bibinitperiod},
+         given={Noam},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=PN}{%
+         family={Parmar},
+         familyi={P\bibinitperiod},
+         given={Niki},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=UJ}{%
+         family={Uszkoreit},
+         familyi={U\bibinitperiod},
+         given={Jakob},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=JL}{%
+         family={Jones},
+         familyi={J\bibinitperiod},
+         given={Llion},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=GAN}{%
+         family={Gomez},
+         familyi={G\bibinitperiod},
+         given={Aidan\bibnamedelima N},
+         giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod},
+      }}%
+      {{hash=KLu}{%
+         family={Kaiser},
+         familyi={K\bibinitperiod},
+         given={\L\bibnamedelima ukasz},
+         giveni={L\bibinitperiod\bibinitdelim u\bibinitperiod},
+      }}%
+      {{hash=PI}{%
+         family={Polosukhin},
+         familyi={P\bibinitperiod},
+         given={Illia},
+         giveni={I\bibinitperiod},
+      }}%
+    }
+    \name{editor}{7}{}{%
+      {{hash=GI}{%
+         family={Guyon},
+         familyi={G\bibinitperiod},
+         given={I.},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=LUV}{%
+         family={Luxburg},
+         familyi={L\bibinitperiod},
+         given={U.\bibnamedelima Von},
+         giveni={U\bibinitperiod\bibinitdelim V\bibinitperiod},
+      }}%
+      {{hash=BS}{%
+         family={Bengio},
+         familyi={B\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=WH}{%
+         family={Wallach},
+         familyi={W\bibinitperiod},
+         given={H.},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=FR}{%
+         family={Fergus},
+         familyi={F\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=VS}{%
+         family={Vishwanathan},
+         familyi={V\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=GR}{%
+         family={Garnett},
+         familyi={G\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Curran Associates, Inc.}%
+    }
+    \strng{namehash}{VA+1}
+    \strng{fullhash}{VASNPNUJJLGANKLuPI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{V}
+    \field{sortinithash}{V}
+    \field{booktitle}{Advances in Neural Information Processing Systems}
+    \field{title}{Attention is All you Need}
+    \verb{url}
+    \verb https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee24354
+    \verb 7dee91fbd053c1c4a845aa-Paper.pdf
+    \endverb
+    \field{volume}{30}
+    \field{year}{2017}
+  \endentry
+
   \entry{weaver-1999}{article}{}
     \name{author}{1}{}{%
       {{hash=WW}{%
@@ -2474,6 +2752,135 @@
     \warn{\item Invalid format of field 'month'}
   \endentry
 
+  \entry{wei-2023-polylm}{misc}{}
+    \name{author}{18}{}{%
+      {{hash=WX}{%
+         family={Wei},
+         familyi={W\bibinitperiod},
+         given={Xiangpeng},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=WH}{%
+         family={Wei},
+         familyi={W\bibinitperiod},
+         given={Haoran},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=LH}{%
+         family={Lin},
+         familyi={L\bibinitperiod},
+         given={Huan},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=LT}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Tianhao},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=ZP}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Pei},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=RX}{%
+         family={Ren},
+         familyi={R\bibinitperiod},
+         given={Xingzhang},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=LM}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Mei},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=WY}{%
+         family={Wan},
+         familyi={W\bibinitperiod},
+         given={Yu},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=CZ}{%
+         family={Cao},
+         familyi={C\bibinitperiod},
+         given={Zhiwei},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=XB}{%
+         family={Xie},
+         familyi={X\bibinitperiod},
+         given={Binbin},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=HT}{%
+         family={Hu},
+         familyi={H\bibinitperiod},
+         given={Tianxiang},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=LS}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Shangjie},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=HB}{%
+         family={Hui},
+         familyi={H\bibinitperiod},
+         given={Binyuan},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=YB}{%
+         family={Yu},
+         familyi={Y\bibinitperiod},
+         given={Bowen},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=LD}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Dayiheng},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=YB}{%
+         family={Yang},
+         familyi={Y\bibinitperiod},
+         given={Baosong},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=HF}{%
+         family={Huang},
+         familyi={H\bibinitperiod},
+         given={Fei},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=XJ}{%
+         family={Xie},
+         familyi={X\bibinitperiod},
+         given={Jun},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WX+1}
+    \strng{fullhash}{WXWHLHLTZPRXLMWYCZXBHTLSHBYBLDYBHFXJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \verb{eprint}
+    \verb 2307.06018
+    \endverb
+    \field{title}{PolyLM: An Open Source Polyglot Large Language Model}
+    \verb{url}
+    \verb https://arxiv.org/abs/2307.06018
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CL}
+    \field{year}{2023}
+  \endentry
+
   \entry{wikipedia-google-translate}{misc}{}
     \name{author}{1}{}{%
       {{hash=W}{%
@@ -2494,6 +2901,168 @@
     \verb 2822378
     \endverb
     \field{year}{2024}
+  \endentry
+
+  \entry{wu-2020-mbert-are-all}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=WS}{%
+         family={Wu},
+         familyi={W\bibinitperiod},
+         given={Shijie},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=DM}{%
+         family={Dredze},
+         familyi={D\bibinitperiod},
+         given={Mark},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \name{editor}{8}{}{%
+      {{hash=GS}{%
+         family={Gella},
+         familyi={G\bibinitperiod},
+         given={Spandana},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=WJ}{%
+         family={Welbl},
+         familyi={W\bibinitperiod},
+         given={Johannes},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=RM}{%
+         family={Rei},
+         familyi={R\bibinitperiod},
+         given={Marek},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=PF}{%
+         family={Petroni},
+         familyi={P\bibinitperiod},
+         given={Fabio},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=LP}{%
+         family={Lewis},
+         familyi={L\bibinitperiod},
+         given={Patrick},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=SE}{%
+         family={Strubell},
+         familyi={S\bibinitperiod},
+         given={Emma},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=SM}{%
+         family={Seo},
+         familyi={S\bibinitperiod},
+         given={Minjoon},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=HH}{%
+         family={Hajishirzi},
+         familyi={H\bibinitperiod},
+         given={Hannaneh},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computational Linguistics}%
+    }
+    \strng{namehash}{WSDM1}
+    \strng{fullhash}{WSDM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{abstract}{%
+    Multilingual BERT (mBERT) trained on 104 languages has shown surprisingly good cross-lingual performance on several NLP tasks, even without explicit cross-lingual signals. However, these evaluations have focused on cross-lingual transfer with high-resource languages, covering only a third of the languages covered by mBERT. We explore how mBERT performs on a much wider set of languages, focusing on the quality of representation for low-resource languages, measured by within-language performance. We consider three tasks: Named Entity Recognition (99 languages), Part-of-speech Tagging and Dependency Parsing (54 languages each). mBERT does better than or comparable to baselines on high resource languages but does much worse for low resource languages. Furthermore, monolingual BERT models for these languages do even worse. Paired with similar languages, the performance gap between monolingual BERT and mBERT can be narrowed. We find that better models for low resource languages require more efficient pretraining techniques or more data.%
+    }
+    \field{booktitle}{Proceedings of the 5th Workshop on Representation Learning for NLP}
+    \verb{doi}
+    \verb 10.18653/v1/2020.repl4nlp-1.16
+    \endverb
+    \field{pages}{120\bibrangedash 130}
+    \field{title}{Are All Languages Created Equal in Multilingual {BERT}?}
+    \verb{url}
+    \verb https://aclanthology.org/2020.repl4nlp-1.16
+    \endverb
+    \list{location}{1}{%
+      {Online}%
+    }
+    \field{month}{07}
+    \field{year}{2020}
+  \endentry
+
+  \entry{xue-2021-mt5}{misc}{}
+    \name{author}{8}{}{%
+      {{hash=XL}{%
+         family={Xue},
+         familyi={X\bibinitperiod},
+         given={Linting},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=CN}{%
+         family={Constant},
+         familyi={C\bibinitperiod},
+         given={Noah},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=RA}{%
+         family={Roberts},
+         familyi={R\bibinitperiod},
+         given={Adam},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=KM}{%
+         family={Kale},
+         familyi={K\bibinitperiod},
+         given={Mihir},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=ARR}{%
+         family={Al-Rfou},
+         familyi={A\bibinithyphendelim R\bibinitperiod},
+         given={Rami},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={Siddhant},
+         familyi={S\bibinitperiod},
+         given={Aditya},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=BA}{%
+         family={Barua},
+         familyi={B\bibinitperiod},
+         given={Aditya},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=RC}{%
+         family={Raffel},
+         familyi={R\bibinitperiod},
+         given={Colin},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{XL+1}
+    \strng{fullhash}{XLCNRAKMARRSABARC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{X}
+    \field{sortinithash}{X}
+    \verb{eprint}
+    \verb 2010.11934
+    \endverb
+    \field{title}{mT5: A massively multilingual pre-trained text-to-text transformer}
+    \verb{url}
+    \verb https://arxiv.org/abs/2010.11934
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CL}
+    \field{year}{2021}
   \endentry
 \enddatalist
 \endinput
