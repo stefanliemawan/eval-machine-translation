@@ -48,7 +48,8 @@ def translate_batch(batch):
     return translations
 
 
-batch_size = 8
+batch_size = 1
+# batch_size = 8
 translated_df = df[["index", "english"]].copy()
 
 for src_lang, src_lang_code in MBART50_LANG_CODES.items():

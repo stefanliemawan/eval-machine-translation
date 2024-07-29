@@ -19,6 +19,10 @@ path = "original_dataset/tatoeba"
 
 language_list = [
     (
+        "chinese",
+        f"{path}/Sentence pairs in English-Mandarin Chinese - 2024-07-05.tsv",
+    ),
+    (
         "dutch",
         f"{path}/Sentence pairs in English-Dutch - 2024-07-05.tsv",
     ),
@@ -50,10 +54,10 @@ language_list = [
         "japanese",
         f"{path}/Sentence pairs in English-Japanese - 2024-07-05.tsv",
     ),
-    (
-        "mandarin",
-        f"{path}/Sentence pairs in English-Mandarin Chinese - 2024-07-05.tsv",
-    ),
+    # {
+    #     "lithuanian",
+    #     f"{path}/Sentence pairs in English-Lithuanian - 2024-07-29.tsv",
+    # },
     (
         "polish",
         f"{path}/Sentence pairs in English-Polish - 2024-07-05.tsv",
@@ -107,4 +111,4 @@ for language, tsv_path in tqdm(language_list):
 main_df.dropna(inplace=True)
 print(main_df)
 
-main_df.to_csv(f"dataset/sentences_v1_1.csv", index=False)
+main_df.to_csv(f"dataset/sentences_v3.csv", index=False)

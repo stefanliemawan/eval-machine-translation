@@ -10,6 +10,7 @@ os.environ["PYTORCH_ENABLE_MPS_FALLBACK"] = "1"
 MODEL_NAME = "facebook/mbart-large-50-many-to-many-mmt"
 
 MBART50_LANG_CODES = {
+    "chinese": "zh_CN",
     "dutch": "nl_XX",
     "finnish": "fi_FI",
     "french": "fr_XX",
@@ -17,9 +18,8 @@ MBART50_LANG_CODES = {
     "hebrew": "he_IL",
     "italian": "it_IT",
     "japanese": "ja_XX",
-    "chinese": "zh_CN",
     "polish": "pl_PL",
-    "portuguese": "pt_XX",
+    # "portuguese": "pt_XX",
     "russian": "ru_RU",
     "spanish": "es_XX",
     "turkish": "tr_TR",
@@ -49,7 +49,7 @@ def translate_batch(tokeniser, batch_input):
     return translations
 
 
-batch_size = 8
+batch_size = 4
 translated_df = df[["index", "english"]].copy()
 
 for src_lang, src_lang_code in MBART50_LANG_CODES.items():

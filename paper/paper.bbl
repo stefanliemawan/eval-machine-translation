@@ -17,22 +17,123 @@
 \endgroup
 
 \datalist[entry]{nty/global//global/global}
-  \entry{deepl}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=D}{%
-         family={{DeepL GmbH}},
-         familyi={D\bibinitperiod},
+  \entry{aharoni-2019-massively-multilingual}{misc}{}
+    \name{author}{3}{}{%
+      {{hash=AR}{%
+         family={Aharoni},
+         familyi={A\bibinitperiod},
+         given={Roee},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=JM}{%
+         family={Johnson},
+         familyi={J\bibinitperiod},
+         given={Melvin},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=FO}{%
+         family={Firat},
+         familyi={F\bibinitperiod},
+         given={Orhan},
+         giveni={O\bibinitperiod},
       }}%
     }
-    \strng{namehash}{D1}
-    \strng{fullhash}{D1}
+    \strng{namehash}{ARJMFO1}
+    \strng{fullhash}{ARJMFO1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{D}
-    \field{sortinithash}{D}
-    \field{howpublished}{\url{https://www.deepl.com/en/translator}}
-    \field{note}{Accessed: 2024-07-06}
-    \field{title}{{DeepL Translator}}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \verb{eprint}
+    \verb 1903.00089
+    \endverb
+    \field{title}{Massively Multilingual Neural Machine Translation}
+    \verb{url}
+    \verb https://arxiv.org/abs/1903.00089
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CL}
+    \field{year}{2019}
+  \endentry
+
+  \entry{cho-2014-properties}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=CK}{%
+         family={Cho},
+         familyi={C\bibinitperiod},
+         given={Kyunghyun},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=vMB}{%
+         prefix={van},
+         prefixi={v\bibinitperiod},
+         family={Merri{\"e}nboer},
+         familyi={M\bibinitperiod},
+         given={Bart},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=BD}{%
+         family={Bahdanau},
+         familyi={B\bibinitperiod},
+         given={Dzmitry},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=BY}{%
+         family={Bengio},
+         familyi={B\bibinitperiod},
+         given={Yoshua},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \name{editor}{4}{}{%
+      {{hash=WD}{%
+         family={Wu},
+         familyi={W\bibinitperiod},
+         given={Dekai},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=CM}{%
+         family={Carpuat},
+         familyi={C\bibinitperiod},
+         given={Marine},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=CX}{%
+         family={Carreras},
+         familyi={C\bibinitperiod},
+         given={Xavier},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=VEM}{%
+         family={Vecchi},
+         familyi={V\bibinitperiod},
+         given={Eva\bibnamedelima Maria},
+         giveni={E\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computational Linguistics}%
+    }
+    \strng{namehash}{CK+1}
+    \strng{fullhash}{CKMBvBDBY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{booktitle}{Proceedings of {SSST}-8, Eighth Workshop on Syntax, Semantics and Structure in Statistical Translation}
+    \verb{doi}
+    \verb 10.3115/v1/W14-4012
+    \endverb
+    \field{pages}{103\bibrangedash 111}
+    \field{title}{On the Properties of Neural Machine Translation: Encoder{--}Decoder Approaches}
+    \verb{url}
+    \verb https://aclanthology.org/W14-4012
+    \endverb
+    \list{location}{1}{%
+      {Doha, Qatar}%
+    }
+    \field{month}{10}
+    \field{year}{2014}
   \endentry
 
   \entry{devlin-2019-bert}{misc}{}
@@ -341,6 +442,61 @@
     \field{year}{2023}
   \endentry
 
+  \entry{klein-etal-2017-opennmt}{inproceedings}{}
+    \name{author}{5}{}{%
+      {{hash=KG}{%
+         family={Klein},
+         familyi={K\bibinitperiod},
+         given={Guillaume},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=KY}{%
+         family={Kim},
+         familyi={K\bibinitperiod},
+         given={Yoon},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=DY}{%
+         family={Deng},
+         familyi={D\bibinitperiod},
+         given={Yuntian},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=SJ}{%
+         family={Senellart},
+         familyi={S\bibinitperiod},
+         given={Jean},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=RA}{%
+         family={Rush},
+         familyi={R\bibinitperiod},
+         given={Alexander},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computational Linguistics}%
+    }
+    \strng{namehash}{KG+1}
+    \strng{fullhash}{KGKYDYSJRA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{booktitle}{Proceedings of {ACL} 2017, System Demonstrations}
+    \field{pages}{67\bibrangedash 72}
+    \field{title}{{O}pen{NMT}: Open-Source Toolkit for Neural Machine Translation}
+    \verb{url}
+    \verb https://www.aclweb.org/anthology/P17-4012
+    \endverb
+    \list{location}{1}{%
+      {Vancouver, Canada}%
+    }
+    \field{month}{07}
+    \field{year}{2017}
+  \endentry
+
   \entry{lavie-2007-meteor}{inproceedings}{}
     \name{author}{2}{}{%
       {{hash=LA}{%
@@ -372,11 +528,7 @@
     \field{pages}{228–231}
     \field{series}{StatMT '07}
     \field{title}{Meteor: an automatic metric for MT evaluation with high levels of correlation with human judgments}
-    \list{location}{1}{%
-      {Prague, Czech Republic}%
-    }
     \field{year}{2007}
-    \warn{\item Can't use 'location' + 'address'}
   \endentry
 
   \entry{liu-2020-mbart}{misc}{}
@@ -486,6 +638,28 @@
     \field{journaltitle}{ACM Comput. Surv.}
     \field{year}{2008}
     \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{okpor-2014-machine-ta}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=OMD}{%
+         family={Okpor},
+         familyi={O\bibinitperiod},
+         given={Margaret\bibnamedelima Dumebi},
+         giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{OMD1}
+    \strng{fullhash}{OMD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{O}
+    \field{sortinithash}{O}
+    \field{title}{Machine Translation Approaches: Issues and Challenges}
+    \verb{url}
+    \verb https://api.semanticscholar.org/CorpusID:11483090
+    \endverb
+    \field{year}{2014}
   \endentry
 
   \entry{openai-2024-gpt4}{misc}{}
@@ -2193,6 +2367,25 @@
     \field{year}{2024}
   \endentry
 
+  \entry{opus}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=O}{%
+         family={OPUS},
+         familyi={O\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{O1}
+    \strng{fullhash}{O1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{O}
+    \field{sortinithash}{O}
+    \field{howpublished}{\url{https://opus.nlpl.eu/}}
+    \field{note}{Accessed: 2024-07-29}
+    \field{title}{OPUS: The Open Parallel Corpus}
+    \field{year}{2024}
+  \endentry
+
   \entry{papieni-2002-bleu}{inproceedings}{}
     \name{author}{4}{}{%
       {{hash=PK}{%
@@ -2322,6 +2515,112 @@
     \field{eprinttype}{arXiv}
     \field{eprintclass}{cs.LG}
     \field{year}{2023}
+  \endentry
+
+  \entry{ranathunga-2023-nmt-low-res}{article}{}
+    \name{author}{6}{}{%
+      {{hash=RS}{%
+         family={Ranathunga},
+         familyi={R\bibinitperiod},
+         given={Surangika},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=LESA}{%
+         family={Lee},
+         familyi={L\bibinitperiod},
+         given={En-Shiun\bibnamedelima Annie},
+         giveni={E\bibinithyphendelim S\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=PSM}{%
+         family={Prifti\bibnamedelima Skenduli},
+         familyi={P\bibinitperiod\bibinitdelim S\bibinitperiod},
+         given={Marjana},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=SR}{%
+         family={Shekhar},
+         familyi={S\bibinitperiod},
+         given={Ravi},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=AM}{%
+         family={Alam},
+         familyi={A\bibinitperiod},
+         given={Mehreen},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=KR}{%
+         family={Kaur},
+         familyi={K\bibinitperiod},
+         given={Rishemjit},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computing Machinery}%
+    }
+    \keyw{Neural machine translation, low-resource languages, unsupervised NMT, semi-supervised NMT, multilingual NMT, transfer learning, data augmentation, zero-shot translation, pivoting}
+    \strng{namehash}{RS+1}
+    \strng{fullhash}{RSLESAPSMSRAMKR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \verb{doi}
+    \verb 10.1145/3567592
+    \endverb
+    \field{issn}{0360-0300}
+    \field{number}{11}
+    \field{title}{Neural Machine Translation for Low-resource Languages: A Survey}
+    \verb{url}
+    \verb https://doi.org/10.1145/3567592
+    \endverb
+    \field{volume}{55}
+    \list{location}{1}{%
+      {New York, NY, USA}%
+    }
+    \field{journaltitle}{ACM Comput. Surv.}
+    \field{year}{2023}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{sutskever-2014-seq2seq}{misc}{}
+    \name{author}{3}{}{%
+      {{hash=SI}{%
+         family={Sutskever},
+         familyi={S\bibinitperiod},
+         given={Ilya},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=VO}{%
+         family={Vinyals},
+         familyi={V\bibinitperiod},
+         given={Oriol},
+         giveni={O\bibinitperiod},
+      }}%
+      {{hash=LQV}{%
+         family={Le},
+         familyi={L\bibinitperiod},
+         given={Quoc\bibnamedelima V.},
+         giveni={Q\bibinitperiod\bibinitdelim V\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SIVOLQV1}
+    \strng{fullhash}{SIVOLQV1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \verb{eprint}
+    \verb 1409.3215
+    \endverb
+    \field{title}{Sequence to Sequence Learning with Neural Networks}
+    \verb{url}
+    \verb https://arxiv.org/abs/1409.3215
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CL}
+    \field{year}{2014}
   \endentry
 
   \entry{tatoeba}{misc}{}
@@ -2611,6 +2910,35 @@
     \endverb
     \list{institution}{1}{%
       {Intento}%
+    }
+    \field{year}{2020}
+  \endentry
+
+  \entry{tiedemann-2020-opus-mt}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=TJ}{%
+         family={Tiedemann},
+         familyi={T\bibinitperiod},
+         given={J{\"o}rg},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=TS}{%
+         family={Thottingal},
+         familyi={T\bibinitperiod},
+         given={Santhosh},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TJTS1}
+    \strng{fullhash}{TJTS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{booktitle}{Proceedings of the 22nd Annual Conference of the European Association for Machine Translation (EAMT)}
+    \field{title}{{OPUS-MT} — {B}uilding open translation services for the {W}orld}
+    \list{location}{1}{%
+      {Lisbon, Portugal}%
     }
     \field{year}{2020}
   \endentry
