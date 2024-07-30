@@ -49,7 +49,7 @@ def translate_batch(tokeniser, batch_input):
     return translations
 
 
-batch_size = 4
+batch_size = 8
 translated_df = df[["index", "english"]].copy()
 
 for src_lang, src_lang_code in MBART50_LANG_CODES.items():
