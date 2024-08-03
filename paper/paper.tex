@@ -26,12 +26,46 @@ Machine translation (MT) is the task of automatically translating from one langu
 
 Since the introduction of Transformers in 2017 \cite{vaswani-2017-attention}, Natural Language Processing (NLP) and machine translation in particular reached a giant milestone. The following years saw the birth of Large Language Models (LLMs) such as BERT \cite{devlin-2019-bert}, GPT \cite{openai-2024-gpt4}, and T5 \cite{raffel-2023-t5}, which revolutionised both MT and the whole field of NLP. Then in early 2020s, several pre-trained models (PTM) that are specifically designed for machine translation emerged, namely mBART \cite{liu-2020-mbart}, mT5 \cite{xue-2021-mt5}, NLLB \cite{nllb200-2020}, M2M \cite{fan-2020-m2m100}, and PolyLM \cite{wei-2023-polylm}. Most of these models are multilingually trained, able to translate between any of the supported pair of languages. This allows the models to generalise over shared lexical and linguistic among languages, and have been shown to increase performance compared to one-to-one translation models \cite{liu-2020-mbart}.
 
-Pre-trained models are often not evaluated under the same datasets or benchmarks \cite{liu-2020-mbart,nllb200-2020,fan-2020-m2m100,wei-2023-polylm}. Therefore, the performance of these models across different languages seem to be yet unclear.
+many-to-one? ... text from multiple source languages into a single target language (so this is many-to-one)
+
+(Using many-to-many models for many-to-one translation is a practical approach, as these models are designed to handle multiple languages and can efficiently translate between any pair of supported languages. Many-to-many models leverage shared multilingual representations, making them well-suited for translating text from various source languages into a single target language.)
+
+Despite these advancements, pre-trained models are often evaluated using different datasets and benchmarks \cite{liu-2020-mbart,nllb200-2020,fan-2020-m2m100,wei-2023-polylm}, making it difficult to gauge their relative effectiveness across various languages.
+
+Only works by META AI are benchmarked thoroughly with popular datasets across various sources.
+
+There does not seem to be any works done on comparing or benchmarking pre-trained models in machine translation.
 
 Through simple experimentation, this paper aims to evaluate the performance of existing pre-trained models (PTMs) across various languages. Without any training, the study involves running inference for translations from different languages into English. A dataset curated from the Tatoeba repository \cite{tatoeba}, containing 1,241 sentence pairs across 14 source languages, is utilised. The evaluation includes a one-to-one PTM, OPUS-MT \cite{tiedemann-2020-opus-mt}, and multilingual PTMs, such as mBART-50 \cite{liu-2020-mbart}, NLLB-200 \cite{nllb200-2020}, and M2M-100 \cite{fan-2020-m2m100}. The performance of these models is compared using the BLEU score \cite{papieni-2002-bleu}.
 
+(Multilinguality has been explored in the supervised NMT literature, where it has been shown to enable information sharing among related languages.) \cite{garcia-2020-multilingual}
+
+(NMT systems have lower translation quality on very long sentences) \cite{koehn-2017-challenges}
+(they often require large amounts of parallel (source, target) sentence pairs to train) \cite{koehn-2017-challenges}
+
+Despite fine-tuning pre-trained multilingual models shows improved performance... \cite{cooper-stickland-2021-recipes}
+
+% Relevance and Impact of Machine Translation:
+% Discuss the broader implications of accurate machine translation beyond just convenience, such as its impact on global communication, business, and cross-cultural exchange.
+
+% Challenges and Limitations:
+% Briefly mention some common challenges in machine translation, such as handling idiomatic expressions, preserving context, and managing low-resource languages.
+
+% Novelty and Contributions:
+% Emphasize what your paper contributes to the existing body of research. For instance, is your evaluation filling a gap in the current literature? Are there specific insights or implications for future research or practical applications?
+
+% Paper Organization:
+% Briefly outline the structure of the paper to guide the reader on what to expect in subsequent sections.
 
 \section{Literature Review}
+
+\subsection{Evaluation Dataset}
+
+IWSLT \cite{agarwal-iwstl-2023}
+
+TED \cite{ye-2018-word-embeddings-ted}
+
+(Flores-101 evaluation benchmark, consisting of 3001 sentences extracted from English Wikipedia and covering a variety of different topics and domains. These sentences have been translated in 101 languages by professional translators through a carefully controlled process. The resulting dataset enables better assessment of model quality on the long tail of low-resource languages, including the evaluation of many-to-many multilingual translation systems, as all translations are fully aligned) \cite{goyal-2022-flores}
 
 \subsection{Parallel Corpora}
 
@@ -47,22 +81,27 @@ One-to-One Translation refers to a translation approach where a model is specifi
 
 With the advent of large language models and pre-trained language models, multilingual machine translation has gained prominence. This approach enables many-to-many translation, where a single model can translate between multiple source and target languages \cite{aharoni-2019-massively-multilingual}. mBART \cite{liu-2020-mbart} is a sequence-to-sequence denoising auto-encoder model specifically designed for multilingual tasks. The mBART-50 variant supports many-to-many translations for over 50 languages. M2M-100 \cite{fan-2020-m2m100} is designed to perform direct translation between 100 languages without relying on English as an intermediate language. NLLB-200: NLLB-200 \cite{nllb200-2020} is built to handle translation tasks across a broad spectrum of languages, including many that are low-resource or underrepresented in existing datasets. It supports translations for 200 languages, encompassing numerous underrepresented languages. mBART, M2M-100, and NLLB-200 were all developed by Meta AI (formerly Facebook AI), showcasing the organisation's significant impact in the machine translation field through pre-trained models (PTMs). These models represent a substantial advancement in multilingual translation capabilities.
 
-\begin{comment}
-PolyLM \cite{wei-2023-polylm} (32 languages), and
-mT5 \cite{xue-2021-mt5} (101 languages).
+mRASP2 \cite{pan-2021-mrasp2}
 
-\subsection{Sequence-to-Sequence Models}
+\subsection{Evaluation Metrics}
 
-GPT \cite{openai-2024-gpt4}
+% Introduce the concept of evaluation metrics for MT, explaining why BLEU is chosen for this study and if there are other metrics that could complement it (like METEOR or ROUGE).
 
-mBERT \cite{devlin-2019-bert} is the multilingual version of BERT, introduced in the same paper, trained on 104 different languages. However, the model been shown to suffer on low-resource languages \cite{wu-2020-mbert-are-all}.
+% \begin{comment}
+% PolyLM \cite{wei-2023-polylm} (32 languages), and
+% mT5 \cite{xue-2021-mt5} (101 languages).
 
-T5 \cite{raffel-2023-t5} is a Text-to-Text Transfer Transformer model trained on English.
+% \subsection{Sequence-to-Sequence Models}
 
-MistralAI \cite{jiang-2023-mistral-7b}
+% GPT \cite{openai-2024-gpt4}
 
-\end{comment}
+% mBERT \cite{devlin-2019-bert} is the multilingual version of BERT, introduced in the same paper, trained on 104 different languages. However, the model been shown to suffer on low-resource languages \cite{wu-2020-mbert-are-all}.
 
+% T5 \cite{raffel-2023-t5} is a Text-to-Text Transfer Transformer model trained on English.
+
+% MistralAI \cite{jiang-2023-mistral-7b}
+
+% \end{comment}
 
 
 \section{Experiments}

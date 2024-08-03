@@ -7,8 +7,7 @@ from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
 os.environ["PYTORCH_ENABLE_MPS_FALLBACK"] = "1"
 
-# MODEL_NAME = "facebook/nllb-200-3.3B"
-MODEL_NAME = "facebook/nllb-200-distilled-600M"
+MODEL_NAME = "chinmaydan/mRASP2"
 
 LANG_CODES = {
     "chinese": "zho_Hans",
@@ -29,20 +28,17 @@ LANG_CODES = {
 
 tqdm.pandas()
 
-tokeniser = AutoTokenizer.from_pretrained(MODEL_NAME)
+tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 model = AutoModelForSeq2SeqLM.from_pretrained(MODEL_NAME)
 
 df = pd.read_csv("dataset/sentences_v1.csv", index_col=0)
 
 
 def translate_batch(batch):
-    inputs = tokeniser(batch, return_tensors="pt", padding=True, truncation=True)
+    inputs = tokenizer(batch, return_tensors="pt", padding=True, truncation=True)
     with torch.no_grad():
-        translated_tokens = model.generate(
-            **inputs
-        )
-    translations = tokeniser.batch_decode(translated_tokens, skip_special_tokens=True)
-
+        translated_tokens = model.generate(**inputs)
+    translations = tokenizer.batch_decode(translated_tokens, skip_special_tokens=True)
     return translations
 
 
@@ -51,7 +47,7 @@ translated_df = df[["index", "english"]].copy()
 
 for src_lang, src_lang_code in LANG_CODES.items():
     print(f"Translating {src_lang}...")
-    tokeniser = AutoTokenizer.from_pretrained(
+    tokenizer = AutoTokenizer.from_pretrained(
         MODEL_NAME,
         src_lang=src_lang_code,
         tgt_lang="eng_Latn",
@@ -66,4 +62,4 @@ for src_lang, src_lang_code in LANG_CODES.items():
     translated_df[f"translated_from_{src_lang}"] = translated_texts
 
     print(translated_df)
-    translated_df.to_csv(f"result/{MODEL_NAME.split("/")[1]}.csv")
+    translated_df.to_csv(f"result/{MODEL_NAME.split('/')[1]}.csv")
