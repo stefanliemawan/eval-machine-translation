@@ -54,17 +54,9 @@ language_list = [
         "japanese",
         f"{path}/Sentence pairs in English-Japanese - 2024-07-05.tsv",
     ),
-    # {
-    #     "lithuanian",
-    #     f"{path}/Sentence pairs in English-Lithuanian - 2024-07-29.tsv",
-    # },
     (
         "polish",
         f"{path}/Sentence pairs in English-Polish - 2024-07-05.tsv",
-    ),
-    (
-        "portuguese",
-        f"{path}/Sentence pairs in English-Portuguese - 2024-07-05.tsv",
     ),
     (
         "russian",
@@ -96,9 +88,10 @@ main_df.drop(columns=["language"], inplace=True)
 for language, tsv_path in tqdm(language_list):
     lang_df = read_df(language, tsv_path)
 
-    lang_df_grouped = lang_df.groupby("index")[language].apply(
-        lambda x: " | ".join(x.dropna().astype(str))
-    )
+    # lang_df_grouped = lang_df.groupby("index")[language].apply(
+    #     lambda x: " | ".join(x.dropna().astype(str))
+    # )
+    lang_df_grouped = lang_df.groupby("index")[language].first()
 
     main_df = pd.merge(
         main_df,
@@ -111,4 +104,4 @@ for language, tsv_path in tqdm(language_list):
 main_df.dropna(inplace=True)
 print(main_df)
 
-main_df.to_csv(f"dataset/sentences_v3.csv", index=False)
+main_df.to_csv(f"dataset/sentences_v2.csv", index=True)

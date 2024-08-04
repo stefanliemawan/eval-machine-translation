@@ -6,11 +6,12 @@
 \usepackage[backend=bibtex]{biblatex}
 \usepackage{comment}
 \usepackage{hyperref}
+\usepackage{amsmath}
 
 
 \addbibresource{references.bib}
 
-\title{Evaluation of Pre-Trained Models for Translation in Different Languages}
+\title{Evaluation of Pre-Trained Models for Many-to-English Translation}
 \author{Stefan Liemawan Adji}
 \date{\today}
 
@@ -24,52 +25,28 @@ According to Ethnologue \cite{ethnologue-2024}, 7,164 languages currently exist 
 
 Machine translation (MT) is the task of automatically translating from one language to another. This can be done through text or audio. It can be traced back to 1949 \cite{weaver-1999}, with the first public demonstration of an MT system on January 7, 1954, in collaboration with IBM, where 49 Russian sentences were translated into English using a limited vocabulary of 250 words and 6 grammar rules \cite{hutchins-2006-first-mt}. However, over the next several decades, growth were limited for machine translation, with 1956-1966 considered the decade of high expectation and disillusion, and 1967-1976 dubbed 'the quiet decade' \cite{hutchins-2001-mt-50-years}. Then in 1989, the dominance of the rule-based approach has been challenged by the rise of new methods and strategies, collectively referred to as ‘corpus-based’ methods (data-driven) \cite{hutchins-1994-research-methods-mt,hutchins-1998-development-mt}. Subsequently, statistics-based approaches for MT re-emerged, bolstered by the recent success of probabilistic techniques in speech recognition. Statistical machine translation \cite{lopez-2008-smt} dominated the domain between late 1990s through the early 2010s, before largely being surpassed by neural machine translation (NMT) \cite{cho-2014-properties,sutskever-2014-seq2seq}.
 
-Since the introduction of Transformers in 2017 \cite{vaswani-2017-attention}, Natural Language Processing (NLP) and machine translation in particular reached a giant milestone. The following years saw the birth of Large Language Models (LLMs) such as BERT \cite{devlin-2019-bert}, GPT \cite{openai-2024-gpt4}, and T5 \cite{raffel-2023-t5}, which revolutionised both MT and the whole field of NLP. Then in early 2020s, several pre-trained models (PTM) that are specifically designed for machine translation emerged, namely mBART \cite{liu-2020-mbart}, mT5 \cite{xue-2021-mt5}, NLLB \cite{nllb200-2020}, M2M \cite{fan-2020-m2m100}, and PolyLM \cite{wei-2023-polylm}. Most of these models are multilingually trained, able to translate between any of the supported pair of languages. This allows the models to generalise over shared lexical and linguistic among languages, and have been shown to increase performance compared to one-to-one translation models \cite{liu-2020-mbart}.
+Since the introduction of Transformers in 2017 \cite{vaswani-2017-attention}, Natural Language Processing (NLP) and machine translation in particular reached a giant milestone. The following years saw the birth of Large Language Models (LLMs) such as BERT \cite{devlin-2019-bert}, GPT \cite{openai-2024-gpt4}, and T5 \cite{raffel-2023-t5}, which revolutionised both MT and the whole field of NLP. Then in early 2020s, several pre-trained models (PTM) that are specifically designed for machine translation emerged, namely mBART \cite{liu-2020-mbart}, mT5 \cite{xue-2021-mt5}, NLLB \cite{nllb200-2020}, M2M \cite{fan-2020-m2m100}, and PolyLM \cite{wei-2023-polylm}. Most of these models are multilingually trained, allowing for many-to-many translation: able to translate between any of the supported pair of languages. This allows the models to generalise over shared lexical and linguistic among languages, and have been shown to increase performance compared to one-to-one translation models \cite{liu-2020-mbart}.
 
-many-to-one? ... text from multiple source languages into a single target language (so this is many-to-one)
+Intento published 'The State of Machine Translation 2024' \cite{intento-2020} providing an in-depth evaluation of popular MT engines and LLMs. However, the biggest drawback in this report is that the selected LLMs are general LLMs such as GPT, LLaMa, Mistral, instead of MT-specific LLMs.
 
-(Using many-to-many models for many-to-one translation is a practical approach, as these models are designed to handle multiple languages and can efficiently translate between any pair of supported languages. Many-to-many models leverage shared multilingual representations, making them well-suited for translating text from various source languages into a single target language.)
+Despite these advancements, pre-trained models are often evaluated using different set of benchmarks \cite{liu-2020-mbart,nllb200-2020,fan-2020-m2m100,wei-2023-polylm}, making it difficult to gauge their relative effectiveness across various languages. Nevertheless, there does not seem to be much work on comparing or benchmarking different pre-trained models in machine translation.
 
-Despite these advancements, pre-trained models are often evaluated using different datasets and benchmarks \cite{liu-2020-mbart,nllb200-2020,fan-2020-m2m100,wei-2023-polylm}, making it difficult to gauge their relative effectiveness across various languages.
+Through simple experimentations, this paper aims to evaluate the performance of existing pre-trained models (PTMs) on many-to-English translation across 14 source languages. Although fine-tuning multilingual PTMs has been proven to increase model performance \cite{cooper-stickland-2021-recipes}, no pre-training or fine-tuning is performed in this study for simplicity reasons. A dataset is curated from the Tatoeba repository \cite{tatoeba}, containing 1,241 parallel sentence pairs across source and target languages. The models includes a one-to-one PTMs: OPUS-MT \cite{tiedemann-2020-opus-mt}, and multilingual PTMs: such as mBART-50 \cite{liu-2020-mbart}, NLLB-200 \cite{nllb200-2020}, and M2M-100 \cite{fan-2020-m2m100}. The performance of these models is evaluated using the BLEU score \cite{papieni-2002-bleu}.
 
-Only works by META AI are benchmarked thoroughly with popular datasets across various sources.
 
-There does not seem to be any works done on comparing or benchmarking pre-trained models in machine translation.
+% (Multilinguality has been explored in the supervised NMT literature, where it has been shown to enable information sharing among related languages.) \cite{garcia-2020-multilingual}
+% (NMT systems have lower translation quality on very long sentences) \cite{koehn-2017-challenges}
 
-Through simple experimentation, this paper aims to evaluate the performance of existing pre-trained models (PTMs) across various languages. Without any training, the study involves running inference for translations from different languages into English. A dataset curated from the Tatoeba repository \cite{tatoeba}, containing 1,241 sentence pairs across 14 source languages, is utilised. The evaluation includes a one-to-one PTM, OPUS-MT \cite{tiedemann-2020-opus-mt}, and multilingual PTMs, such as mBART-50 \cite{liu-2020-mbart}, NLLB-200 \cite{nllb200-2020}, and M2M-100 \cite{fan-2020-m2m100}. The performance of these models is compared using the BLEU score \cite{papieni-2002-bleu}.
-
-(Multilinguality has been explored in the supervised NMT literature, where it has been shown to enable information sharing among related languages.) \cite{garcia-2020-multilingual}
-
-(NMT systems have lower translation quality on very long sentences) \cite{koehn-2017-challenges}
-(they often require large amounts of parallel (source, target) sentence pairs to train) \cite{koehn-2017-challenges}
-
-Despite fine-tuning pre-trained multilingual models shows improved performance... \cite{cooper-stickland-2021-recipes}
-
-% Relevance and Impact of Machine Translation:
-% Discuss the broader implications of accurate machine translation beyond just convenience, such as its impact on global communication, business, and cross-cultural exchange.
-
-% Challenges and Limitations:
-% Briefly mention some common challenges in machine translation, such as handling idiomatic expressions, preserving context, and managing low-resource languages.
-
-% Novelty and Contributions:
-% Emphasize what your paper contributes to the existing body of research. For instance, is your evaluation filling a gap in the current literature? Are there specific insights or implications for future research or practical applications?
-
-% Paper Organization:
-% Briefly outline the structure of the paper to guide the reader on what to expect in subsequent sections.
 
 \section{Literature Review}
 
-\subsection{Evaluation Dataset}
-
-IWSLT \cite{agarwal-iwstl-2023}
-
-TED \cite{ye-2018-word-embeddings-ted}
-
-(Flores-101 evaluation benchmark, consisting of 3001 sentences extracted from English Wikipedia and covering a variety of different topics and domains. These sentences have been translated in 101 languages by professional translators through a carefully controlled process. The resulting dataset enables better assessment of model quality on the long tail of low-resource languages, including the evaluation of many-to-many multilingual translation systems, as all translations are fully aligned) \cite{goyal-2022-flores}
-
 \subsection{Parallel Corpora}
 
-Since LLMs and pre-trained models require vast amounts of training data, the availability of parallel corpora is crucial for building effective models. The lack of extensive parallel corpora, especially for low-resource languages, leads to suboptimal performance in NMT techniques compared to their high-resource counterparts \cite{ranathunga-2023-nmt-low-res}. OPUS \cite{opus} is a comprehensive collection of open-source parallel corpora used extensively in the field of machine translation (MT). It includes corpora for 744 languages and contains over 1,210 different datasets, amassing a total of 45,945,946,108 sentence pairs. Tatoeba \cite{tatoeba} is another prominent resource in the field of MT and NLP, known for its extensive collection of translated sentences. As of July 2024, it contains 12,186,207 sentences over 423 supported languages, growing daily through volunteer contributions.
+Since Neural Machine Translation (NMT) systems require vast amounts of training data, the availability of parallel corpora is crucial for building effective models \cite{koehn-2017-challenges}. The lack of extensive parallel corpora, especially for low-resource languages, leads to suboptimal performance in NMT techniques compared to their high-resource counterparts \cite{ranathunga-2023-nmt-low-res}. OPUS \cite{opus} is a comprehensive collection of open-source parallel corpora used extensively in the field of machine translation (MT). It includes corpora for 744 languages and contains over 1,210 different datasets, amassing a total of 45,945,946,108 sentence pairs. Tatoeba \cite{tatoeba} is another prominent resource in the field of MT and NLP, known for its extensive collection of translated sentences. As of July 2024, it contains 12,186,207 sentences over 423 supported languages, growing daily through volunteer contributions.
+
+The Tatoeba Challenge \cite{tiedemann-2020-tatoeba-challenge}, IWSLT \cite{agarwal-iwstl-2023}, TED \cite{ye-2018-word-embeddings-ted}, Flores \cite{goyal-2022-flores}, and WMT \cite{barrault-2020-wmt} are among the biggest and most popular parallel corpora datasets, allowing for many-to-many translations.
+
+Despite being used diligently by Meta AI papers for benchmarking \cite{fan-2020-m2m100,nllb200-2020}, these datasets are not seen used
 
 \subsection{Pre-Trained Models for Machine Translation}
 
@@ -84,6 +61,53 @@ With the advent of large language models and pre-trained language models, multil
 mRASP2 \cite{pan-2021-mrasp2}
 
 \subsection{Evaluation Metrics}
+
+Bilingual Evaluation Understudy (BLEU) \cite{papieni-2002-bleu} is the most commonly used metrics for machine translation (MT). It assesses how well a candidate translation matches the reference translation using precision metrics for n-grams and incorporates a brevity penalty to prevent overly short translations from achieving high scores.
+
+The n-gram precision, as presented in the original BLEU paper \cite{papieni-2002-bleu}, is calculated as:
+
+\begin{equation}
+    p_n = \frac{\sum_{C \in \{Candidates\}} \sum_{\text{n-gram} \in C} \text{Count}_{\text{clip}}(\text{n-gram})}{\sum_{C \in \{Candidates\}} \sum_{\text{n-gram} \in C} \text{Count}(\text{n-gram})}
+\end{equation}
+
+Where:
+\begin{itemize}
+    \item \( p_n \) is the precision for n-grams.
+    \item \( \sum_{C \in \{Candidates\}} \) denotes the summation over all candidate translations.
+    \item \( \sum_{\text{n-gram} \in C} \) denotes the summation over all n-grams in a candidate translation \( C \).
+    \item \( \text{Count}_{\text{clip}}(\text{n-gram}) \) is the clipped count of the n-gram, which is the count of the n-gram in the candidate translation limited by the maximum count of that n-gram in any reference translation.
+    \item \( \text{Count}(\text{n-gram}) \) is the count of the n-gram in the candidate translation.
+\end{itemize}
+
+Thus, the BLEU score is calculated as:
+
+\begin{equation}
+    \text{BLEU} = BP \cdot \exp \left( \sum_{n=1}^{N} w_n \log p_n \right)
+\end{equation}
+
+Where:
+\begin{itemize}
+    \item \( BP \) is the brevity penalty.
+    \item \( p_n \) is the precision for n-grams.
+    \item \( w_n \) is the weight for each n-gram (often uniformly distributed, so \( w_n = \frac{1}{N} \)).
+\end{itemize}
+
+The brevity penalty (BP) is calculated as:
+
+\begin{equation}
+    BP = \begin{cases}
+        1                     & \text{if } c > r    \\
+        e^{(1 - \frac{r}{c})} & \text{if } c \leq r
+    \end{cases}
+\end{equation}
+
+Where:
+\begin{itemize}
+    \item \( c \) is the length of the candidate translation.
+    \item \( r \) is the effective reference length.
+\end{itemize}
+
+While other metrics exist for machine translation such as METEOR \cite{lavie-2007-meteor} and COMET \cite{rei-2020-comet}, it is far more practical to implement BLEU due to its popular usage in other works.
 
 % Introduce the concept of evaluation metrics for MT, explaining why BLEU is chosen for this study and if there are other metrics that could complement it (like METEOR or ROUGE).
 
@@ -157,11 +181,24 @@ Table \ref{table:eval_languages} show the 14 languages selected for this project
 Sentences typically consist of everyday phrases such as 'I have to go to sleep', 'That is intriguing', and 'Where do you live?' They may also include single-word exclamations like 'Speak!' or 'Look!' Additionally, multiple sentences such as 'You may write in any language you want. On Tatoeba, all languages are considered equal', and 'Guns don't kill people. People kill people' can be found inside the corpus. A few of them also include human names, 'Compare your answer with Tom's', 'Muiriel is 20 now'. All of the sentences are straightforward and literal, without the use of linguistic devices such as metaphors or sarcasm. Therefore, machine translation process should be straightforward on this level.
 
 
-READ THIS \cite{intento-2020} (exactly what this paper should do, maybe compare results and find insights)
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\linewidth]{figures/word_count_box.png}
+    \caption{Dataset word count distribution, consisting of mostly short sentences.}
+    \label{fig:word_count_box}
+\end{figure}
+
+Figure \ref{fig:word_count_box} shows a box plot of sentences word count. It can be seen that the majority of sentences are short.
+
+Chinese and Japanese are counted per letter.
+
+While most languages cluster around 4-6 words per sentence, there are notable exceptions like Japanese, which exhibits much less variability. This analysis can be useful for understanding language-specific characteristics in sentence structure, which could inform tasks like translation, text processing, or linguistic studies.
 
 \section{Evaluation}
 
 \section{Conclusion}
+
+% READ THIS \cite{intento-2020} (exactly what this paper should do, maybe compare results and find insights)
 
 \printbibliography
 \end{document}

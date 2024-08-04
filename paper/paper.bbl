@@ -460,6 +460,279 @@
     \field{year}{2019}
   \endentry
 
+  \entry{barrault-2020-wmt}{inproceedings}{}
+    \name{author}{21}{}{%
+      {{hash=BL}{%
+         family={Barrault},
+         familyi={B\bibinitperiod},
+         given={Lo{\"\i}c},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=BM}{%
+         family={Biesialska},
+         familyi={B\bibinitperiod},
+         given={Magdalena},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=BO}{%
+         family={Bojar},
+         familyi={B\bibinitperiod},
+         given={Ond{\v{r}}ej},
+         giveni={O\bibinitperiod},
+      }}%
+      {{hash=CjMR}{%
+         family={Costa-juss{\`a}},
+         familyi={C\bibinithyphendelim j\bibinitperiod},
+         given={Marta\bibnamedelima R.},
+         giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=FC}{%
+         family={Federmann},
+         familyi={F\bibinitperiod},
+         given={Christian},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=GY}{%
+         family={Graham},
+         familyi={G\bibinitperiod},
+         given={Yvette},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=GR}{%
+         family={Grundkiewicz},
+         familyi={G\bibinitperiod},
+         given={Roman},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=HB}{%
+         family={Haddow},
+         familyi={H\bibinitperiod},
+         given={Barry},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=HM}{%
+         family={Huck},
+         familyi={H\bibinitperiod},
+         given={Matthias},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=JE}{%
+         family={Joanis},
+         familyi={J\bibinitperiod},
+         given={Eric},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=KT}{%
+         family={Kocmi},
+         familyi={K\bibinitperiod},
+         given={Tom},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=KP}{%
+         family={Koehn},
+         familyi={K\bibinitperiod},
+         given={Philipp},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=LCk}{%
+         family={Lo},
+         familyi={L\bibinitperiod},
+         given={Chi-kiu},
+         giveni={C\bibinithyphendelim k\bibinitperiod},
+      }}%
+      {{hash=LN}{%
+         family={Ljube{\v{s}}i{\'c}},
+         familyi={L\bibinitperiod},
+         given={Nikola},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=MC}{%
+         family={Monz},
+         familyi={M\bibinitperiod},
+         given={Christof},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=MM}{%
+         family={Morishita},
+         familyi={M\bibinitperiod},
+         given={Makoto},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=NM}{%
+         family={Nagata},
+         familyi={N\bibinitperiod},
+         given={Masaaki},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=NT}{%
+         family={Nakazawa},
+         familyi={N\bibinitperiod},
+         given={Toshiaki},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=PS}{%
+         family={Pal},
+         familyi={P\bibinitperiod},
+         given={Santanu},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=PM}{%
+         family={Post},
+         familyi={P\bibinitperiod},
+         given={Matt},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=ZM}{%
+         family={Zampieri},
+         familyi={Z\bibinitperiod},
+         given={Marcos},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \name{editor}{20}{}{%
+      {{hash=BL}{%
+         family={Barrault},
+         familyi={B\bibinitperiod},
+         given={Lo{\"\i}c},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=BO}{%
+         family={Bojar},
+         familyi={B\bibinitperiod},
+         given={Ond{\v{r}}ej},
+         giveni={O\bibinitperiod},
+      }}%
+      {{hash=BF}{%
+         family={Bougares},
+         familyi={B\bibinitperiod},
+         given={Fethi},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=CR}{%
+         family={Chatterjee},
+         familyi={C\bibinitperiod},
+         given={Rajen},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=CjMR}{%
+         family={Costa-juss{\`a}},
+         familyi={C\bibinithyphendelim j\bibinitperiod},
+         given={Marta\bibnamedelima R.},
+         giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=FC}{%
+         family={Federmann},
+         familyi={F\bibinitperiod},
+         given={Christian},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=FM}{%
+         family={Fishel},
+         familyi={F\bibinitperiod},
+         given={Mark},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=FA}{%
+         family={Fraser},
+         familyi={F\bibinitperiod},
+         given={Alexander},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=GY}{%
+         family={Graham},
+         familyi={G\bibinitperiod},
+         given={Yvette},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=GP}{%
+         family={Guzman},
+         familyi={G\bibinitperiod},
+         given={Paco},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=HB}{%
+         family={Haddow},
+         familyi={H\bibinitperiod},
+         given={Barry},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=HM}{%
+         family={Huck},
+         familyi={H\bibinitperiod},
+         given={Matthias},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=YAJ}{%
+         family={Yepes},
+         familyi={Y\bibinitperiod},
+         given={Antonio\bibnamedelima Jimeno},
+         giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=KP}{%
+         family={Koehn},
+         familyi={K\bibinitperiod},
+         given={Philipp},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=MA}{%
+         family={Martins},
+         familyi={M\bibinitperiod},
+         given={Andr{\'e}},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=MM}{%
+         family={Morishita},
+         familyi={M\bibinitperiod},
+         given={Makoto},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=MC}{%
+         family={Monz},
+         familyi={M\bibinitperiod},
+         given={Christof},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=NM}{%
+         family={Nagata},
+         familyi={N\bibinitperiod},
+         given={Masaaki},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=NT}{%
+         family={Nakazawa},
+         familyi={N\bibinitperiod},
+         given={Toshiaki},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=NM}{%
+         family={Negri},
+         familyi={N\bibinitperiod},
+         given={Matteo},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computational Linguistics}%
+    }
+    \strng{namehash}{BL+1}
+    \strng{fullhash}{BLBMBOCjMRFCGYGRHBHMJEKTKPLCkLNMCMMNMNTPSPMZM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{booktitle}{Proceedings of the Fifth Conference on Machine Translation}
+    \field{pages}{1\bibrangedash 55}
+    \field{title}{Findings of the 2020 Conference on Machine Translation ({WMT}20)}
+    \verb{url}
+    \verb https://aclanthology.org/2020.wmt-1.1
+    \endverb
+    \list{location}{1}{%
+      {Online}%
+    }
+    \field{month}{11}
+    \field{year}{2020}
+  \endentry
+
   \entry{cho-2014-properties}{inproceedings}{}
     \name{author}{4}{}{%
       {{hash=CK}{%
@@ -790,51 +1063,6 @@
     \field{year}{2020}
   \endentry
 
-  \entry{garcia-2020-multilingual}{misc}{}
-    \name{author}{4}{}{%
-      {{hash=GX}{%
-         family={Garcia},
-         familyi={G\bibinitperiod},
-         given={Xavier},
-         giveni={X\bibinitperiod},
-      }}%
-      {{hash=FP}{%
-         family={Foret},
-         familyi={F\bibinitperiod},
-         given={Pierre},
-         giveni={P\bibinitperiod},
-      }}%
-      {{hash=ST}{%
-         family={Sellam},
-         familyi={S\bibinitperiod},
-         given={Thibault},
-         giveni={T\bibinitperiod},
-      }}%
-      {{hash=PAP}{%
-         family={Parikh},
-         familyi={P\bibinitperiod},
-         given={Ankur\bibnamedelima P.},
-         giveni={A\bibinitperiod\bibinitdelim P\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{GX+1}
-    \strng{fullhash}{GXFPSTPAP1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{G}
-    \field{sortinithash}{G}
-    \verb{eprint}
-    \verb 2002.02955
-    \endverb
-    \field{title}{A Multilingual View of Unsupervised Machine Translation}
-    \verb{url}
-    \verb https://arxiv.org/abs/2002.02955
-    \endverb
-    \field{eprinttype}{arXiv}
-    \field{eprintclass}{cs.CL}
-    \field{year}{2020}
-  \endentry
-
   \entry{goyal-2022-flores}{article}{}
     \name{author}{10}{}{%
       {{hash=GN}{%
@@ -1043,6 +1271,40 @@
     \field{eprinttype}{arXiv}
     \field{eprintclass}{cs.CL}
     \field{year}{2017}
+  \endentry
+
+  \entry{lavie-2007-meteor}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=LA}{%
+         family={Lavie},
+         familyi={L\bibinitperiod},
+         given={Alon},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=AA}{%
+         family={Agarwal},
+         familyi={A\bibinitperiod},
+         given={Abhaya},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computational Linguistics}%
+    }
+    \strng{namehash}{LAAA1}
+    \strng{fullhash}{LAAA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{abstract}{%
+    Meteor is an automatic metric for Machine Translation evaluation which has been demonstrated to have high levels of correlation with human judgments of translation quality, significantly outperforming the more commonly used Bleu metric. It is one of several automatic metrics used in this year's shared task within the ACL WMT-07 workshop. This paper recaps the technical details underlying the metric and describes recent improvements in the metric. The latest release includes improved metric parameters and extends the metric to support evaluation of MT output in Spanish, French and German, in addition to English.%
+    }
+    \field{booktitle}{Proceedings of the Second Workshop on Statistical Machine Translation}
+    \field{pages}{228–231}
+    \field{series}{StatMT '07}
+    \field{title}{Meteor: an automatic metric for MT evaluation with high levels of correlation with human judgments}
+    \field{year}{2007}
   \endentry
 
   \entry{liu-2020-mbart}{misc}{}
@@ -3143,6 +3405,51 @@
     \warn{\item Invalid format of field 'month'}
   \endentry
 
+  \entry{rei-2020-comet}{misc}{}
+    \name{author}{4}{}{%
+      {{hash=RR}{%
+         family={Rei},
+         familyi={R\bibinitperiod},
+         given={Ricardo},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=SC}{%
+         family={Stewart},
+         familyi={S\bibinitperiod},
+         given={Craig},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=FAC}{%
+         family={Farinha},
+         familyi={F\bibinitperiod},
+         given={Ana\bibnamedelima C},
+         giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+      {{hash=LA}{%
+         family={Lavie},
+         familyi={L\bibinitperiod},
+         given={Alon},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{RR+1}
+    \strng{fullhash}{RRSCFACLA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \verb{eprint}
+    \verb 2009.09025
+    \endverb
+    \field{title}{COMET: A Neural Framework for MT Evaluation}
+    \verb{url}
+    \verb https://arxiv.org/abs/2009.09025
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CL}
+    \field{year}{2020}
+  \endentry
+
   \entry{sutskever-2014-seq2seq}{misc}{}
     \name{author}{3}{}{%
       {{hash=SI}{%
@@ -3470,6 +3777,37 @@
     \list{institution}{1}{%
       {Intento}%
     }
+    \field{year}{2020}
+  \endentry
+
+  \entry{tiedemann-2020-tatoeba-challenge}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=TJ}{%
+         family={Tiedemann},
+         familyi={T\bibinitperiod},
+         given={J{\"o}rg},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computational Linguistics}%
+    }
+    \strng{namehash}{TJ1}
+    \strng{fullhash}{TJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{booktitle}{Proceedings of the Fifth Conference on Machine Translation}
+    \field{pages}{1174\bibrangedash 1182}
+    \field{title}{The {T}atoeba {T}ranslation {C}hallenge {--} {R}ealistic Data Sets for Low Resource and Multilingual {MT}}
+    \verb{url}
+    \verb https://www.aclweb.org/anthology/2020.wmt-1.139
+    \endverb
+    \list{location}{1}{%
+      {Online}%
+    }
+    \field{month}{11}
     \field{year}{2020}
   \endentry
 

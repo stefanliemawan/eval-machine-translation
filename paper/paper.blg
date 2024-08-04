@@ -17,6 +17,7 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated field_info (elt_size=4) to 10320 items from 5000.
 Database file #1: paper-blx.bib
 Database file #2: references.bib
 Biblatex version: 3.19
@@ -28,45 +29,45 @@ Warning--you've exceeded 500, the entry-string-size, for entry openai-2024-gpt4
 while executing--line 2727 of file biblatex.bst
 *Please notify the bibstyle designer*
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 35 entries,
+You've used 38 entries,
             6399 wiz_defined-function locations,
-            1421 strings with 25371 characters,
-and the built_in function-call counts, 1066770 in all, are:
-= -- 104615
-> -- 7746
-< -- 1279
-+ -- 44082
-- -- 3970
-* -- 74576
-:= -- 150395
+            1442 strings with 27458 characters,
+and the built_in function-call counts, 1163199 in all, are:
+= -- 114233
+> -- 8356
+< -- 1499
++ -- 47759
+- -- 4191
+* -- 81268
+:= -- 163349
 add.period$ -- 0
-call.type$ -- 35
-change.case$ -- 704
-chr.to.int$ -- 105
-cite$ -- 68
-duplicate$ -- 120674
-empty$ -- 78523
-format.name$ -- 7070
-if$ -- 195515
+call.type$ -- 38
+change.case$ -- 871
+chr.to.int$ -- 117
+cite$ -- 74
+duplicate$ -- 131160
+empty$ -- 85813
+format.name$ -- 7597
+if$ -- 213676
 int.to.chr$ -- 0
-int.to.str$ -- 89
+int.to.str$ -- 101
 missing$ -- 0
-newline$ -- 3906
-num.names$ -- 1799
-pop$ -- 21248
+newline$ -- 4244
+num.names$ -- 2074
+pop$ -- 23051
 preamble$ -- 1
-purify$ -- 1758
+purify$ -- 1994
 quote$ -- 0
-skip$ -- 8856
+skip$ -- 9894
 stack$ -- 0
-substring$ -- 201806
-swap$ -- 11779
-text.length$ -- 1393
-text.prefix$ -- 34
+substring$ -- 220530
+swap$ -- 12921
+text.length$ -- 1515
+text.prefix$ -- 37
 top$ -- 1
-type$ -- 1178
+type$ -- 1280
 warning$ -- 0
-while$ -- 19693
+while$ -- 21348
 width$ -- 0
-write$ -- 3872
+write$ -- 4207
 (There were 2 warnings)

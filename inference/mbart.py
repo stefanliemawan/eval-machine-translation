@@ -1,4 +1,5 @@
 import os
+import time
 
 import pandas as pd
 import torch
@@ -19,18 +20,17 @@ LANG_CODES = {
     "italian": "it_IT",
     "japanese": "ja_XX",
     "polish": "pl_PL",
-    # "portuguese": "pt_XX",
     "russian": "ru_RU",
     "spanish": "es_XX",
     "turkish": "tr_TR",
     "ukrainian": "uk_UA",
 }
 
-tqdm.pandas()
 
 model = MBartForConditionalGeneration.from_pretrained(MODEL_NAME)
 
-df = pd.read_csv("dataset/sentences_v1.csv", index_col=0)
+df = pd.read_csv("../dataset/sentences_v2.csv", index_col=0)
+tqdm.pandas()
 
 
 def translate_batch(tokeniser, batch_input):
@@ -49,11 +49,14 @@ def translate_batch(tokeniser, batch_input):
     return translations
 
 
-batch_size = 8
+batch_size = 4
 translated_df = df[["index", "english"]].copy()
+timing_df = pd.DataFrame()
 
 for src_lang, src_lang_code in LANG_CODES.items():
     print(f"Translating {src_lang}...")
+    start = time.time()
+
     tokeniser = MBart50Tokenizer.from_pretrained(
         MODEL_NAME,
         src_lang=src_lang_code,
@@ -68,26 +71,9 @@ for src_lang, src_lang_code in LANG_CODES.items():
 
     translated_df[f"translated_from_{src_lang}"] = translated_texts
 
-    print(translated_df)
-    translated_df.to_csv(f"result/{MODEL_NAME.split("/")[1]}.csv")
+    end = time.time()
+    timing_df[f"translated_from_{src_lang}"] = [end - start]
 
-# [
-#     "Ik moet gaan slapen.",
-#     "Muiriel is nu 20 jaar oud.",
-#     'Het wachtwoord is "Muiriel".',
-#     "Ik ben zo terug.",
-#     "Ik heb er geen woorden voor. | Woorden schieten me tekort.",
-#     "Hier komt nooit een eind aan. | Dit zal nooit eindigen.",
-#     "Ik weet gewoon niet wat ik moet zeggen... | Ik weet eenvoudig niet wat te zeggen...",
-#     "Ik was in de bergen.",
-# ]
-# [
-#     "I have to go to sleep.",
-#     "Muiriel is now 20 years old.",
-#     'The password is "Muiriel."',
-#     "I'm so back.",
-#     "I don't have words for it. | Words scare me.",
-#     "This is never going to end. | This is never going to end.",
-#     "I just don't know what to say. | I just don't know what to say.",
-#     "I was in the mountains.",
-# ]
+    translated_df.to_csv(f"result/{MODEL_NAME.split("/")[1]}.csv")
+    timing_df.to_csv(f"result/{MODEL_NAME.split("/")[1]}_timings.csv")
+
