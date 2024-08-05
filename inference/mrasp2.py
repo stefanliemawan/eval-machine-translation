@@ -12,18 +12,18 @@ MODEL_NAME = "chinmaydan/mRASP2"
 
 LANG_CODES = {
     "chinese": "zho_Hans",
-    "dutch": "nld_Latn",
-    "finnish": "fin_Latn",
-    "french": "fra_Latn",
-    "german": "deu_Latn",
-    "hebrew": "he_IL",
-    "italian": "ita_Latn",
-    "japanese": "jpn_Jpan",
-    "polish": "pol_Latn",
-    "russian": "rus_Cyrl",
-    "spanish": "spa_Latn",
-    "turkish": "tur_Latn",
-    "ukrainian": "ukr_Cyrl",
+    # "dutch": "nld_Latn",
+    # "finnish": "fin_Latn",
+    # "french": "fra_Latn",
+    # "german": "deu_Latn",
+    # "hebrew": "he_IL",
+    # "italian": "ita_Latn",
+    # "japanese": "jpn_Jpan",
+    # "polish": "pol_Latn",
+    # "russian": "rus_Cyrl",
+    # "spanish": "spa_Latn",
+    # "turkish": "tur_Latn",
+    # "ukrainian": "ukr_Cyrl",
 }
 
 tqdm.pandas()
@@ -61,6 +61,7 @@ for src_lang, src_lang_code in LANG_CODES.items():
         batch = df[src_lang][i : i + batch_size].tolist()
         translations = translate_batch(batch)
         translated_texts.extend(translations)
+        break
 
     translated_df[f"translated_from_{src_lang}"] = translated_texts
 

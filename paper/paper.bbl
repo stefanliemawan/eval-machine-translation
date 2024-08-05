@@ -17,6 +17,42 @@
 \endgroup
 
 \datalist[entry]{nty/global//global/global}
+  \entry{agarwal-2008-meteor-mbleu-mter}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=AA}{%
+         family={Agarwal},
+         familyi={A\bibinitperiod},
+         given={Abhaya},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=LA}{%
+         family={Lavie},
+         familyi={L\bibinitperiod},
+         given={Alon},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computational Linguistics}%
+    }
+    \strng{namehash}{AALA1}
+    \strng{fullhash}{AALA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{booktitle}{Proceedings of the Third Workshop on Statistical Machine Translation}
+    \field{isbn}{9781932432091}
+    \field{pages}{115–118}
+    \field{series}{StatMT '08}
+    \field{title}{METEOR, M-BLEU and M-TER: evaluation metrics for high-correlation with human rankings of machine translation output}
+    \list{location}{1}{%
+      {Columbus, Ohio}%
+    }
+    \field{year}{2008}
+    \warn{\item Can't use 'location' + 'address'}
+  \endentry
+
   \entry{agarwal-iwstl-2023}{inproceedings}{}
     \name{author}{62}{}{%
       {{hash=AM}{%
@@ -460,6 +496,47 @@
     \field{year}{2019}
   \endentry
 
+  \entry{rosa-2017-indirect-translation-problems}{article}{}
+    \name{author}{2}{}{%
+      {{hash=AARHP}{%
+         family={Alexandra Assis\bibnamedelima Rosa},
+         familyi={A\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim R\bibinitperiod},
+         given={Hanna\bibnamedelima Pięta},
+         giveni={H\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+      {{hash=MRB}{%
+         family={Maia},
+         familyi={M\bibinitperiod},
+         given={Rita\bibnamedelima Bueno},
+         giveni={R\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Routledge}%
+    }
+    \strng{namehash}{AARHPMRB1}
+    \strng{fullhash}{AARHPMRB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \verb{doi}
+    \verb 10.1080/14781700.2017.1285247
+    \endverb
+    \verb{eprint}
+    \verb https://doi.org/10.1080/14781700.2017.1285247
+    \endverb
+    \field{number}{2}
+    \field{pages}{113\bibrangedash 132}
+    \field{title}{Theoretical, methodological and terminological issues regarding indirect translation: An overview}
+    \verb{url}
+    \verb https://doi.org/10.1080/14781700.2017.1285247
+    \endverb
+    \field{volume}{10}
+    \field{journaltitle}{Translation Studies}
+    \field{year}{2017}
+  \endentry
+
   \entry{barrault-2020-wmt}{inproceedings}{}
     \name{author}{21}{}{%
       {{hash=BL}{%
@@ -731,6 +808,63 @@
     }
     \field{month}{11}
     \field{year}{2020}
+  \endentry
+
+  \entry{callison-burch-2006-reevaluating-bleu}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=CBC}{%
+         family={Callison-Burch},
+         familyi={C\bibinithyphendelim B\bibinitperiod},
+         given={Chris},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=OM}{%
+         family={Osborne},
+         familyi={O\bibinitperiod},
+         given={Miles},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=KP}{%
+         family={Koehn},
+         familyi={K\bibinitperiod},
+         given={Philipp},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \name{editor}{2}{}{%
+      {{hash=MD}{%
+         family={McCarthy},
+         familyi={M\bibinitperiod},
+         given={Diana},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=WS}{%
+         family={Wintner},
+         familyi={W\bibinitperiod},
+         given={Shuly},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computational Linguistics}%
+    }
+    \strng{namehash}{CBCOMKP1}
+    \strng{fullhash}{CBCOMKP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{booktitle}{11th Conference of the {E}uropean Chapter of the Association for Computational Linguistics}
+    \field{pages}{249\bibrangedash 256}
+    \field{title}{Re-evaluating the Role of {B}leu in Machine Translation Research}
+    \verb{url}
+    \verb https://aclanthology.org/E06-1032
+    \endverb
+    \list{location}{1}{%
+      {Trento, Italy}%
+    }
+    \field{month}{04}
+    \field{year}{2006}
   \endentry
 
   \entry{cho-2014-properties}{inproceedings}{}
@@ -1063,94 +1197,6 @@
     \field{year}{2020}
   \endentry
 
-  \entry{goyal-2022-flores}{article}{}
-    \name{author}{10}{}{%
-      {{hash=GN}{%
-         family={Goyal},
-         familyi={G\bibinitperiod},
-         given={Naman},
-         giveni={N\bibinitperiod},
-      }}%
-      {{hash=GC}{%
-         family={Gao},
-         familyi={G\bibinitperiod},
-         given={Cynthia},
-         giveni={C\bibinitperiod},
-      }}%
-      {{hash=CV}{%
-         family={Chaudhary},
-         familyi={C\bibinitperiod},
-         given={Vishrav},
-         giveni={V\bibinitperiod},
-      }}%
-      {{hash=CPJ}{%
-         family={Chen},
-         familyi={C\bibinitperiod},
-         given={Peng-Jen},
-         giveni={P\bibinithyphendelim J\bibinitperiod},
-      }}%
-      {{hash=WG}{%
-         family={Wenzek},
-         familyi={W\bibinitperiod},
-         given={Guillaume},
-         giveni={G\bibinitperiod},
-      }}%
-      {{hash=JD}{%
-         family={Ju},
-         familyi={J\bibinitperiod},
-         given={Da},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=KS}{%
-         family={Krishnan},
-         familyi={K\bibinitperiod},
-         given={Sanjana},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=RM}{%
-         family={Ranzato},
-         familyi={R\bibinitperiod},
-         given={Marc’Aurelio},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=GF}{%
-         family={Guzmán},
-         familyi={G\bibinitperiod},
-         given={Francisco},
-         giveni={F\bibinitperiod},
-      }}%
-      {{hash=FA}{%
-         family={Fan},
-         familyi={F\bibinitperiod},
-         given={Angela},
-         giveni={A\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{GN+1}
-    \strng{fullhash}{GNGCCVCPJWGJDKSRMGFFA1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{G}
-    \field{sortinithash}{G}
-    \verb{doi}
-    \verb 10.1162/tacl_a_00474
-    \endverb
-    \verb{eprint}
-    \verb https://direct.mit.edu/tacl/article-pdf/doi/10.1162/tacl\_a\_00474/20
-    \verb 20699/tacl\_a\_00474.pdf
-    \endverb
-    \field{issn}{2307-387X}
-    \field{pages}{522\bibrangedash 538}
-    \field{title}{{The Flores-101 Evaluation Benchmark for Low-Resource and Multilingual Machine Translation}}
-    \verb{url}
-    \verb https://doi.org/10.1162/tacl\_a\_00474
-    \endverb
-    \field{volume}{10}
-    \field{journaltitle}{Transactions of the Association for Computational Linguistics}
-    \field{month}{05}
-    \field{year}{2022}
-  \endentry
-
   \entry{hutchins-1994-research-methods-mt}{inproceedings}{}
     \name{author}{1}{}{%
       {{hash=HJ}{%
@@ -1307,6 +1353,54 @@
     \field{year}{2007}
   \endentry
 
+  \entry{lefer-2020-parallel-corpora}{inbook}{}
+    \name{author}{1}{}{%
+      {{hash=LMA}{%
+         family={Lefer},
+         familyi={L\bibinitperiod},
+         given={Marie-Aude},
+         giveni={M\bibinithyphendelim A\bibinitperiod},
+      }}%
+    }
+    \name{editor}{2}{}{%
+      {{hash=PM}{%
+         family={Paquot},
+         familyi={P\bibinitperiod},
+         given={Magali},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=GST}{%
+         family={Gries},
+         familyi={G\bibinitperiod},
+         given={Stefan\bibnamedelima Th.},
+         giveni={S\bibinitperiod\bibinitdelim T\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer International Publishing}%
+    }
+    \strng{namehash}{LMA1}
+    \strng{fullhash}{LMA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{booktitle}{A Practical Handbook of Corpus Linguistics}
+    \verb{doi}
+    \verb 10.1007/978-3-030-46216-1_12
+    \endverb
+    \field{isbn}{978-3-030-46216-1}
+    \field{pages}{257\bibrangedash 282}
+    \field{title}{Parallel Corpora}
+    \verb{url}
+    \verb https://doi.org/10.1007/978-3-030-46216-1_12
+    \endverb
+    \list{location}{1}{%
+      {Cham}%
+    }
+    \field{year}{2020}
+  \endentry
+
   \entry{liu-2020-mbart}{misc}{}
     \name{author}{8}{}{%
       {{hash=LY}{%
@@ -1412,8 +1506,8 @@
       {New York, NY, USA}%
     }
     \field{journaltitle}{ACM Comput. Surv.}
+    \field{month}{08}
     \field{year}{2008}
-    \warn{\item Invalid format of field 'month'}
   \endentry
 
   \entry{okpor-2014-machine-ta}{inproceedings}{}
@@ -3162,51 +3256,6 @@
     \field{year}{2024}
   \endentry
 
-  \entry{pan-2021-mrasp2}{misc}{}
-    \name{author}{4}{}{%
-      {{hash=PX}{%
-         family={Pan},
-         familyi={P\bibinitperiod},
-         given={Xiao},
-         giveni={X\bibinitperiod},
-      }}%
-      {{hash=WM}{%
-         family={Wang},
-         familyi={W\bibinitperiod},
-         given={Mingxuan},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=WL}{%
-         family={Wu},
-         familyi={W\bibinitperiod},
-         given={Liwei},
-         giveni={L\bibinitperiod},
-      }}%
-      {{hash=LL}{%
-         family={Li},
-         familyi={L\bibinitperiod},
-         given={Lei},
-         giveni={L\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{PX+1}
-    \strng{fullhash}{PXWMWLLL1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{P}
-    \field{sortinithash}{P}
-    \verb{eprint}
-    \verb 2105.09501
-    \endverb
-    \field{title}{Contrastive Learning for Many-to-many Multilingual Neural Machine Translation}
-    \verb{url}
-    \verb https://arxiv.org/abs/2105.09501
-    \endverb
-    \field{eprinttype}{arXiv}
-    \field{eprintclass}{cs.CL}
-    \field{year}{2021}
-  \endentry
-
   \entry{papieni-2002-bleu}{inproceedings}{}
     \name{author}{4}{}{%
       {{hash=PK}{%
@@ -3256,11 +3305,34 @@
     \verb{url}
     \verb https://doi.org/10.3115/1073083.1073135
     \endverb
-    \list{location}{1}{%
-      {Philadelphia, Pennsylvania}%
-    }
     \field{year}{2002}
-    \warn{\item Can't use 'location' + 'address'}
+  \endentry
+
+  \entry{post-2018-clarity-bleu}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=PM}{%
+         family={Post},
+         familyi={P\bibinitperiod},
+         given={Matt},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PM1}
+    \strng{fullhash}{PM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \verb{eprint}
+    \verb 1804.08771
+    \endverb
+    \field{title}{A Call for Clarity in Reporting BLEU Scores}
+    \verb{url}
+    \verb https://arxiv.org/abs/1804.08771
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CL}
+    \field{year}{2018}
   \endentry
 
   \entry{raffel-2023-t5}{misc}{}
@@ -3838,6 +3910,95 @@
       {Lisbon, Portugal}%
     }
     \field{year}{2020}
+  \endentry
+
+  \entry{tiedemann-2023-democratizing}{article}{}
+    \name{author}{10}{}{%
+      {{hash=TJ}{%
+         family={Tiedemann},
+         familyi={T\bibinitperiod},
+         given={J\"{o}rg},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=AM}{%
+         family={Aulamo},
+         familyi={A\bibinitperiod},
+         given={Mikko},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=BD}{%
+         family={Bakshandaeva},
+         familyi={B\bibinitperiod},
+         given={Daria},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=BM}{%
+         family={Boggia},
+         familyi={B\bibinitperiod},
+         given={Michele},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=GSA}{%
+         family={Gr\"{o}nroos},
+         familyi={G\bibinitperiod},
+         given={Stig-Arne},
+         giveni={S\bibinithyphendelim A\bibinitperiod},
+      }}%
+      {{hash=NT}{%
+         family={Nieminen},
+         familyi={N\bibinitperiod},
+         given={Tommi},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=RA}{%
+         family={Raganato},
+         familyi={R\bibinitperiod},
+         given={Alessandro},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=SY}{%
+         family={Scherrer},
+         familyi={S\bibinitperiod},
+         given={Yves},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=VR}{%
+         family={Vázquez},
+         familyi={V\bibinitperiod},
+         given={Raúl},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=VS}{%
+         family={Virpioja},
+         familyi={V\bibinitperiod},
+         given={Sami},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Springer Science}%
+      {Business Media LLC}%
+    }
+    \strng{namehash}{TJ+1}
+    \strng{fullhash}{TJAMBDBMGSANTRASYVRVS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \verb{doi}
+    \verb 10.1007/s10579-023-09704-w
+    \endverb
+    \field{issn}{1574-0218}
+    \field{number}{2}
+    \field{pages}{713–755}
+    \field{title}{Democratizing neural machine translation with OPUS-MT}
+    \verb{url}
+    \verb http://dx.doi.org/10.1007/s10579-023-09704-w
+    \endverb
+    \field{volume}{58}
+    \field{journaltitle}{Language Resources and Evaluation}
+    \field{month}{12}
+    \field{year}{2023}
   \endentry
 
   \entry{vaswani-2017-attention}{inproceedings}{}
