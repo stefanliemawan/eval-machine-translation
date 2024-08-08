@@ -537,6 +537,45 @@
     \field{year}{2017}
   \endentry
 
+  \entry{bahdanau-2016-nmt-jointly}{misc}{}
+    \name{author}{3}{}{%
+      {{hash=BD}{%
+         family={Bahdanau},
+         familyi={B\bibinitperiod},
+         given={Dzmitry},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=CK}{%
+         family={Cho},
+         familyi={C\bibinitperiod},
+         given={Kyunghyun},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=BY}{%
+         family={Bengio},
+         familyi={B\bibinitperiod},
+         given={Yoshua},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BDCKBY1}
+    \strng{fullhash}{BDCKBY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{eprint}
+    \verb 1409.0473
+    \endverb
+    \field{title}{Neural Machine Translation by Jointly Learning to Align and Translate}
+    \verb{url}
+    \verb https://arxiv.org/abs/1409.0473
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CL}
+    \field{year}{2016}
+  \endentry
+
   \entry{barrault-2020-wmt}{inproceedings}{}
     \name{author}{21}{}{%
       {{hash=BL}{%
@@ -808,6 +847,40 @@
     }
     \field{month}{11}
     \field{year}{2020}
+  \endentry
+
+  \entry{bird-2009-natural}{book}{}
+    \name{author}{3}{}{%
+      {{hash=BS}{%
+         family={Bird},
+         familyi={B\bibinitperiod},
+         given={Steven},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=LE}{%
+         family={Loper},
+         familyi={L\bibinitperiod},
+         given={Edward},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=KE}{%
+         family={Klein},
+         familyi={K\bibinitperiod},
+         given={Ewan},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {O'Reilly Media Inc.}%
+    }
+    \strng{namehash}{BSLEKE1}
+    \strng{fullhash}{BSLEKE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{Natural Language Processing with Python}
+    \field{year}{2009}
   \endentry
 
   \entry{callison-burch-2006-reevaluating-bleu}{inproceedings}{}
@@ -1218,6 +1291,222 @@
     \field{year}{2020}
   \endentry
 
+  \entry{garcia-2020-multilingual}{misc}{}
+    \name{author}{4}{}{%
+      {{hash=GX}{%
+         family={Garcia},
+         familyi={G\bibinitperiod},
+         given={Xavier},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=FP}{%
+         family={Foret},
+         familyi={F\bibinitperiod},
+         given={Pierre},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=ST}{%
+         family={Sellam},
+         familyi={S\bibinitperiod},
+         given={Thibault},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=PAP}{%
+         family={Parikh},
+         familyi={P\bibinitperiod},
+         given={Ankur\bibnamedelima P.},
+         giveni={A\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GX+1}
+    \strng{fullhash}{GXFPSTPAP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \verb{eprint}
+    \verb 2002.02955
+    \endverb
+    \field{title}{A Multilingual View of Unsupervised Machine Translation}
+    \verb{url}
+    \verb https://arxiv.org/abs/2002.02955
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CL}
+    \field{year}{2020}
+  \endentry
+
+  \entry{han-2021-ptms}{article}{}
+    \name{author}{24}{}{%
+      {{hash=HX}{%
+         family={Han},
+         familyi={H\bibinitperiod},
+         given={Xu},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=ZZ}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Zhengyan},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=DN}{%
+         family={Ding},
+         familyi={D\bibinitperiod},
+         given={Ning},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=GY}{%
+         family={Gu},
+         familyi={G\bibinitperiod},
+         given={Yuxian},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=LX}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Xiao},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=HY}{%
+         family={Huo},
+         familyi={H\bibinitperiod},
+         given={Yuqi},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=QJ}{%
+         family={Qiu},
+         familyi={Q\bibinitperiod},
+         given={Jiezhong},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=YY}{%
+         family={Yao},
+         familyi={Y\bibinitperiod},
+         given={Yuan},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=ZA}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Ao},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=ZL}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Liang},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=HW}{%
+         family={Han},
+         familyi={H\bibinitperiod},
+         given={Wentao},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=HM}{%
+         family={Huang},
+         familyi={H\bibinitperiod},
+         given={Minlie},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=JQ}{%
+         family={Jin},
+         familyi={J\bibinitperiod},
+         given={Qin},
+         giveni={Q\bibinitperiod},
+      }}%
+      {{hash=LY}{%
+         family={Lan},
+         familyi={L\bibinitperiod},
+         given={Yanyan},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=LY}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Yang},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=LZ}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Zhiyuan},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=LZ}{%
+         family={Lu},
+         familyi={L\bibinitperiod},
+         given={Zhiwu},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=QX}{%
+         family={Qiu},
+         familyi={Q\bibinitperiod},
+         given={Xipeng},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=SR}{%
+         family={Song},
+         familyi={S\bibinitperiod},
+         given={Ruihua},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=TJ}{%
+         family={Tang},
+         familyi={T\bibinitperiod},
+         given={Jie},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=WJR}{%
+         family={Wen},
+         familyi={W\bibinitperiod},
+         given={Ji-Rong},
+         giveni={J\bibinithyphendelim R\bibinitperiod},
+      }}%
+      {{hash=YJ}{%
+         family={Yuan},
+         familyi={Y\bibinitperiod},
+         given={Jinhui},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=ZWX}{%
+         family={Zhao},
+         familyi={Z\bibinitperiod},
+         given={Wayne\bibnamedelima Xin},
+         giveni={W\bibinitperiod\bibinitdelim X\bibinitperiod},
+      }}%
+      {{hash=ZJ}{%
+         family={Zhu},
+         familyi={Z\bibinitperiod},
+         given={Jun},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \keyw{Pre-trained models, Language models, Transfer learning, Self-supervised learning, Natural language processing, Multimodal processing, Artificial intelligence}
+    \strng{namehash}{HX+1}
+    \strng{fullhash}{HXZZDNGYLXHYQJYYZAZLHWHMJQLYLYLZLZQXSRTJWJRYJZWXZJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{abstract}{%
+    Large-scale pre-trained models (PTMs) such as BERT and GPT have recently achieved great success and become a milestone in the field of artificial intelligence (AI). Owing to sophisticated pre-training objectives and huge model parameters, large-scale PTMs can effectively capture knowledge from massive labeled and unlabeled data. By storing knowledge into huge parameters and fine-tuning on specific tasks, the rich knowledge implicitly encoded in huge parameters can benefit a variety of downstream tasks, which has been extensively demonstrated via experimental verification and empirical analysis. It is now the consensus of the AI community to adopt PTMs as backbone for downstream tasks rather than learning models from scratch. In this paper, we take a deep look into the history of pre-training, especially its special relation with transfer learning and self-supervised learning, to reveal the crucial position of PTMs in the AI development spectrum. Further, we comprehensively review the latest breakthroughs of PTMs. These breakthroughs are driven by the surge of computational power and the increasing availability of data, towards four important directions: designing effective architectures, utilizing rich contexts, improving computational efficiency, and conducting interpretation and theoretical analysis. Finally, we discuss a series of open problems and research directions of PTMs, and hope our view can inspire and advance the future study of PTMs.%
+    }
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.aiopen.2021.08.002
+    \endverb
+    \field{issn}{2666-6510}
+    \field{pages}{225\bibrangedash 250}
+    \field{title}{Pre-trained models: Past, present and future}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S2666651021000231
+    \endverb
+    \field{volume}{2}
+    \field{journaltitle}{AI Open}
+    \field{year}{2021}
+  \endentry
+
   \entry{hutchins-1994-research-methods-mt}{inproceedings}{}
     \name{author}{1}{}{%
       {{hash=HJ}{%
@@ -1626,6 +1915,45 @@
     \field{journaltitle}{ACM Comput. Surv.}
     \field{month}{08}
     \field{year}{2008}
+  \endentry
+
+  \entry{luong-2015-effective-attention}{misc}{}
+    \name{author}{3}{}{%
+      {{hash=LMT}{%
+         family={Luong},
+         familyi={L\bibinitperiod},
+         given={Minh-Thang},
+         giveni={M\bibinithyphendelim T\bibinitperiod},
+      }}%
+      {{hash=PH}{%
+         family={Pham},
+         familyi={P\bibinitperiod},
+         given={Hieu},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=MCD}{%
+         family={Manning},
+         familyi={M\bibinitperiod},
+         given={Christopher\bibnamedelima D.},
+         giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LMTPHMCD1}
+    \strng{fullhash}{LMTPHMCD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \verb{eprint}
+    \verb 1508.04025
+    \endverb
+    \field{title}{Effective Approaches to Attention-based Neural Machine Translation}
+    \verb{url}
+    \verb https://arxiv.org/abs/1508.04025
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CL}
+    \field{year}{2015}
   \endentry
 
   \entry{masoudnia-2012-moe}{article}{}
@@ -4669,73 +4997,97 @@
     \field{year}{2020}
   \endentry
 
-  \entry{xue-2021-mt5}{misc}{}
-    \name{author}{8}{}{%
-      {{hash=XL}{%
-         family={Xue},
-         familyi={X\bibinitperiod},
-         given={Linting},
-         giveni={L\bibinitperiod},
+  \entry{wu-2020-mbert-are-all}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=WS}{%
+         family={Wu},
+         familyi={W\bibinitperiod},
+         given={Shijie},
+         giveni={S\bibinitperiod},
       }}%
-      {{hash=CN}{%
-         family={Constant},
-         familyi={C\bibinitperiod},
-         given={Noah},
-         giveni={N\bibinitperiod},
-      }}%
-      {{hash=RA}{%
-         family={Roberts},
-         familyi={R\bibinitperiod},
-         given={Adam},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=KM}{%
-         family={Kale},
-         familyi={K\bibinitperiod},
-         given={Mihir},
+      {{hash=DM}{%
+         family={Dredze},
+         familyi={D\bibinitperiod},
+         given={Mark},
          giveni={M\bibinitperiod},
       }}%
-      {{hash=ARR}{%
-         family={Al-Rfou},
-         familyi={A\bibinithyphendelim R\bibinitperiod},
-         given={Rami},
-         giveni={R\bibinitperiod},
+    }
+    \name{editor}{8}{}{%
+      {{hash=GS}{%
+         family={Gella},
+         familyi={G\bibinitperiod},
+         given={Spandana},
+         giveni={S\bibinitperiod},
       }}%
-      {{hash=SA}{%
-         family={Siddhant},
-         familyi={S\bibinitperiod},
-         given={Aditya},
-         giveni={A\bibinitperiod},
+      {{hash=WJ}{%
+         family={Welbl},
+         familyi={W\bibinitperiod},
+         given={Johannes},
+         giveni={J\bibinitperiod},
       }}%
-      {{hash=BA}{%
-         family={Barua},
-         familyi={B\bibinitperiod},
-         given={Aditya},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=RC}{%
-         family={Raffel},
+      {{hash=RM}{%
+         family={Rei},
          familyi={R\bibinitperiod},
-         given={Colin},
-         giveni={C\bibinitperiod},
+         given={Marek},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=PF}{%
+         family={Petroni},
+         familyi={P\bibinitperiod},
+         given={Fabio},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=LP}{%
+         family={Lewis},
+         familyi={L\bibinitperiod},
+         given={Patrick},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=SE}{%
+         family={Strubell},
+         familyi={S\bibinitperiod},
+         given={Emma},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=SM}{%
+         family={Seo},
+         familyi={S\bibinitperiod},
+         given={Minjoon},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=HH}{%
+         family={Hajishirzi},
+         familyi={H\bibinitperiod},
+         given={Hannaneh},
+         giveni={H\bibinitperiod},
       }}%
     }
-    \strng{namehash}{XL+1}
-    \strng{fullhash}{XLCNRAKMARRSABARC1}
+    \list{publisher}{1}{%
+      {Association for Computational Linguistics}%
+    }
+    \strng{namehash}{WSDM1}
+    \strng{fullhash}{WSDM1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{X}
-    \field{sortinithash}{X}
-    \verb{eprint}
-    \verb 2010.11934
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{abstract}{%
+    Multilingual BERT (mBERT) trained on 104 languages has shown surprisingly good cross-lingual performance on several NLP tasks, even without explicit cross-lingual signals. However, these evaluations have focused on cross-lingual transfer with high-resource languages, covering only a third of the languages covered by mBERT. We explore how mBERT performs on a much wider set of languages, focusing on the quality of representation for low-resource languages, measured by within-language performance. We consider three tasks: Named Entity Recognition (99 languages), Part-of-speech Tagging and Dependency Parsing (54 languages each). mBERT does better than or comparable to baselines on high resource languages but does much worse for low resource languages. Furthermore, monolingual BERT models for these languages do even worse. Paired with similar languages, the performance gap between monolingual BERT and mBERT can be narrowed. We find that better models for low resource languages require more efficient pretraining techniques or more data.%
+    }
+    \field{booktitle}{Proceedings of the 5th Workshop on Representation Learning for NLP}
+    \verb{doi}
+    \verb 10.18653/v1/2020.repl4nlp-1.16
     \endverb
-    \field{title}{mT5: A massively multilingual pre-trained text-to-text transformer}
+    \field{pages}{120\bibrangedash 130}
+    \field{title}{Are All Languages Created Equal in Multilingual {BERT}?}
     \verb{url}
-    \verb https://arxiv.org/abs/2010.11934
+    \verb https://aclanthology.org/2020.repl4nlp-1.16
     \endverb
-    \field{eprinttype}{arXiv}
-    \field{eprintclass}{cs.CL}
-    \field{year}{2021}
+    \list{location}{1}{%
+      {Online}%
+    }
+    \field{month}{07}
+    \field{year}{2020}
   \endentry
 
   \entry{ye-2018-word-embeddings-ted}{inproceedings}{}
@@ -4831,6 +5183,87 @@
     \field{eprinttype}{arXiv}
     \field{eprintclass}{cs.CL}
     \field{year}{2020}
+  \endentry
+
+  \entry{zhang-2023-fine-tuning}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=ZX}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Xuan},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=RN}{%
+         family={Rajabi},
+         familyi={R\bibinitperiod},
+         given={Navid},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=DK}{%
+         family={Duh},
+         familyi={D\bibinitperiod},
+         given={Kevin},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=KP}{%
+         family={Koehn},
+         familyi={K\bibinitperiod},
+         given={Philipp},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \name{editor}{4}{}{%
+      {{hash=KP}{%
+         family={Koehn},
+         familyi={K\bibinitperiod},
+         given={Philipp},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=HB}{%
+         family={Haddow},
+         familyi={H\bibinitperiod},
+         given={Barry},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=KT}{%
+         family={Kocmi},
+         familyi={K\bibinitperiod},
+         given={Tom},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=MC}{%
+         family={Monz},
+         familyi={M\bibinitperiod},
+         given={Christof},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computational Linguistics}%
+    }
+    \strng{namehash}{ZX+1}
+    \strng{fullhash}{ZXRNDKKP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{Z}
+    \field{sortinithash}{Z}
+    \field{abstract}{%
+    While large language models have made remarkable advancements in natural language generation, their potential in machine translation, especially when fine-tuned, remains under-explored. In our study, we conduct comprehensive experiments, evaluating 15 publicly available language models on machine translation tasks. We compare the performance across three methodologies: zero-shot prompting, few-shot learning, and fine-tuning. Central to our approach is the use of QLoRA, an efficient fine-tuning method. On French-English, QLoRA fine-tuning outperforms both few-shot learning and models trained from scratch. This superiority is highlighted in both sentence-level and document-level translations, with a significant BLEU score improvement of 28.93 over the prompting method. Impressively, with QLoRA, the enhanced performance is achieved by fine-tuning a mere 0.77{\%} of the model{'}s parameters.%
+    }
+    \field{booktitle}{Proceedings of the Eighth Conference on Machine Translation}
+    \verb{doi}
+    \verb 10.18653/v1/2023.wmt-1.43
+    \endverb
+    \field{pages}{468\bibrangedash 481}
+    \field{title}{Machine Translation with Large Language Models: Prompting, Few-shot Learning, and Fine-tuning with {QL}o{RA}}
+    \verb{url}
+    \verb https://aclanthology.org/2023.wmt-1.43
+    \endverb
+    \list{location}{1}{%
+      {Singapore}%
+    }
+    \field{month}{12}
+    \field{year}{2023}
   \endentry
 \enddatalist
 \endinput

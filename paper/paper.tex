@@ -23,43 +23,36 @@
 
 \maketitle
 
+
+\begin{abstract}
+    Machine translation (MT) has become an essential tool for overcoming language barriers in an increasingly globalised world. Today, there are pre-trained models (PTMs) specifically designed for automatic machine translation. This paper evaluates the performance of various pre-trained models (PTMs) for many-to-English translation. The models assessed include OPUS-MT \cite{tiedemann-2020-opus-mt}, mBART-50 \cite{liu-2020-mbart}, NLLB-200 \cite{nllb200-2020}, and M2M-100 \cite{fan-2020-m2m100}. Using a dataset curated from the Tatoeba repository, comprising 1,323 parallel sentence pairs across 14 source languages, translation quality is measured using BLEU, SacreBLEU, and METEOR scores. The results indicate that OPUS-MT, a one-to-one PTM, outperforms multilingual models in one-to-English translation tasks, with mBART-50 leading among the multilingual PTMs. These findings highlight the strengths and limitations of both specific language and multilingual PTMs in machine translation.
+\end{abstract}
+
 \section{Introduction}
 
 According to Ethnologue \cite{ethnologue-2024}, 7,164 languages currently exist and in use today, with 40\% of them considered endangered. As of July 2024, 243 languages are supported by Google Translate (according to Wikipedia \cite{wikipedia-google-translate}). In modern times, the need for translation services has surged due to the growing exchange of information across different regions that speak various languages \cite{okpor-2014-machine-ta}.
 
 Machine translation (MT) is the task of automatically translating from one language to another. This can be done through text or audio. It can be traced back to 1949 \cite{weaver-1999}, with the first public demonstration of an MT system on January 7, 1954, in collaboration with IBM, where 49 Russian sentences were translated into English using a limited vocabulary of 250 words and 6 grammar rules \cite{hutchins-2006-first-mt}. However, over the next several decades, growth were limited for machine translation, with 1956-1966 considered the decade of high expectation and disillusion, and 1967-1976 dubbed 'the quiet decade' \cite{hutchins-2001-mt-50-years}. Then in 1989, the dominance of the rule-based approach has been challenged by the rise of new methods and strategies, collectively referred to as ‘corpus-based’ methods (data-driven) \cite{hutchins-1994-research-methods-mt,hutchins-1998-development-mt}. Subsequently, statistics-based approaches for MT re-emerged, bolstered by the recent success of probabilistic techniques in speech recognition. Statistical machine translation \cite{lopez-2008-smt} dominated the domain between late 1990s through the early 2010s, before largely being surpassed by neural machine translation (NMT) \cite{cho-2014-properties,sutskever-2014-seq2seq}.
 
-Since the introduction of Transformers in 2017 \cite{vaswani-2017-attention}, Natural Language Processing (NLP) and machine translation in particular reached a giant milestone. The following years saw the birth of Large Language Models (LLMs) such as BERT \cite{devlin-2019-bert}, GPT \cite{openai-2024-gpt4}, and T5 \cite{raffel-2023-t5}, which revolutionised both MT and the whole field of NLP. Then in early 2020s, several pre-trained models (PTM) that are specifically designed for machine translation emerged, namely mBART \cite{liu-2020-mbart}, mT5 \cite{xue-2021-mt5}, NLLB \cite{nllb200-2020}, M2M \cite{fan-2020-m2m100}, and PolyLM \cite{wei-2023-polylm}. Most of these models are multilingually trained, allowing for many-to-many translation: able to translate between any of the supported pair of languages. This allows the models to generalise over shared lexical and linguistic among languages, and have been shown to increase performance compared to one-to-one translation models \cite{liu-2020-mbart}.
+Since the introduction of Transformers in 2017 \cite{vaswani-2017-attention}, Natural Language Processing (NLP) and machine translation in particular reached a giant milestone. The following years saw the birth of Large Language Models (LLMs) such as BERT \cite{devlin-2019-bert}, GPT \cite{openai-2024-gpt4}, and T5 \cite{raffel-2023-t5}, which revolutionised both MT and the whole field of NLP. Then in early 2020s, several pre-trained models (PTM) that are specifically designed for machine translation emerged, OPUS-MT \cite{tiedemann-2020-opus-mt} produced numerous PTMs designed for one-to-one translations. Additionally, multilingual models: mBART-50 \cite{liu-2020-mbart}, NLLB-200 \cite{nllb200-2020}, and M2M-100 \cite{fan-2020-m2m100} have also been published, growing popularity as multilinguality has been shown to allow for sharing information among languages \cite{garcia-2020-multilingual}. Most of these models are trained on diverse set of languages, allowing for many-to-many translation: able to translate between any of the supported pair of languages. This allows the models to generalise over shared lexical and linguistic among languages, and have been shown to increase performance compared to one-to-one translation models \cite{liu-2020-mbart}.
 
-Intento published 'The State of Machine Translation 2024' \cite{intento-2020} providing an in-depth evaluation of popular MT engines and LLMs. However, the biggest drawback in this report is that the selected LLMs are general LLMs such as GPT, LLaMa, Mistral, instead of MT-specific LLMs.
+Despite these advancements, pre-trained models are often evaluated using different set of benchmarks \cite{liu-2020-mbart,nllb200-2020,fan-2020-m2m100,wei-2023-polylm}, making it difficult to gauge their relative effectiveness across various languages. Nevertheless, there does not seem to be much work on comparing or benchmarking different pre-trained models in machine translation. Intento published 'The State of Machine Translation 2024' \cite{intento-2020} providing an in-depth evaluation of popular MT engines and LLMs. However, the biggest drawback in this report is that the selected LLMs are general LLMs such as GPT, LLaMa, Mistral, instead of MT-specific LLMs.
 
-Despite these advancements, pre-trained models are often evaluated using different set of benchmarks \cite{liu-2020-mbart,nllb200-2020,fan-2020-m2m100,wei-2023-polylm}, making it difficult to gauge their relative effectiveness across various languages. Nevertheless, there does not seem to be much work on comparing or benchmarking different pre-trained models in machine translation.
+Through simple experimentations, this paper aims to evaluate the performance of existing pre-trained models (PTMs) on many-to-English translation across 14 source languages. Although fine-tuning multilingual PTMs has been proven to increase model performance \cite{cooper-stickland-2021-recipes}, no pre-training or fine-tuning is performed in this study for simplicity reasons. A dataset is curated from the Tatoeba repository \cite{tatoeba}, containing 1,323 parallel sentence pairs across source and target languages. The models include a one-to-one PTMs: OPUS-MT \cite{tiedemann-2023-democratizing,tiedemann-2020-opus-mt}, and multilingual PTMs: such as mBART-50 \cite{liu-2020-mbart}, NLLB-200 \cite{nllb200-2020}, and M2M-100 \cite{fan-2020-m2m100}. The performance of these models is evaluated using the BLEU \cite{papieni-2002-bleu}, SacreBLEU \cite{post-2018-sacrebleu}, and METEOR \cite{lavie-2007-meteor}.
 
-Through simple experimentations, this paper aims to evaluate the performance of existing pre-trained models (PTMs) on many-to-English translation across 14 source languages. Although fine-tuning multilingual PTMs has been proven to increase model performance \cite{cooper-stickland-2021-recipes}, no pre-training or fine-tuning is performed in this study for simplicity reasons. A dataset is curated from the Tatoeba repository \cite{tatoeba}, containing 1,323 parallel sentence pairs across source and target languages. The models includes a one-to-one PTMs: OPUS-MT \cite{tiedemann-2023-democratizing,tiedemann-2020-opus-mt}, and multilingual PTMs: such as mBART-50 \cite{liu-2020-mbart}, NLLB-200 \cite{nllb200-2020}, and M2M-100 \cite{fan-2020-m2m100}. The performance of these models is evaluated using the BLEU score \cite{papieni-2002-bleu}.
-
-
-% (Multilinguality has been explored in the supervised NMT literature, where it has been shown to enable information sharing among related languages.) \cite{garcia-2020-multilingual}
-% (NMT systems have lower translation quality on very long sentences) \cite{koehn-2017-challenges}
-
-% Language barriers
+The result indicates that OPUS-MT outperforms all other multilingual models in one-to-English translation, highlighting the superiority of specific languages PTMs compared to multilingual PTMs. mBART-50 shows the best performance among other multilingual PTMs: M2M-100 and NLLB-200.
 
 \section{Literature Review}
 
 \subsection{Pre-Trained Models for Machine Translation}
 
-The encoder-decoder approach \cite{cho-2014-properties} remains as the foundation architecture for many sequence-to-sequence models in machine translation.
+The encoder-decoder approach \cite{cho-2014-properties} remains as the foundation architecture for many sequence-to-sequence models in machine translation. Attention mechanism has been used for Neural Machine Translation (NMT) \cite{bahdanau-2016-nmt-jointly, luong-2015-effective-attention} before the release of the transformer \cite{vaswani-2017-attention}
 
-In terms of pre-trained models (PTMs) for machine translation, most PTMs support two kinds of translations: one-to-one translation and many-to-many translation (multilingual models).
+Currently, Pre-Trained-Models (PTMs) have become a cornerstone in machine translation, leveraging large datasets and powerful architectures to achieve state-of-the-art performance \cite{han-2021-ptms}. Most PTMs support two kinds of translations: one-to-one translation and many-to-many translation (multilingual models).
 
-One-to-One Translation refers to a translation approach where a model is specifically trained to translate between one source language and one target language. This setup is characterised by having a dedicated model for each unique language pair. OPUS-MT \cite{tiedemann-2020-opus-mt} and Facebook Fairseq \cite{ott-2019-fairseq} are examples of PTMs that support one-to-one translation.
+One-to-One Translation refers to a translation approach where a model is specifically trained to translate between one source language and one target language. This setup is characterised by having a dedicated model for each unique language pair. OPUS-MT \cite{tiedemann-2020-opus-mt} and Facebook Fairseq \cite{ott-2019-fairseq} are examples of PTMs that support one-to-one translation. Multilingual models have also gained significant prominence, enabling many-to-many translation, where a single model can translate between multiple source and target languages \cite{aharoni-2019-massively-multilingual}.
 
-With the advent of large language models and pre-trained language models, multilingual machine translation has gained prominence. This approach enables many-to-many translation, where a single model can translate between multiple source and target languages \cite{aharoni-2019-massively-multilingual}.
-
-mBART \cite{liu-2020-mbart}, M2M \cite{fan-2020-m2m100}, NLLB-200 \cite{nllb200-2020}, are examples of PTMs that support many-to-many translation language.
-
-mBART, M2M-100, and NLLB-200 were all developed by Meta AI (formerly Facebook AI), showcasing the organisation's significant impact in the machine translation field through pre-trained models (PTMs). These models represent a substantial advancement in multilingual translation capabilities.
-
-% Back translation?
+OPUS-MT \cite{tiedemann-2020-opus-mt} is a project dedicated to creating and providing free resources for machine translation,providing over a thousand of PTMs of direct one-to-one translations. In contrast, mBART \cite{liu-2020-mbart}, M2M \cite{fan-2020-m2m100}, NLLB-200 \cite{nllb200-2020}, are massively multilingual models that support many-to-many translation language.
 
 \subsection{Parallel Corpora}
 
@@ -71,9 +64,7 @@ Neural Machine Translation (NMT) systems require vast amounts of training data, 
 
 Several datasets are often used for evaluation in machine translation. The Tatoeba Challenge \cite{tiedemann-2020-tatoeba-challenge} covers 487 languages in 4,024 language pairs, including 657 test sets sourced from Tatoeba website, covering 138 languages. The TED Talks dataset \cite{ye-2018-word-embeddings-ted} contains transcripts from TED talks for more than 50 languages. IWSLT \cite{agarwal-iwstl-2023} also contains TED talks data, but paired with English translations. Finally, WMT \cite{barrault-2020-wmt} is an annual event that organises tasks for machine translation and provides a collection of datasets for benchmarking and evaluating translation systems.
 
-While these datasets can be used to evaluate translation performance between any language pairs, they do not contain parallel corpora between different languages. Corpus between English and French for example, contains different text to the corpus between English and Spanish. Therefore, they do not support easy evaluation for many-to-English translations.
-
-Furthermore, papers often use different sets and different versions of datasets to evaluate their model performance, incurring unstraightforward comparison.
+While these datasets can be used to evaluate translation performance between any language pairs, they do not contain parallel corpora between different languages. Corpus between English and French for example, contains different text to the corpus between English and Spanish. Therefore, they do not support easy evaluation for many-to-English translations. Furthermore, papers often use different datasets and versions to evaluate their model performance, making direct comparison challenging.
 
 mBart \cite{liu-2020-mbart} uses WMT19 for English-German translation and TED15 for Chinese-English translation. M2M-100 \cite{fan-2020-m2m100} uses 7 different datasets shared across languages. NLLB-200  \cite{nllb200-2020} uses FLORES dataset, designed for low-resources languages. OPUS-MT \cite{tiedemann-2023-democratizing,tiedemann-2020-opus-mt} models use datasets from Tatoeba challenges.
 
@@ -224,11 +215,6 @@ Figure \ref{fig:nllb} shows the Dense Transformer and MoE Transformer layers imp
 % The original paper is 192 pages long and impossible to be dissected in just one section.
 
 
-\subsection{Inference Details}
-
-OPUS-MT models are taken from the Helsinki-NLP repository. The 'mbart-large-50-many-to-many-mmt' is used, 'm2m100\_418M', and 'nllb-200-distilled-600M'. All models are taken using the transformers \cite{wolf-etal-2020-transformers} library from Hugging Face \cite{huggingface}. Batch size of 4 is used in all models. Translations are first generated and saved into CSV files, before calculating the metrics score.
-
-
 \subsection{Evaluation Metrics}
 
 
@@ -285,8 +271,7 @@ Where:
 
 The machine translation community's rely heavily BLEU score, however, it has several drawbacks. The metric has been reported to not correlate strongly with human judgement, showing variations in translation that could mean that a higher BLEU score does not necessarily indicate a true enhancement in translation quality \cite{callison-burch-2006-reevaluating-bleu}.
 
-Furthermore, It is challenging to directly compare BLEU scores between paper \cite{post-2018-sacrebleu}. Thus, the author proposed a variation called SacreBLEU \cite{post-2018-sacrebleu}, which claimed to facilitate easy computation of BLEU scores that are shareable, comparable, and reproducible. This is done by including preprocessing steps and normalisation routines.
-
+Furthermore, It is challenging to directly compare BLEU scores between paper \cite{post-2018-sacrebleu}. Thus, the author proposed a standardised variant called SacreBLEU \cite{post-2018-sacrebleu}, designed to ensure easy, consistent, and comparable evaluation across different implementations and research studies.
 
 \subsubsection{METEOR}
 
@@ -305,7 +290,11 @@ Where:
     \item \(\alpha\) is a parameter that controls the balance between precision and recall, commonly 0.9,
 \end{itemize}
 
+\subsection{Inference Details}
 
+OPUS-MT models are taken from the Helsinki-NLP repository. The 'mbart-large-50-many-to-many-mmt' is used, 'm2m100\_418M', and 'nllb-200-distilled-600M'. All models are taken using the transformers \cite{wolf-etal-2020-transformers} library from Hugging Face \cite{huggingface}. Batch size of 4 is used in all models. Translations are first generated and saved into CSV files, before calculating the metrics score.
+
+The sacrebleu packages from pip is used to calculate SacreBLEU \cite{post-2018-sacrebleu}. For BLEU and METEOR, the NLTK \cite{bird-2009-natural} package is used. Corpus BLEU is implemented for both SacreBLEU and BLEU in the calculations.
 \section{Evaluation}
 
 
@@ -424,13 +413,9 @@ Table \ref{table:mbart_result}, \ref{table:m2m_result}, \ref{table:nllb_result},
 
 Figure \ref{fig:result_visual} shows the visualisation of all scores.
 
-All models perform similarly on BLEU score across all languages, with NLLB-200 suffering a bit more on Japanese translation. The OPUS-MT model consistently shows high scores across all languages, with the highest SacreBLEU and METEOR scores overall, especially for Ukrainian and Italian.
+All models perform similarly on BLEU score across all languages, with NLLB-200 suffering a bit more on Japanese translation. The OPUS-MT model consistently shows high scores across most languages, with the highest SacreBLEU and METEOR scores overall, especially for Ukrainian and Italian. The mBART-50 model achieved the best-performing multilingual model, showing competitive performance, often achieving the second-highest scores across several languages. M2M-100 performs worse in SacreBLEU compared to mBART-50, but comparably similar in METEOR scores. The NLLB-200 model shows significant variability, especially for Japanese, where the SacreBLEU and METEOR scores are extremely low.
 
-The OPUS-MT model Generally performs consistently across most languages but slightly lower compared to other models in a few cases.
-The mBART-50 model achieved the best-performing multilingual model, showing competitive performance, often achieving the second-highest scores across several languages. M2M-100 performs worse in SacreBLEU compared to mBART-50, but comparably similar in METEOR scores. The NLLB-200 model shows significant variability, especially for Japanese, where the SacreBLEU and METEOR scores are extremely low. 
-
-Dutch and Italian translations generally score higher across all metrics, suggesting that these languages are well-supported by the pre-trained models, while Japanese translations consistently receive lower scores across all models. 
-
+Dutch and Italian translations generally score higher across all metrics, suggesting that these languages are well-supported by the pre-trained models. Japanese translations, however, pose significant challenges for all models, as indicated by the consistently low scores across all metrics.
 
 \begin{figure}[htbp]
     \centering
@@ -451,7 +436,7 @@ Dutch and Italian translations generally score higher across all metrics, sugges
     \label{fig:lang_metrics}
 \end{figure}
 
-Figure \ref{fig:lang_metrics} shows the SacreBLEU and METEOR score of each language by models. The OPUS-MT and mBART-50 models are the clear winners in almost all languages. Although M2M-100 performs competitively to mBART-50 in most languages and beating mBART-50 in Spanish-to-English translation. Again, NLLB-200 performs the weakest, with extremely low scores on German, Hebrew, and Japanese.
+Figure \ref{fig:lang_metrics} shows the SacreBLEU and METEOR scores for each language by model. The OPUS-MT and mBART-50 models are the clear winners in almost all languages. Although M2M-100 performs competitively with mBART-50 in most languages, it surpasses mBART-50 in Spanish-to-English translation. On the other hand, NLLB-200 performs the weakest, with extremely low scores in German, Hebrew, and Japanese.
 
 \begin{figure}[htbp]
     \centering
@@ -464,17 +449,16 @@ Figure \ref{fig:inference_timings} shows the time taken to translate for each la
 
 \section{Conclusion}
 
-Specific languages model perform better than multilingual models in the said languages.
+This study findings show that while multilingual models have been shown to achieve higher performance compared to one-to-one translation models \cite{liu-2020-mbart}, this does not hold on short sentences, many-to-English translations across the 14 source languages. Additionally, mBART50 performed better than PTMs M2M-100 and NLLB-200 in these 14 languages.
 
 Limitations, only the first translation of the same phrases are taken.
+No fine-tuning is applied, which may affect the translation results, as fine-tuning models for specific languages can significantly improve models performance \cite{zhang-2023-fine-tuning}.
 
-We show that one-to-one PTMs outperform multilingual PTMs on sentence translation.
+\section{Future Works}
 
-mBART50 performed better than both M2M-100 and NLLB-200 in these 14 languages.
+Future works should be done by incorporating more Pre-Trained Models (PTMs) and incorporating fine-tuning for specific languages on languages-to-English translation. Evaluating with bigger datasets and longer texts can also be beneficial, as well as using language other than English as the target language.
 
-
-the OPUS-MT model appears to be the most robust and reliable across different languages, with consistently high scores. Japanese translations, however, pose significant challenges for all models, as indicated by the consistently low scores across all metrics. The variability observed in NLLB-200, especially for Japanese, suggests that this model might need further tuning or additional data for certain language pairs.
-
+Furthermore, it may be beneficial to consider more general multilingual PTMs such as mBERT \cite{wu-2020-mbert-are-all} and PolyLM \cite{wei-2023-polylm}, which are trained for a wide arrange of NLP tasks instead of just machine translation.
 
 \printbibliography
 \end{document}
