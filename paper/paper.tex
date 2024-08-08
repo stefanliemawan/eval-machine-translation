@@ -41,6 +41,7 @@ Through simple experimentations, this paper aims to evaluate the performance of 
 % (Multilinguality has been explored in the supervised NMT literature, where it has been shown to enable information sharing among related languages.) \cite{garcia-2020-multilingual}
 % (NMT systems have lower translation quality on very long sentences) \cite{koehn-2017-challenges}
 
+% Language barriers
 
 \section{Literature Review}
 
@@ -48,11 +49,15 @@ Through simple experimentations, this paper aims to evaluate the performance of 
 
 The encoder-decoder approach \cite{cho-2014-properties} remains as the foundation architecture for many sequence-to-sequence models in machine translation.
 
-In terms of pre-trained models (PTMs) for machine translation, it can be divided into two categories: one-to-one models and many-to-many models (multilingual).
+In terms of pre-trained models (PTMs) for machine translation, most PTMs support two kinds of translations: one-to-one translation and many-to-many translation (multilingual models).
 
-One-to-One Translation refers to a translation approach where a model is specifically trained to translate between one source language and one target language. This setup is characterised by having a dedicated model for each unique language pair. An example of this setup is OPUS-MT by Helsinki-NLP \cite{tiedemann-2023-democratizing,tiedemann-2020-opus-mt}, which provides over 1,000 pre-trained models for translation between numerous language pairs.
+One-to-One Translation refers to a translation approach where a model is specifically trained to translate between one source language and one target language. This setup is characterised by having a dedicated model for each unique language pair. OPUS-MT \cite{tiedemann-2020-opus-mt} and Facebook Fairseq \cite{ott-2019-fairseq} are examples of PTMs that support one-to-one translation.
 
-With the advent of large language models and pre-trained language models, multilingual machine translation has gained prominence. This approach enables many-to-many translation, where a single model can translate between multiple source and target languages \cite{aharoni-2019-massively-multilingual}. mBART \cite{liu-2020-mbart} is a sequence-to-sequence denoising auto-encoder model specifically designed for multilingual tasks. The mBART-50 variant supports many-to-many translations for over 50 languages. M2M-100 \cite{fan-2020-m2m100} is designed to perform direct translation between 100 languages without relying on English as an intermediate language. NLLB-200: NLLB-200 \cite{nllb200-2020} is built to handle translation tasks across a broad spectrum of languages, including many that are low-resource or underrepresented in existing datasets. It supports translations for 200 languages, encompassing numerous underrepresented languages. mBART, M2M-100, and NLLB-200 were all developed by Meta AI (formerly Facebook AI), showcasing the organisation's significant impact in the machine translation field through pre-trained models (PTMs). These models represent a substantial advancement in multilingual translation capabilities.
+With the advent of large language models and pre-trained language models, multilingual machine translation has gained prominence. This approach enables many-to-many translation, where a single model can translate between multiple source and target languages \cite{aharoni-2019-massively-multilingual}.
+
+mBART \cite{liu-2020-mbart}, M2M \cite{fan-2020-m2m100}, NLLB-200 \cite{nllb200-2020}, are examples of PTMs that support many-to-many translation language. This domain seems to be dominated by META AI.
+
+% Back translation?
 
 \subsection{Parallel Corpora}
 
@@ -69,6 +74,169 @@ While these datasets can be used to evaluate translation performance between any
 Furthermore, papers often use different sets and different versions of datasets to evaluate their model performance, incurring unstraightforward comparison.
 
 mBart \cite{liu-2020-mbart} uses WMT19 for English-German translation and TED15 for Chinese-English translation. M2M-100 \cite{fan-2020-m2m100} uses 7 different datasets shared across languages. NLLB-200  \cite{nllb200-2020} uses FLORES dataset, designed for low-resources languages. OPUS-MT \cite{tiedemann-2023-democratizing,tiedemann-2020-opus-mt} models use datasets from Tatoeba challenges.
+
+
+\section{Methodology}
+
+\subsection{Dataset}
+
+Tatoeba is a vast, continuously expanding database consisting sentences and their translations, built through the contributions of thousands of volunteers, offering a tool that allows users to see examples of how words are used in sentences \cite{tatoeba}. They currently have 12,132,349 sentences and 423 supported languages, with around one to two thousand new sentences added daily, on average. The English sentence dataset contains 1,905,089 sentences, the largest one in their repository, with Russian in the second place with 1,066,633 sentences. Some languages supported on the website is shown in Figure \ref{fig:tatoeba_languages} and Figure \ref{fig:tatoeba_top_bottom_languages}, sorted from the biggest corpus.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\linewidth]{images/tatoeba_languages.png}
+    \caption{Tatoeba's languages repository with 10,000+ sentences and 100,000+ sentences \cite{tatoeba}}
+    \label{fig:tatoeba_languages}
+\end{figure}
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/tatoeba_top_20_lang.png}
+    \includegraphics[width=0.46\linewidth]{images/tatoeba_bottom_20_lang.png}
+    \caption{Tatoeba top 20 and bottom 20 languages based on sentences count \cite{tatoeba}}
+    \label{fig:tatoeba_top_bottom_languages}
+\end{figure}
+
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|l|l|r|}
+        \hline
+        \textbf{No.} & \textbf{Language} & \textbf{Sentence Pairs Count} \\
+        \hline
+        1            & Chinese           & 68,814                        \\
+        2            & Dutch             & 155,856                       \\
+        3            & Finnish           & 102,202                       \\
+        4            & French            & 405,088                       \\
+        5            & German            & 501,145                       \\
+        6            & Hebrew            & 172,082                       \\
+        7            & Hungarian         & 171,698                       \\
+        8            & Italian           & 624,160                       \\
+        9            & Japanese          & 270,116                       \\
+        10           & Polish            & 77,345                        \\
+        11           & Russian           & 722,837                       \\
+        12           & Spanish           & 265,253                       \\
+        13           & Turkish           & 710,279                       \\
+        14           & Ukrainian         & 214,244                       \\
+        \hline
+    \end{tabular}
+    \caption{List of chosen languages for evaluation}
+    \label{table:eval_languages}
+\end{table}
+
+Table \ref{table:eval_languages} show the 14 languages selected for this project. Languages are chosen based on its resources' availability in Tatoeba, as well as considering supported languages in most PTMs models. To build the dataset, sentences in English are first downloaded, containing 1,898,494 sentences (it is unclear why it is less than the number stated in the Tatoeba website). Then for each language, sentence pairs between English and source languages are downloaded individually and compiled. The result is a single Dataframe containing 1,323 parallel sentences in all 14 languages, this will be treated as a test set to evaluate the models performance on each language.
+
+Sentences typically consist of everyday phrases such as 'I have to go to sleep', 'That is intriguing', and 'Where do you live?'. They may also include single-word exclamations like 'Speak!' or 'Look!'. Additionally, multiple sentences such as 'You may write in any language you want. On Tatoeba, all languages are considered equal', and 'Guns don't kill people. People kill people' can be found inside the corpus. A few of them also include human names, 'Compare your answer with Tom's', 'Muiriel is 20 now'. All of the sentences are straightforward and literal, without the use of linguistic features such as metaphors or sarcasm. Therefore, machine translation process should be straightforward on this level.
+
+\begin{CJK}{UTF8}{gbsn}
+    \begin{table}[htbp]
+        \centering
+        \begin{tabular}{|l|l|l|}
+            \hline
+            \textbf{Language} & \textbf{Sentence 1}                   & \textbf{Sentence 2}                   \\
+            \hline
+            English           & I have to go to sleep.                & So what?                              \\
+            Chinese           & 我该去睡觉了。                               & 那又怎樣?                                 \\
+            Dutch             & Ik moet gaan slapen.                  & Dus?                                  \\
+            Finnish           & Minun täytyy mennä nukkumaan.         & Mitä sitten?                          \\
+            French            & Je dois aller dormir.                 & Et alors ?                            \\
+            German            & Ich muss jetzt schlafen.              & Na und?                               \\
+            Hebrew            & <hidden-due-to-latex-incompatibility> & <hidden-due-to-latex-incompatibility> \\
+            Hungarian         & Aludni kell mennem.                   & És akkor mi van?                      \\
+            Italian           & Devo andare a dormire.                & E allora?                             \\
+            Japanese          & 私は眠らなければなりませ                          & だから何？                                 \\
+            Polish            & Muszę iść spać.                       & No i co?                              \\
+            Russian           & Мне пора идти                         & Так что?                              \\
+            Spanish           & Tengo que irme a dormir.              & ¿Entonces qué?                        \\
+            Turkish           & Yatmaya gitmek zorundayım.            & Öyleyse ne yapmalı?                   \\
+            Ukrainian         & Маю піти спати.                       & Ну то що?                             \\
+            \hline
+        \end{tabular}
+        \caption{A snippet of the dataset}
+        \label{table:parallel_sentence}
+    \end{table}
+\end{CJK}
+
+Figure \ref{table:parallel_sentence} shows two examples of parallel sentences in the final dataset, across 14 languages.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\linewidth]{figures/word_count_box.png}
+    \caption{Dataset word count distribution, consisting of mostly short sentences.}
+    \label{fig:word_count_box}
+\end{figure}
+
+Figure \ref{fig:word_count_box} shows a box plot of sentences word count. It can be seen that the majority of sentences are short. Chinese and Japanese are counted per letter in this figure, which accounts for the variability seen in the Figure/
+
+Most languages cluster around 4-6 words per sentence. while Chinese cluster around 6-8 letters and Japanese cluster around 8-12 letters.
+
+\subsection{Proposed Pre-Trained Models}
+
+\subsubsection{OPUS-MT}
+
+\textbf{OPUS-MT} \cite{tiedemann-2023-democratizing,tiedemann-2020-opus-mt} provides over 1,000 pre-trained models for translation between numerous language pairs. The architecture is based on MARIAN-NMT \cite{mariannmt}, based on a standard transformer setup: 6 self-attentive layers in both the encoder and decoder networks, each with 8 attention heads per layer \cite{tiedemann-2020-opus-mt}.
+
+While OPUS-MT support both monolingual and multilingual PTMs, the multilingual models seem to lack proper documentation and therefore excluded from this experiment.
+
+\subsubsection{mBART-50}
+
+\textbf{mBART} \cite{liu-2020-mbart} is a sequence-to-sequence denoising auto-encoder model specifically designed for multilingual tasks. The mBART-50 variant supports many-to-many translations for over 50 languages.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\linewidth]{images/mbart.png}
+    \caption{mBART framework for Multilingual Denoising Pre-training (left) and fine-tuning on downstream MT tasks
+        (right) \cite{liu-2020-mbart}}
+    \label{fig:mbart}
+\end{figure}
+
+Figure \ref{fig:mbart} shows the architecture of mBART's key featuresL multilingual denoising pre-training and fine-tuning. It is shown that the model achieved consistent performance gains through pre-training in low-to-medium resource sentence level MT \cite{liu-2020-mbart}. "Denoising" here refers to a pre-training technique used to improve the model's ability to generate coherent and accurate translations by training it to reconstruct original sentences from corrupted (noisy) versions.
+
+\subsubsection{M2M-100}
+
+\textbf{M2M-100} \cite{fan-2020-m2m100} is designed to perform direct translation between 100 languages without relying on English as an intermediate language.
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\linewidth]{images/m2m.png}
+    \caption{Summary of M2M dataset and multilingual model.}
+    \label{fig:m2m}
+\end{figure}
+
+% (English-centric data (top left) includes only training data involving English, while our many-to-many multilingual setting (top right) encompasses direct translation between various languages, and our proposed M2M-100 model (bottom) integrates dense and sparse language-specific parameters for direct translation between languages.)
+
+% (Multilingual translation models factorize computation when translating to many
+% languages and share information between similar languages, which benefits low resource
+% directions (Arivazhagan et al., 2019)) \cite{arivazhagan-2019-massively-multilingual}
+
+\subsubsection{NLLB-200}
+
+\textbf{NLLB-200} \cite{nllb200-2020} is built to handle translation tasks across a broad spectrum of languages, including many that are low-resource or underrepresented in existing datasets. It supports translations for 200 languages, encompassing numerous underrepresented languages. mBART, M2M-100, and NLLB-200 were all developed by Meta AI (formerly Facebook AI), showcasing the organisation's significant impact in the machine translation field through pre-trained models (PTMs). These models represent a substantial advancement in multilingual translation capabilities.
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\linewidth]{images/nllb.png}
+    \caption{NLLB pipeline \cite{nllb200-2020}}
+    \label{fig:nllb}
+\end{figure}
+
+% (No Language Left Behind: Our low-resource translation effort focuses on four
+% cornerstones. (1) We strive to understand the low-resource translation problem from the
+% perspective of native speakers. (2) We study how to automatically create training data to
+% move low-resource languages towards high-resource. (3) We utilize this data to create
+% state-of-the-art translation models. (4) We evaluate every language we aim to translate.)
+
+\subsection{Inference Details}
+
+OPUS-MT models are taken from the Helsinki-NLP repository. For mBART, the 'mbart-large-50-many-to-many-mmt' is used, 'm2m100\_418M', and 'nllb-200-distilled-600M'. All models are taken using the transformers \cite{wolf-etal-2020-transformers} library from HuggingFace \cite{huggingface}.
+
+Batch size of 4
+
+The translation are first generated and saved into a CSV file, before calculating the metrics score.
+
 
 
 \subsection{Evaluation Metrics}
@@ -148,208 +316,7 @@ Where:
 \end{itemize}
 
 
-
-\section{Experiments}
-
-\subsection{Dataset}
-
-Tatoeba is a vast, continuously expanding database consisting sentences and their translations, built through the contributions of thousands of volunteers, offering a tool that allows users to see examples of how words are used in sentences \cite{tatoeba}. They currently have 12,132,349 sentences and 423 supported languages, with around one to two thousand new sentences added daily, on average. The English sentence dataset contains 1,905,089 sentences, the largest one in their repository, with Russian in the second place with 1,066,633 sentences. Some languages supported on the website is shown in Figure \ref{fig:tatoeba_languages} and Figure \ref{fig:tatoeba_top_bottom_languages}, sorted from the biggest corpus.
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.9\linewidth]{images/tatoeba_languages.png}
-    \caption{Tatoeba's languages repository with 10,000+ sentences and 100,000+ sentences \cite{tatoeba}}
-    \label{fig:tatoeba_languages}
-\end{figure}
-
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.5\linewidth]{images/tatoeba_top_20_lang.png}
-    \includegraphics[width=0.46\linewidth]{images/tatoeba_bottom_20_lang.png}
-    \caption{Tatoeba top 20 and bottom 20 languages based on sentences count \cite{tatoeba}}
-    \label{fig:tatoeba_top_bottom_languages}
-\end{figure}
-
-
-\begin{table}[htbp]
-    \centering
-    \begin{tabular}{|l|l|r|}
-        \hline
-        \textbf{No.} & \textbf{Language} & \textbf{Sentence Pairs Count} \\
-        \hline
-        1            & Chinese           & 68,814                        \\
-        2            & Dutch             & 155,856                       \\
-        3            & Finnish           & 102,202                       \\
-        4            & French            & 405,088                       \\
-        5            & German            & 501,145                       \\
-        6            & Hebrew            & 172,082                       \\
-        7            & Hungarian         & 171,698                       \\
-        8            & Italian           & 624,160                       \\
-        9            & Japanese          & 270,116                       \\
-        10           & Polish            & 77,345                        \\
-        11           & Russian           & 722,837                       \\
-        12           & Spanish           & 265,253                       \\
-        13           & Turkish           & 710,279                       \\
-        14           & Ukrainian         & 214,244                       \\
-        \hline
-    \end{tabular}
-    \caption{List of chosen languages for evaluation}
-    \label{table:eval_languages}
-\end{table}
-
-Table \ref{table:eval_languages} show the 14 languages selected for this project. Languages are chosen based on its resources' availability in Tatoeba, as well as considering supported languages in most PTMs models. To build the dataset, sentences in English are first downloaded, containing 1,898,494 sentences (it is unclear why it is less than the number stated in the Tatoeba website). Then for each language, sentence pairs between English and source languages are downloaded individually and compiled. The result is a single Dataframe containing 1,323 parallel sentences in all 14 languages, this will be treated as a test set to evaluate the models performance on each language.
-
-Sentences typically consist of everyday phrases such as 'I have to go to sleep', 'That is intriguing', and 'Where do you live?'. They may also include single-word exclamations like 'Speak!' or 'Look!'. Additionally, multiple sentences such as 'You may write in any language you want. On Tatoeba, all languages are considered equal', and 'Guns don't kill people. People kill people' can be found inside the corpus. A few of them also include human names, 'Compare your answer with Tom's', 'Muiriel is 20 now'. All of the sentences are straightforward and literal, without the use of linguistic devices such as metaphors or sarcasm. Therefore, machine translation process should be straightforward on this level.
-
-\begin{CJK}{UTF8}{gbsn}
-    \begin{table}[htbp]
-        \centering
-        \begin{tabular}{|l|l|l|}
-            \hline
-            \textbf{Language} & \textbf{Sentence 1}                   & \textbf{Sentence 2}                   \\
-            \hline
-            English           & I have to go to sleep.                & So what?                              \\
-            Chinese           & 我该去睡觉了。                               & 那又怎樣?                                 \\
-            Dutch             & Ik moet gaan slapen.                  & Dus?                                  \\
-            Finnish           & Minun täytyy mennä nukkumaan.         & Mitä sitten?                          \\
-            French            & Je dois aller dormir.                 & Et alors ?                            \\
-            German            & Ich muss jetzt schlafen.              & Na und?                               \\
-            Hebrew            & <hidden-due-to-latex-incompatibility> & <hidden-due-to-latex-incompatibility> \\
-            Hungarian         & Aludni kell mennem.                   & És akkor mi van?                      \\
-            Italian           & Devo andare a dormire.                & E allora?                             \\
-            Japanese          & 私は眠らなければなりませ                          & だから何？                                 \\
-            Polish            & Muszę iść spać.                       & No i co?                              \\
-            Russian           & Мне пора идти                         & Так что?                              \\
-            Spanish           & Tengo que irme a dormir.              & ¿Entonces qué?                        \\
-            Turkish           & Yatmaya gitmek zorundayım.            & Öyleyse ne yapmalı?                   \\
-            Ukrainian         & Маю піти спати.                       & Ну то що?                             \\
-            \hline
-        \end{tabular}
-        \caption{A snippet of the dataset}
-        \label{table:parallel_sentence}
-    \end{table}
-\end{CJK}
-
-Figure \ref{table:parallel_sentence} shows a few examples of parallel sentences in the final dataset.
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=1\linewidth]{figures/word_count_box.png}
-    \caption{Dataset word count distribution, consisting of mostly short sentences.}
-    \label{fig:word_count_box}
-\end{figure}
-
-Figure \ref{fig:word_count_box} shows a box plot of sentences word count. It can be seen that the majority of sentences are short.
-
-Chinese and Japanese are counted per letter.
-
-While most languages cluster around 4-6 words per sentence, there are notable exceptions like Japanese, which exhibits much less variability. This analysis can be useful for understanding language-specific characteristics in sentence structure, which could inform tasks like translation, text processing, or linguistic studies.
-
 \section{Evaluation}
-
-
-\begin{table}[htbp]
-    \centering
-    \begin{minipage}{0.49\linewidth}
-        \footnotesize
-        \begin{tabular}{|l|r|r|r|}
-            \hline
-            \textbf{Language} & \textbf{BLEU} & \textbf{SacreBLEU} & \textbf{METEOR} \\
-            \hline
-            Chinese           & 0.0975        & 43.3490            & 0.6848          \\
-            Dutch             & 0.0976        & 52.6920            & 0.7448          \\
-            Finnish           & 0.0975        & 49.9149            & 0.7145          \\
-            French            & 0.0969        & 51.4090            & 0.7288          \\
-            German            & 0.0969        & 52.7877            & 0.7423          \\
-            Hebrew            & 0.0981        & 50.3287            & 0.7198          \\
-            Italian           & 0.0975        & 53.1644            & 0.7341          \\
-            Japanese          & 0.0959        & 41.6610            & 0.6511          \\
-            Polish            & 0.0984        & 52.5151            & 0.7301          \\
-            Russian           & 0.0976        & 48.2725            & 0.7027          \\
-            Spanish           & 0.0977        & 52.9323            & 0.7371          \\
-            Turkish           & 0.0978        & 51.3009            & 0.7262          \\
-            Ukrainian         & 0.0978        & 46.5555            & 0.6890          \\
-            \hline
-        \end{tabular}
-        \caption{M2M-100}
-    \end{minipage}
-    \begin{minipage}{0.49\linewidth}
-        \footnotesize
-        \begin{tabular}{|l|r|r|r|}
-            \hline
-            \textbf{Language} & \textbf{BLEU} & \textbf{SacreBLEU} & \textbf{METEOR} \\
-            \hline
-            Chinese           & 0.0962        & 54.7322            & 0.7600          \\
-            Dutch             & 0.0970        & 63.6482            & 0.8007          \\
-            Finnish           & 0.0963        & 47.2194            & 0.7067          \\
-            French            & 0.0968        & 57.2482            & 0.7598          \\
-            German            & 0.0967        & 63.1666            & 0.8022          \\
-            Hebrew            & 0.0972        & 58.0846            & 0.7590          \\
-            Italian           & 0.0972        & 65.9415            & 0.8068          \\
-            Japanese          & 0.0943        & 43.9547            & 0.7151          \\
-            Polish            & 0.0978        & 62.7550            & 0.7923          \\
-            Russian           & 0.0974        & 58.8820            & 0.7686          \\
-            Spanish           & 0.0883        & 35.1593            & 0.7306          \\
-            Turkish           & 0.0975        & 50.9377            & 0.6982          \\
-            Ukrainian         & 0.0964        & 55.8637            & 0.7496          \\
-            \hline
-        \end{tabular}
-        \caption{mBART50}
-    \end{minipage}
-\end{table}
-
-
-\begin{table}[htbp]
-    \centering
-    \begin{minipage}{0.49\linewidth}
-        \footnotesize
-        \begin{tabular}{|l|r|r|r|}
-            \hline
-            \textbf{Language} & \textbf{BLEU} & \textbf{SacreBLEU} & \textbf{METEOR} \\
-            \hline
-            Chinese           & 0.0949        & 50.4454            & 0.7180          \\
-            Dutch             & 0.0915        & 20.8988            & 0.2899          \\
-            Finnish           & 0.0921        & 32.3926            & 0.4006          \\
-            French            & 0.0950        & 32.1389            & 0.4338          \\
-            German            & 0.0903        & 7.1436             & 0.1528          \\
-            Hebrew            & 0.0897        & 2.3455             & 0.1412          \\
-            Italian           & 0.0926        & 24.2702            & 0.3059          \\
-            Japanese          & 0.0842        & 1.9569             & 0.0919          \\
-            Polish            & 0.0937        & 38.4395            & 0.4739          \\
-            Russian           & 0.0918        & 20.6734            & 0.2977          \\
-            Spanish           & 0.0929        & 26.3313            & 0.3578          \\
-            Turkish           & 0.0945        & 45.2721            & 0.6187          \\
-            Ukrainian         & 0.0914        & 9.0340             & 0.1613          \\
-            \hline
-        \end{tabular}
-        \caption{NLLB-200}
-    \end{minipage}
-    \begin{minipage}{0.49\linewidth}
-        \footnotesize
-        \begin{tabular}{|l|r|r|r|}
-            \hline
-            \textbf{Language} & \textbf{BLEU} & \textbf{SacreBLEU} & \textbf{METEOR} \\
-            \hline
-            Chinese           & 0.0971        & 59.5098            & 0.7953          \\
-            Dutch             & 0.0974        & 69.8803            & 0.8471          \\
-            Finnish           & 0.0965        & 66.6267            & 0.8296          \\
-            French            & 0.0967        & 69.8185            & 0.8357          \\
-            German            & 0.0969        & 69.7422            & 0.8419          \\
-            Hebrew            & 0.0977        & 66.5149            & 0.8229          \\
-            Italian           & 0.0979        & 74.1298            & 0.8584          \\
-            Japanese          & 0.0960        & 63.1435            & 0.7893          \\
-            Polish            & 0.0952        & 61.9026            & 0.8425          \\
-            Russian           & 0.0974        & 66.7046            & 0.8179          \\
-            Spanish           & 0.0979        & 71.4174            & 0.8463          \\
-            Turkish           & 0.0980        & 72.6551            & 0.8460          \\
-            Ukrainian         & 0.0978        & 75.4447            & 0.8667          \\
-            \hline
-        \end{tabular}
-        \caption{OPUS-MT}
-    \end{minipage}
-\end{table}
-
 
 \begin{figure}[htbp]
     \centering
@@ -358,9 +325,188 @@ While most languages cluster around 4-6 words per sentence, there are notable ex
     \label{fig:result_visual}
 \end{figure}
 
+
 Figure \ref{fig:result_visual} shows the visualisation of all scores.
 
+OPUS-MT models outperform other models at every language on SacreBLEU and METEOR scores.
+
+mBart50 performed second best, being the best-performing multilingual models in this study.
+
+NLLB-200 performed the worse, as the model is more concerned with translations on low-resource languages.
+
+
+\begin{table}[htbp]
+    \centering
+    \begin{minipage}{0.49\linewidth}
+        \footnotesize
+        \begin{tabular}{|l|r|r|r|}
+            \hline
+            \textbf{Language} & \textbf{BLEU}   & \textbf{SacreBLEU} & \textbf{METEOR} \\
+            \hline
+            Chinese           & 0.0962          & 54.7322            & 0.7600          \\
+            Dutch             & 0.0970          & 63.6482            & 0.8007          \\
+            Finnish           & 0.0963          & 47.2194            & 0.7067          \\
+            French            & 0.0968          & 57.2482            & 0.7598          \\
+            German            & 0.0967          & 63.1666            & 0.8022          \\
+            Hebrew            & 0.0972          & 58.0846            & 0.7590          \\
+            Italian           & 0.0972          & \textbf{65.9415}   & \textbf{0.8068} \\
+            Japanese          & 0.0943          & 43.9547            & 0.7151          \\
+            Polish            & \textbf{0.0978} & 62.7550            & 0.7923          \\
+            Russian           & 0.0974          & 58.8820            & 0.7686          \\
+            Spanish           & \textit{0.0883} & \textit{35.1593}   & 0.7306          \\
+            Turkish           & 0.0975          & 50.9377            & \textit{0.6982} \\
+            Ukrainian         & 0.0964          & 55.8637            & 0.7496          \\
+            \hline
+        \end{tabular}
+        \caption{mBART50 result.}
+        \label{table:mbart_result}
+    \end{minipage}
+    \begin{minipage}{0.49\linewidth}
+        \footnotesize
+        \begin{tabular}{|l|r|r|r|}
+            \hline
+            \textbf{Language} & \textbf{BLEU}   & \textbf{SacreBLEU} & \textbf{METEOR} \\
+            \hline
+            Chinese           & 0.0975          & 43.3490            & 0.6848          \\
+            Dutch             & 0.0976          & 52.6920            & \textbf{0.7448} \\
+            Finnish           & 0.0975          & 49.9149            & 0.7145          \\
+            French            & 0.0969          & 51.4090            & 0.7288          \\
+            German            & 0.0969          & 52.7877            & 0.7423          \\
+            Hebrew            & 0.0981          & 50.3287            & 0.7198          \\
+            Italian           & 0.0975          & \textbf{53.1644}   & 0.7341          \\
+            Japanese          & \textit{0.0959} & \textit{41.6610}   & \textit{0.6511} \\
+            Polish            & \textbf{0.0984} & 52.5151            & 0.7301          \\
+            Russian           & 0.0976          & 48.2725            & 0.7027          \\
+            Spanish           & 0.0977          & 52.9323            & 0.7371          \\
+            Turkish           & 0.0978          & 51.3009            & 0.7262          \\
+            Ukrainian         & 0.0978          & 46.5555            & 0.6890          \\
+            \hline
+        \end{tabular}
+        \caption{M2M-100 result.}
+        \label{table:m2m_result}
+    \end{minipage}
+\end{table}
+
+
+\begin{table}[htbp]
+    \centering
+    \begin{minipage}{0.49\linewidth}
+        \footnotesize
+        \begin{tabular}{|l|r|r|r|}
+            \hline
+            \textbf{Language} & \textbf{BLEU}   & \textbf{SacreBLEU} & \textbf{METEOR} \\
+            \hline
+            Chinese           & \textbf{0.0949} & \textbf{50.4454}   & \textbf{0.7180} \\
+            Dutch             & 0.0915          & 20.8988            & 0.2899          \\
+            Finnish           & 0.0921          & 32.3926            & 0.4006          \\
+            French            & 0.0950          & 32.1389            & 0.4338          \\
+            German            & 0.0903          & 7.1436             & 0.1528          \\
+            Hebrew            & 0.0897          & 2.3455             & 0.1412          \\
+            Italian           & 0.0926          & 24.2702            & 0.3059          \\
+            Japanese          & \textit{0.0842} & \textit{1.9569}    & \textit{0.0919} \\
+            Polish            & 0.0937          & 38.4395            & 0.4739          \\
+            Russian           & 0.0918          & 20.6734            & 0.2977          \\
+            Spanish           & 0.0929          & 26.3313            & 0.3578          \\
+            Turkish           & 0.0945          & 45.2721            & 0.6187          \\
+            Ukrainian         & 0.0914          & 9.0340             & 0.1613          \\
+            \hline
+        \end{tabular}
+        \caption{NLLB-200 result.}
+        \label{table:nllb_result}
+    \end{minipage}
+    \begin{minipage}{0.49\linewidth}
+        \footnotesize
+        \begin{tabular}{|l|r|r|r|}
+            \hline
+            \textbf{Language} & \textbf{BLEU}   & \textbf{SacreBLEU} & \textbf{METEOR} \\
+            \hline
+            Chinese           & 0.0971          & \textit{59.5098}   & 0.7953          \\
+            Dutch             & 0.0974          & 69.8803            & 0.8471          \\
+            Finnish           & 0.0965          & 66.6267            & 0.8296          \\
+            French            & 0.0967          & 69.8185            & 0.8357          \\
+            German            & 0.0969          & 69.7422            & 0.8419          \\
+            Hebrew            & 0.0977          & 66.5149            & 0.8229          \\
+            Italian           & 0.0979          & 74.1298            & 0.8584          \\
+            Japanese          & 0.0960          & 63.1435            & \textit{0.7893} \\
+            Polish            & \textit{0.0952} & 61.9026            & 0.8425          \\
+            Russian           & 0.0974          & 66.7046            & 0.8179          \\
+            Spanish           & 0.0979          & 71.4174            & 0.8463          \\
+            Turkish           & \textbf{0.0980} & 72.6551            & 0.8460          \\
+            Ukrainian         & 0.0978          & \textbf{75.4447}   & \textbf{0.8667} \\
+            \hline
+        \end{tabular}
+        \caption{OPUS-MT result.}
+        \label{table:opus_result}
+    \end{minipage}
+\end{table}
+
+Table \ref{table:mbart_result}, \ref{table:m2m_result}, \ref{table:nllb_result}, and \ref{table:opus_result} shows the result from all four PTMs.
+
+The standard BLEU score is very low in all cases due to the sentences being short.
+
+The mBART50 model achieved best SacreBLEU and METEOR score in Italian-to-English translation, while suffers the most in Spanish-to-English (SacreBLEU) and Turkish-to-English (METEOR) translation.
+
+Simialrly, SacreBLEU for Italian-to-English translation outperforms other languages with the M2M-100 model, although Dutch beat Italian in METEOR score. Japanese received the worse score in both SacreBLEU and METEOR for this model.
+
+NLLB-200 scores way lower in both SacreBLEU and METEOR in most languages. It scores highest in Chinese-to-English translation in all metrics. However, Japanese-to-English translation suffers with a low score of 1.95 SacreBLEU and 0.09 METEOR
+
+OPUS-MT model shows best performance in all languages, the highest being Ukrainian-to-English translation with 75.44 SacreBLEU and 0.86 METEOR. The lowest scores are within Chinese-to-English translation: 59.50 SacreBLEU and Japanese-to-English: 0.78 METEOR.
+
+
+Consistency Across Models:
+Japanese translations consistently receive lower scores across all models.
+
+Dutch and Italian translations generally score higher across all metrics, suggesting that these languages are well-supported by the pre-trained models.
+
+Performance Variability:
+The NLLB-200 model shows significant variability, especially for Japanese, where the SacreBLEU and METEOR scores are extremely low. This indicates poor performance for this language pair with this particular model.
+The mBART50 model displays a wide range in SacreBLEU scores, with Spanish and Chinese having much lower scores compared to others, highlighting potential inconsistencies.
+
+Highest Performing Models:
+The OPUS-MT model consistently shows high scores across all languages, with the highest SacreBLEU and METEOR scores overall, especially for Ukrainian and Dutch.
+
+Based on the provided tables, the OPUS-MT model appears to be the most robust and reliable across different languages, with consistently high scores. Japanese translations, however, pose significant challenges for all models, as indicated by the consistently low scores across all metrics. The variability observed in NLLB-200, especially for Japanese, suggests that this model might need further tuning or additional data for certain language pairs.
+
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.49\linewidth]{figures/chinese_all_metrics.png}
+    \includegraphics[width=0.49\linewidth]{figures/dutch_all_metrics.png}
+    \includegraphics[width=0.49\linewidth]{figures/finnish_all_metrics.png}
+    \includegraphics[width=0.49\linewidth]{figures/french_all_metrics.png}
+    \includegraphics[width=0.49\linewidth]{figures/german_all_metrics.png}
+    \includegraphics[width=0.49\linewidth]{figures/hebrew_all_metrics.png}
+    \includegraphics[width=0.49\linewidth]{figures/italian_all_metrics.png}
+    \includegraphics[width=0.49\linewidth]{figures/japanese_all_metrics.png}
+    \includegraphics[width=0.49\linewidth]{figures/polish_all_metrics.png}
+    \includegraphics[width=0.49\linewidth]{figures/russian_all_metrics.png}
+    \includegraphics[width=0.49\linewidth]{figures/spanish_all_metrics.png}
+    \includegraphics[width=0.49\linewidth]{figures/turkish_all_metrics.png}
+    \includegraphics[width=0.49\linewidth]{figures/ukrainian_all_metrics.png}
+    \caption{Performance of every language.}
+    \label{fig:lang_metrics}
+\end{figure}
+
+Figure \ref{fig:lang_metrics} shows the SacreBLEU and METEOR metrics of each language.
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\linewidth]{figures/inference_timings.png}
+    \caption{Inference timings for every model.}
+    \label{fig:inference_timings}
+\end{figure}
+
+Figure \ref{fig:inference_timings} shows the time to translate for each language across experimented models.
+
+It is quite unclear why mBART50 Spanish-to-English translation suffers from significantly higher timings. Re-running the experiment shows that this timing is consistent and not an anomaly.
+
 \section{Conclusion}
+
+Specific languages model perform better than multilingual models in the said languages.
+
+Limitations, only the first translation of the same phrases are taken.
 
 % READ THIS \cite{intento-2020} (exactly what this paper should do, maybe compare results and find insights)
 

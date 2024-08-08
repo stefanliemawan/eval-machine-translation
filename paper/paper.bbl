@@ -1074,6 +1074,27 @@
     \field{year}{2024}
   \endentry
 
+  \entry{huggingface}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=FH}{%
+         family={Face},
+         familyi={F\bibinitperiod},
+         given={Hugging},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FH1}
+    \strng{fullhash}{FH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{howpublished}{\url{https://huggingface.co}}
+    \field{note}{Accessed: 2024-08-07}
+    \field{title}{Hugging Face: Natural Language Processing Made Easy}
+    \field{year}{2024}
+  \endentry
+
   \entry{fan-2020-m2m100}{misc}{}
     \name{author}{17}{}{%
       {{hash=FA}{%
@@ -1284,6 +1305,103 @@
     \verb https://api.semanticscholar.org/CorpusID:6196527
     \endverb
     \field{year}{2001}
+  \endentry
+
+  \entry{mariannmt}{inproceedings}{}
+    \name{author}{12}{}{%
+      {{hash=JDM}{%
+         family={Junczys-Dowmunt},
+         familyi={J\bibinithyphendelim D\bibinitperiod},
+         given={Marcin},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=GR}{%
+         family={Grundkiewicz},
+         familyi={G\bibinitperiod},
+         given={Roman},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=DT}{%
+         family={Dwojak},
+         familyi={D\bibinitperiod},
+         given={Tomasz},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=HH}{%
+         family={Hoang},
+         familyi={H\bibinitperiod},
+         given={Hieu},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=HK}{%
+         family={Heafield},
+         familyi={H\bibinitperiod},
+         given={Kenneth},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=NT}{%
+         family={Neckermann},
+         familyi={N\bibinitperiod},
+         given={Tom},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=SF}{%
+         family={Seide},
+         familyi={S\bibinitperiod},
+         given={Frank},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=GU}{%
+         family={Germann},
+         familyi={G\bibinitperiod},
+         given={Ulrich},
+         giveni={U\bibinitperiod},
+      }}%
+      {{hash=FAA}{%
+         family={Fikri\bibnamedelima Aji},
+         familyi={F\bibinitperiod\bibinitdelim A\bibinitperiod},
+         given={Alham},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=BN}{%
+         family={Bogoychev},
+         familyi={B\bibinitperiod},
+         given={Nikolay},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=MAFT}{%
+         family={Martins},
+         familyi={M\bibinitperiod},
+         given={Andr\'{e} F.\bibnamedelima T.},
+         giveni={A\bibinitperiod\bibinitdelim F\bibinitperiod\bibinitdelim T\bibinitperiod},
+      }}%
+      {{hash=BA}{%
+         family={Birch},
+         familyi={B\bibinitperiod},
+         given={Alexandra},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computational Linguistics}%
+    }
+    \strng{namehash}{JDM+1}
+    \strng{fullhash}{JDMGRDTHHHKNTSFGUFAABNMAFTBA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \field{booktitle}{Proceedings of ACL 2018, System Demonstrations}
+    \field{pages}{116\bibrangedash 121}
+    \field{title}{Marian: Fast Neural Machine Translation in {C++}}
+    \verb{url}
+    \verb http://www.aclweb.org/anthology/P18-4020
+    \endverb
+    \list{location}{1}{%
+      {Melbourne, Australia}%
+    }
+    \field{year}{2018}
+    \warn{\item Invalid format of field 'month'}
   \endentry
 
   \entry{koehn-2017-challenges}{misc}{}
@@ -3256,6 +3374,68 @@
     \field{year}{2024}
   \endentry
 
+  \entry{ott-2019-fairseq}{inproceedings}{}
+    \name{author}{8}{}{%
+      {{hash=OM}{%
+         family={Ott},
+         familyi={O\bibinitperiod},
+         given={Myle},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=ES}{%
+         family={Edunov},
+         familyi={E\bibinitperiod},
+         given={Sergey},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=BA}{%
+         family={Baevski},
+         familyi={B\bibinitperiod},
+         given={Alexei},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=FA}{%
+         family={Fan},
+         familyi={F\bibinitperiod},
+         given={Angela},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=GS}{%
+         family={Gross},
+         familyi={G\bibinitperiod},
+         given={Sam},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=NN}{%
+         family={Ng},
+         familyi={N\bibinitperiod},
+         given={Nathan},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=GD}{%
+         family={Grangier},
+         familyi={G\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=AM}{%
+         family={Auli},
+         familyi={A\bibinitperiod},
+         given={Michael},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{OM+1}
+    \strng{fullhash}{OMESBAFAGSNNGDAM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{O}
+    \field{sortinithash}{O}
+    \field{booktitle}{Proceedings of NAACL-HLT 2019: Demonstrations}
+    \field{title}{fairseq: A Fast, Extensible Toolkit for Sequence Modeling}
+    \field{year}{2019}
+  \endentry
+
   \entry{papieni-2002-bleu}{inproceedings}{}
     \name{author}{4}{}{%
       {{hash=PK}{%
@@ -4287,6 +4467,165 @@
     \verb 2822378
     \endverb
     \field{year}{2024}
+  \endentry
+
+  \entry{wolf-etal-2020-transformers}{inproceedings}{}
+    \name{author}{22}{}{%
+      {{hash=WT}{%
+         family={Wolf},
+         familyi={W\bibinitperiod},
+         given={Thomas},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=DL}{%
+         family={Debut},
+         familyi={D\bibinitperiod},
+         given={Lysandre},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=SV}{%
+         family={Sanh},
+         familyi={S\bibinitperiod},
+         given={Victor},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=CJ}{%
+         family={Chaumond},
+         familyi={C\bibinitperiod},
+         given={Julien},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=DC}{%
+         family={Delangue},
+         familyi={D\bibinitperiod},
+         given={Clement},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=MA}{%
+         family={Moi},
+         familyi={M\bibinitperiod},
+         given={Anthony},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=CP}{%
+         family={Cistac},
+         familyi={C\bibinitperiod},
+         given={Pierric},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=RT}{%
+         family={Rault},
+         familyi={R\bibinitperiod},
+         given={Tim},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=LR}{%
+         family={Louf},
+         familyi={L\bibinitperiod},
+         given={Rémi},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=FM}{%
+         family={Funtowicz},
+         familyi={F\bibinitperiod},
+         given={Morgan},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=DJ}{%
+         family={Davison},
+         familyi={D\bibinitperiod},
+         given={Joe},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={Shleifer},
+         familyi={S\bibinitperiod},
+         given={Sam},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=vPP}{%
+         prefix={von},
+         prefixi={v\bibinitperiod},
+         family={Platen},
+         familyi={P\bibinitperiod},
+         given={Patrick},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=MC}{%
+         family={Ma},
+         familyi={M\bibinitperiod},
+         given={Clara},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=JY}{%
+         family={Jernite},
+         familyi={J\bibinitperiod},
+         given={Yacine},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=PJ}{%
+         family={Plu},
+         familyi={P\bibinitperiod},
+         given={Julien},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=XC}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Canwen},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=STL}{%
+         family={Scao},
+         familyi={S\bibinitperiod},
+         given={Teven\bibnamedelima Le},
+         giveni={T\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=GS}{%
+         family={Gugger},
+         familyi={G\bibinitperiod},
+         given={Sylvain},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=DM}{%
+         family={Drame},
+         familyi={D\bibinitperiod},
+         given={Mariama},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=LQ}{%
+         family={Lhoest},
+         familyi={L\bibinitperiod},
+         given={Quentin},
+         giveni={Q\bibinitperiod},
+      }}%
+      {{hash=RAM}{%
+         family={Rush},
+         familyi={R\bibinitperiod},
+         given={Alexander\bibnamedelima M.},
+         giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computational Linguistics}%
+    }
+    \strng{namehash}{WT+1}
+    \strng{fullhash}{WTDLSVCJDCMACPRTLRFMDJSSPPvMCJYPJXCSTLGSDMLQRAM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{booktitle}{Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing: System Demonstrations}
+    \field{pages}{38\bibrangedash 45}
+    \field{title}{Transformers: State-of-the-Art Natural Language Processing}
+    \verb{url}
+    \verb https://www.aclweb.org/anthology/2020.emnlp-demos.6
+    \endverb
+    \list{location}{1}{%
+      {Online}%
+    }
+    \field{month}{10}
+    \field{year}{2020}
   \endentry
 
   \entry{xue-2021-mt5}{misc}{}
