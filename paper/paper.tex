@@ -55,7 +55,9 @@ One-to-One Translation refers to a translation approach where a model is specifi
 
 With the advent of large language models and pre-trained language models, multilingual machine translation has gained prominence. This approach enables many-to-many translation, where a single model can translate between multiple source and target languages \cite{aharoni-2019-massively-multilingual}.
 
-mBART \cite{liu-2020-mbart}, M2M \cite{fan-2020-m2m100}, NLLB-200 \cite{nllb200-2020}, are examples of PTMs that support many-to-many translation language. This domain seems to be dominated by META AI.
+mBART \cite{liu-2020-mbart}, M2M \cite{fan-2020-m2m100}, NLLB-200 \cite{nllb200-2020}, are examples of PTMs that support many-to-many translation language.
+
+mBART, M2M-100, and NLLB-200 were all developed by Meta AI (formerly Facebook AI), showcasing the organisation's significant impact in the machine translation field through pre-trained models (PTMs). These models represent a substantial advancement in multilingual translation capabilities.
 
 % Back translation?
 
@@ -125,9 +127,12 @@ Tatoeba is a vast, continuously expanding database consisting sentences and thei
     \label{table:eval_languages}
 \end{table}
 
-Table \ref{table:eval_languages} show the 14 languages selected for this project. Languages are chosen based on its resources' availability in Tatoeba, as well as considering supported languages in most PTMs models. To build the dataset, sentences in English are first downloaded, containing 1,898,494 sentences (it is unclear why it is less than the number stated in the Tatoeba website). Then for each language, sentence pairs between English and source languages are downloaded individually and compiled. The result is a single Dataframe containing 1,323 parallel sentences in all 14 languages, this will be treated as a test set to evaluate the models performance on each language.
+Table \ref{table:eval_languages} show the 14 languages selected for this project. Languages are chosen based on its resources' availability in Tatoeba, as well as considering supported languages in most PTMs models. Thus, the languages chosen here can be considered as moderate to high resources languages.
 
-Sentences typically consist of everyday phrases such as 'I have to go to sleep', 'That is intriguing', and 'Where do you live?'. They may also include single-word exclamations like 'Speak!' or 'Look!'. Additionally, multiple sentences such as 'You may write in any language you want. On Tatoeba, all languages are considered equal', and 'Guns don't kill people. People kill people' can be found inside the corpus. A few of them also include human names, 'Compare your answer with Tom's', 'Muiriel is 20 now'. All of the sentences are straightforward and literal, without the use of linguistic features such as metaphors or sarcasm. Therefore, machine translation process should be straightforward on this level.
+To build the dataset, sentences in English are first downloaded, containing 1,898,494 sentences (it is unclear why it is less than the number stated in the Tatoeba website). Then for each language, sentence pairs between English and source languages are downloaded individually and compiled. The result is a single Dataframe containing 1,323 parallel sentences in all 14 languages, this will be treated as a test set to evaluate the models performance on each language. Note that in the case of multiple reference translations are available for the same sentence in English, only the first sentence is taken while the rest is discarded. Therefore, there is only one reference for each candidate sentence.
+
+Sentences typically consist of everyday phrases such as 'I have to go to sleep', 'That is intriguing', and 'Where do you live?'. They may also include single-word exclamations like 'Speak!', 'So what?', or 'Look!'. Additionally, multiple sentences such as 'You may write in any language you want. On Tatoeba, all languages are considered equal', and 'Guns don't kill people. People kill people' can be found inside the corpus. A few of them also include human names, 'Compare your answer with Tom's', 'Muiriel is 20 now'. All of the sentences are straightforward and literal, without the use of linguistic features such as metaphors or sarcasm. Therefore, machine translation process should be straightforward on this level. Figure \ref{table:parallel_sentence} shows two examples of parallel sentences in the final dataset, across all 14 languages and the original English sentence.
+
 
 \begin{CJK}{UTF8}{gbsn}
     \begin{table}[htbp]
@@ -158,26 +163,21 @@ Sentences typically consist of everyday phrases such as 'I have to go to sleep',
     \end{table}
 \end{CJK}
 
-Figure \ref{table:parallel_sentence} shows two examples of parallel sentences in the final dataset, across 14 languages.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=1\linewidth]{figures/word_count_box.png}
-    \caption{Dataset word count distribution, consisting of mostly short sentences.}
+    \caption{Dataset word count distribution per language, Chinese and Japanese sentences are counted per letter.}
     \label{fig:word_count_box}
 \end{figure}
 
-Figure \ref{fig:word_count_box} shows a box plot of sentences word count. It can be seen that the majority of sentences are short. Chinese and Japanese are counted per letter in this figure, which accounts for the variability seen in the Figure/
-
-Most languages cluster around 4-6 words per sentence. while Chinese cluster around 6-8 letters and Japanese cluster around 8-12 letters.
+Figure \ref{fig:word_count_box} shows a box plot of sentences word count. The median for Dutch, Finnish, French, German, Hebrew, Italian, Polish, Russian, Spanish, Turkish, Ukrainian seems relatively low, with a moderate spread. A few to moderate count of outlier exist in all languages, suggesting occasional longer sentences, with the highest variability seen in Japanese. Note that for Chinese and Japanese the count is based on each Chinese/Japanese letter, which explains their higher interquartile range (IQR) and larger numbers of outliers.
 
 \subsection{Proposed Pre-Trained Models}
 
 \subsubsection{OPUS-MT}
 
-\textbf{OPUS-MT} \cite{tiedemann-2023-democratizing,tiedemann-2020-opus-mt} provides over 1,000 pre-trained models for translation between numerous language pairs. The architecture is based on MARIAN-NMT \cite{mariannmt}, based on a standard transformer setup: 6 self-attentive layers in both the encoder and decoder networks, each with 8 attention heads per layer \cite{tiedemann-2020-opus-mt}.
-
-While OPUS-MT support both monolingual and multilingual PTMs, the multilingual models seem to lack proper documentation and therefore excluded from this experiment.
+\textbf{OPUS-MT} \cite{tiedemann-2023-democratizing,tiedemann-2020-opus-mt} provides over 1,000 pre-trained models for translation between numerous language pairs. The architecture is based on MARIAN-NMT \cite{mariannmt}, based on a standard transformer setup: 6 self-attentive layers in both the encoder and decoder networks, each with 8 attention heads per layer \cite{tiedemann-2020-opus-mt}. While OPUS-MT support both monolingual and multilingual PTMs, the multilingual models seem to lack proper documentation and therefore excluded from this experiment.
 
 \subsubsection{mBART-50}
 
@@ -191,7 +191,7 @@ While OPUS-MT support both monolingual and multilingual PTMs, the multilingual m
     \label{fig:mbart}
 \end{figure}
 
-Figure \ref{fig:mbart} shows the architecture of mBART's key featuresL multilingual denoising pre-training and fine-tuning. It is shown that the model achieved consistent performance gains through pre-training in low-to-medium resource sentence level MT \cite{liu-2020-mbart}. "Denoising" here refers to a pre-training technique used to improve the model's ability to generate coherent and accurate translations by training it to reconstruct original sentences from corrupted (noisy) versions.
+Figure \ref{fig:mbart} shows the architecture of mBART's key features multilingual denoising pre-training and fine-tuning. It is shown that the model achieved consistent performance gains through pre-training in low-to-medium resource sentence level MT \cite{liu-2020-mbart}. The "denoising" here refers to a pre-training technique used to improve the model's ability to generate coherent and accurate translations by training it to reconstruct original sentences from corrupted (noisy) versions.
 
 \subsubsection{M2M-100}
 
@@ -205,46 +205,36 @@ Figure \ref{fig:mbart} shows the architecture of mBART's key featuresL multiling
     \label{fig:m2m}
 \end{figure}
 
-% (English-centric data (top left) includes only training data involving English, while our many-to-many multilingual setting (top right) encompasses direct translation between various languages, and our proposed M2M-100 model (bottom) integrates dense and sparse language-specific parameters for direct translation between languages.)
-
-% (Multilingual translation models factorize computation when translating to many
-% languages and share information between similar languages, which benefits low resource
-% directions (Arivazhagan et al., 2019)) \cite{arivazhagan-2019-massively-multilingual}
+Figure \ref{fig:m2m} show the inner working of the M2M model. The English-centric dataset (top left) includes training data exclusively involving translations to and from English, while the many-to-many multilingual setting (top right) involves direct translation data among multiple language pairs \cite{fan-2020-m2m100}. The M2M-100 model then integrates dense and sparse language-specific parameters to enable direct translation between languages (bottom part of Figure \ref{fig:m2m}).
 
 \subsubsection{NLLB-200}
 
-\textbf{NLLB-200} \cite{nllb200-2020} is built to handle translation tasks across a broad spectrum of languages, including many that are low-resource or underrepresented in existing datasets. It supports translations for 200 languages, encompassing numerous underrepresented languages. mBART, M2M-100, and NLLB-200 were all developed by Meta AI (formerly Facebook AI), showcasing the organisation's significant impact in the machine translation field through pre-trained models (PTMs). These models represent a substantial advancement in multilingual translation capabilities.
+\textbf{NLLB-200} \cite{nllb200-2020} is built to handle translation tasks across a broad spectrum of languages, including many that are low-resource or underrepresented in existing datasets. It supports translations for 200 languages, including numerous underrepresented languages, and is currently one of the most extensive multilingual machine translation models. The model employs a Mixture of Experts (MoE) architecture and achieves state-of-the-art (SoTA) results across many language pairs, even surpassing Meta's previous model, M2M-100 \cite{nllb200-2020}.
 
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.9\linewidth]{images/nllb.png}
+    \includegraphics[width=0.7\linewidth]{images/nllb.png}
     \caption{NLLB pipeline \cite{nllb200-2020}}
     \label{fig:nllb}
 \end{figure}
 
-% (No Language Left Behind: Our low-resource translation effort focuses on four
-% cornerstones. (1) We strive to understand the low-resource translation problem from the
-% perspective of native speakers. (2) We study how to automatically create training data to
-% move low-resource languages towards high-resource. (3) We utilize this data to create
-% state-of-the-art translation models. (4) We evaluate every language we aim to translate.)
+Figure \ref{fig:nllb} shows the Dense Transformer and MoE Transformer layers implemented within the model. MoE \cite{masoudnia-2012-moe} utilises a gating mechanism to route different inputs to different subsets of experts (sub-networks), allowing the model to handle various linguistic phenomena efficiently. Additionally, the model is then trained on a diverse set of languages, complemented with back-translation and data augmentation to generate additional data for low-resource languages \cite{nllb200-2020}.
+
+% The original paper is 192 pages long and impossible to be dissected in just one section.
+
 
 \subsection{Inference Details}
 
-OPUS-MT models are taken from the Helsinki-NLP repository. For mBART, the 'mbart-large-50-many-to-many-mmt' is used, 'm2m100\_418M', and 'nllb-200-distilled-600M'. All models are taken using the transformers \cite{wolf-etal-2020-transformers} library from HuggingFace \cite{huggingface}.
-
-Batch size of 4
-
-The translation are first generated and saved into a CSV file, before calculating the metrics score.
-
+OPUS-MT models are taken from the Helsinki-NLP repository. The 'mbart-large-50-many-to-many-mmt' is used, 'm2m100\_418M', and 'nllb-200-distilled-600M'. All models are taken using the transformers \cite{wolf-etal-2020-transformers} library from Hugging Face \cite{huggingface}. Batch size of 4 is used in all models. Translations are first generated and saved into CSV files, before calculating the metrics score.
 
 
 \subsection{Evaluation Metrics}
 
-Other metrics for machine translation exist, but not used nearly as widely as BLEU. Crosslingual Optimized Metric for Evaluation of Translation (COMET) \cite{rei-2020-comet} is a recent metric that leverages neural-network-based models for deeper understanding and evaluation. BERTScore.
 
-In this project, a variant of BLEU called SacreBLEU and METEOR will be used due to their simplicity.
+In this project, a variant of BLEU \cite{papieni-2002-bleu} called SacreBLEU \cite{post-2018-sacrebleu} and METEOR \cite{lavie-2007-meteor} will be used in this experiment due to their popularity, simplicity, and ease-of-use.
 
+While other metrics such as Crosslingual Optimized Metric for Evaluation of Translation (COMET) \cite{rei-2020-comet} and BERTSCore \cite{zhang-2020-bertscore} exist, they involve using a deep neural network or a transformer to evaluate, which naturally increase computational cost and slow down calculation greatly.
 
 \subsubsection{BLEU}
 
@@ -295,7 +285,7 @@ Where:
 
 The machine translation community's rely heavily BLEU score, however, it has several drawbacks. The metric has been reported to not correlate strongly with human judgement, showing variations in translation that could mean that a higher BLEU score does not necessarily indicate a true enhancement in translation quality \cite{callison-burch-2006-reevaluating-bleu}.
 
-Furthermore, It is challenging to directly compare BLEU scores between paper \cite{post-2018-clarity-bleu}. Thus, the author proposed a variation called SacreBLEU \cite{post-2018-clarity-bleu}, which claimed to facilitate easy computation of BLEU scores that are shareable, comparable, and reproducible. This is done by including preprocessing steps and normalisation routines.
+Furthermore, It is challenging to directly compare BLEU scores between paper \cite{post-2018-sacrebleu}. Thus, the author proposed a variation called SacreBLEU \cite{post-2018-sacrebleu}, which claimed to facilitate easy computation of BLEU scores that are shareable, comparable, and reproducible. This is done by including preprocessing steps and normalisation routines.
 
 
 \subsubsection{METEOR}
@@ -318,102 +308,9 @@ Where:
 
 \section{Evaluation}
 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=1\linewidth]{figures/metrics_bar.png}
-    \caption{BLEU, SacreBLEU, and METEOR scores of each model on each language.}
-    \label{fig:result_visual}
-\end{figure}
-
-
-Figure \ref{fig:result_visual} shows the visualisation of all scores.
-
-OPUS-MT models outperform other models at every language on SacreBLEU and METEOR scores.
-
-mBart50 performed second best, being the best-performing multilingual models in this study.
-
-NLLB-200 performed the worse, as the model is more concerned with translations on low-resource languages.
-
 
 \begin{table}[htbp]
     \centering
-    \begin{minipage}{0.49\linewidth}
-        \footnotesize
-        \begin{tabular}{|l|r|r|r|}
-            \hline
-            \textbf{Language} & \textbf{BLEU}   & \textbf{SacreBLEU} & \textbf{METEOR} \\
-            \hline
-            Chinese           & 0.0962          & 54.7322            & 0.7600          \\
-            Dutch             & 0.0970          & 63.6482            & 0.8007          \\
-            Finnish           & 0.0963          & 47.2194            & 0.7067          \\
-            French            & 0.0968          & 57.2482            & 0.7598          \\
-            German            & 0.0967          & 63.1666            & 0.8022          \\
-            Hebrew            & 0.0972          & 58.0846            & 0.7590          \\
-            Italian           & 0.0972          & \textbf{65.9415}   & \textbf{0.8068} \\
-            Japanese          & 0.0943          & 43.9547            & 0.7151          \\
-            Polish            & \textbf{0.0978} & 62.7550            & 0.7923          \\
-            Russian           & 0.0974          & 58.8820            & 0.7686          \\
-            Spanish           & \textit{0.0883} & \textit{35.1593}   & 0.7306          \\
-            Turkish           & 0.0975          & 50.9377            & \textit{0.6982} \\
-            Ukrainian         & 0.0964          & 55.8637            & 0.7496          \\
-            \hline
-        \end{tabular}
-        \caption{mBART50 result.}
-        \label{table:mbart_result}
-    \end{minipage}
-    \begin{minipage}{0.49\linewidth}
-        \footnotesize
-        \begin{tabular}{|l|r|r|r|}
-            \hline
-            \textbf{Language} & \textbf{BLEU}   & \textbf{SacreBLEU} & \textbf{METEOR} \\
-            \hline
-            Chinese           & 0.0975          & 43.3490            & 0.6848          \\
-            Dutch             & 0.0976          & 52.6920            & \textbf{0.7448} \\
-            Finnish           & 0.0975          & 49.9149            & 0.7145          \\
-            French            & 0.0969          & 51.4090            & 0.7288          \\
-            German            & 0.0969          & 52.7877            & 0.7423          \\
-            Hebrew            & 0.0981          & 50.3287            & 0.7198          \\
-            Italian           & 0.0975          & \textbf{53.1644}   & 0.7341          \\
-            Japanese          & \textit{0.0959} & \textit{41.6610}   & \textit{0.6511} \\
-            Polish            & \textbf{0.0984} & 52.5151            & 0.7301          \\
-            Russian           & 0.0976          & 48.2725            & 0.7027          \\
-            Spanish           & 0.0977          & 52.9323            & 0.7371          \\
-            Turkish           & 0.0978          & 51.3009            & 0.7262          \\
-            Ukrainian         & 0.0978          & 46.5555            & 0.6890          \\
-            \hline
-        \end{tabular}
-        \caption{M2M-100 result.}
-        \label{table:m2m_result}
-    \end{minipage}
-\end{table}
-
-
-\begin{table}[htbp]
-    \centering
-    \begin{minipage}{0.49\linewidth}
-        \footnotesize
-        \begin{tabular}{|l|r|r|r|}
-            \hline
-            \textbf{Language} & \textbf{BLEU}   & \textbf{SacreBLEU} & \textbf{METEOR} \\
-            \hline
-            Chinese           & \textbf{0.0949} & \textbf{50.4454}   & \textbf{0.7180} \\
-            Dutch             & 0.0915          & 20.8988            & 0.2899          \\
-            Finnish           & 0.0921          & 32.3926            & 0.4006          \\
-            French            & 0.0950          & 32.1389            & 0.4338          \\
-            German            & 0.0903          & 7.1436             & 0.1528          \\
-            Hebrew            & 0.0897          & 2.3455             & 0.1412          \\
-            Italian           & 0.0926          & 24.2702            & 0.3059          \\
-            Japanese          & \textit{0.0842} & \textit{1.9569}    & \textit{0.0919} \\
-            Polish            & 0.0937          & 38.4395            & 0.4739          \\
-            Russian           & 0.0918          & 20.6734            & 0.2977          \\
-            Spanish           & 0.0929          & 26.3313            & 0.3578          \\
-            Turkish           & 0.0945          & 45.2721            & 0.6187          \\
-            Ukrainian         & 0.0914          & 9.0340             & 0.1613          \\
-            \hline
-        \end{tabular}
-        \caption{NLLB-200 result.}
-        \label{table:nllb_result}
-    \end{minipage}
     \begin{minipage}{0.49\linewidth}
         \footnotesize
         \begin{tabular}{|l|r|r|r|}
@@ -438,35 +335,101 @@ NLLB-200 performed the worse, as the model is more concerned with translations o
         \caption{OPUS-MT result.}
         \label{table:opus_result}
     \end{minipage}
+    \begin{minipage}{0.49\linewidth}
+        \footnotesize
+        \begin{tabular}{|l|r|r|r|}
+            \hline
+            \textbf{Language} & \textbf{BLEU}   & \textbf{SacreBLEU} & \textbf{METEOR} \\
+            \hline
+            Chinese           & 0.0962          & 54.7322            & 0.7600          \\
+            Dutch             & 0.0970          & 63.6482            & 0.8007          \\
+            Finnish           & 0.0963          & 47.2194            & 0.7067          \\
+            French            & 0.0968          & 57.2482            & 0.7598          \\
+            German            & 0.0967          & 63.1666            & 0.8022          \\
+            Hebrew            & 0.0972          & 58.0846            & 0.7590          \\
+            Italian           & 0.0972          & \textbf{65.9415}   & \textbf{0.8068} \\
+            Japanese          & 0.0943          & 43.9547            & 0.7151          \\
+            Polish            & \textbf{0.0978} & 62.7550            & 0.7923          \\
+            Russian           & 0.0974          & 58.8820            & 0.7686          \\
+            Spanish           & \textit{0.0883} & \textit{35.1593}   & 0.7306          \\
+            Turkish           & 0.0975          & 50.9377            & \textit{0.6982} \\
+            Ukrainian         & 0.0964          & 55.8637            & 0.7496          \\
+            \hline
+        \end{tabular}
+        \caption{mBART50 result.}
+        \label{table:mbart_result}
+    \end{minipage}
 \end{table}
 
-Table \ref{table:mbart_result}, \ref{table:m2m_result}, \ref{table:nllb_result}, and \ref{table:opus_result} shows the result from all four PTMs.
+\begin{table}[htbp]
+    \centering
+    \begin{minipage}{0.49\linewidth}
+        \footnotesize
+        \begin{tabular}{|l|r|r|r|}
+            \hline
+            \textbf{Language} & \textbf{BLEU}   & \textbf{SacreBLEU} & \textbf{METEOR} \\
+            \hline
+            Chinese           & 0.0975          & 43.3490            & 0.6848          \\
+            Dutch             & 0.0976          & 52.6920            & \textbf{0.7448} \\
+            Finnish           & 0.0975          & 49.9149            & 0.7145          \\
+            French            & 0.0969          & 51.4090            & 0.7288          \\
+            German            & 0.0969          & 52.7877            & 0.7423          \\
+            Hebrew            & 0.0981          & 50.3287            & 0.7198          \\
+            Italian           & 0.0975          & \textbf{53.1644}   & 0.7341          \\
+            Japanese          & \textit{0.0959} & \textit{41.6610}   & \textit{0.6511} \\
+            Polish            & \textbf{0.0984} & 52.5151            & 0.7301          \\
+            Russian           & 0.0976          & 48.2725            & 0.7027          \\
+            Spanish           & 0.0977          & 52.9323            & 0.7371          \\
+            Turkish           & 0.0978          & 51.3009            & 0.7262          \\
+            Ukrainian         & 0.0978          & 46.5555            & 0.6890          \\
+            \hline
+        \end{tabular}
+        \caption{M2M-100 result.}
+        \label{table:m2m_result}
+    \end{minipage}
+    \begin{minipage}{0.49\linewidth}
+        \footnotesize
+        \begin{tabular}{|l|r|r|r|}
+            \hline
+            \textbf{Language} & \textbf{BLEU}   & \textbf{SacreBLEU} & \textbf{METEOR} \\
+            \hline
+            Chinese           & \textbf{0.0949} & \textbf{50.4454}   & \textbf{0.7180} \\
+            Dutch             & 0.0915          & 20.8988            & 0.2899          \\
+            Finnish           & 0.0921          & 32.3926            & 0.4006          \\
+            French            & 0.0950          & 32.1389            & 0.4338          \\
+            German            & 0.0903          & 7.1436             & 0.1528          \\
+            Hebrew            & 0.0897          & 2.3455             & 0.1412          \\
+            Italian           & 0.0926          & 24.2702            & 0.3059          \\
+            Japanese          & \textit{0.0842} & \textit{1.9569}    & \textit{0.0919} \\
+            Polish            & 0.0937          & 38.4395            & 0.4739          \\
+            Russian           & 0.0918          & 20.6734            & 0.2977          \\
+            Spanish           & 0.0929          & 26.3313            & 0.3578          \\
+            Turkish           & 0.0945          & 45.2721            & 0.6187          \\
+            Ukrainian         & 0.0914          & 9.0340             & 0.1613          \\
+            \hline
+        \end{tabular}
+        \caption{NLLB-200 result.}
+        \label{table:nllb_result}
+    \end{minipage}
+\end{table}
 
-The standard BLEU score is very low in all cases due to the sentences being short.
+Table \ref{table:mbart_result}, \ref{table:m2m_result}, \ref{table:nllb_result}, and \ref{table:opus_result} shows the result from all four PTMs. The BLEU score is very low in all cases due to the sentences being short (find cite). The mBART-50 model achieved best SacreBLEU and METEOR score in Italian-to-English translation, while suffers the most in Spanish-to-English (SacreBLEU) and Turkish-to-English (METEOR) translation. In addition, it slightly outperforms OPUS-MT in Polish-to-English translation on SacreBLEU score. Similarly, SacreBLEU for Italian-to-English translation outperforms other languages with the M2M-100 model, although Dutch beat Italian in METEOR score. Japanese received the worse score in both SacreBLEU and METEOR for this model. NLLB-200 scores much lower in both SacreBLEU and METEOR in most languages. It scores highest in Chinese-to-English translation in all metrics. However, Japanese-to-English translation suffers with a low score of 1.95 SacreBLEU and 0.09 METEOR. OPUS-MT model shows best performance in all languages, the highest being Ukrainian-to-English translation with 75.44 SacreBLEU and 0.86 METEOR. The lowest scores are within Chinese-to-English translation: 59.50 SacreBLEU and Japanese-to-English: 0.78 METEOR.
 
-The mBART50 model achieved best SacreBLEU and METEOR score in Italian-to-English translation, while suffers the most in Spanish-to-English (SacreBLEU) and Turkish-to-English (METEOR) translation.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\linewidth]{figures/metrics_bar.png}
+    \caption{BLEU, SacreBLEU, and METEOR scores of each model on each language.}
+    \label{fig:result_visual}
+\end{figure}
 
-Simialrly, SacreBLEU for Italian-to-English translation outperforms other languages with the M2M-100 model, although Dutch beat Italian in METEOR score. Japanese received the worse score in both SacreBLEU and METEOR for this model.
+Figure \ref{fig:result_visual} shows the visualisation of all scores.
 
-NLLB-200 scores way lower in both SacreBLEU and METEOR in most languages. It scores highest in Chinese-to-English translation in all metrics. However, Japanese-to-English translation suffers with a low score of 1.95 SacreBLEU and 0.09 METEOR
+All models perform similarly on BLEU score across all languages, with NLLB-200 suffering a bit more on Japanese translation. The OPUS-MT model consistently shows high scores across all languages, with the highest SacreBLEU and METEOR scores overall, especially for Ukrainian and Italian.
 
-OPUS-MT model shows best performance in all languages, the highest being Ukrainian-to-English translation with 75.44 SacreBLEU and 0.86 METEOR. The lowest scores are within Chinese-to-English translation: 59.50 SacreBLEU and Japanese-to-English: 0.78 METEOR.
+The OPUS-MT model Generally performs consistently across most languages but slightly lower compared to other models in a few cases.
+The mBART-50 model achieved the best-performing multilingual model, showing competitive performance, often achieving the second-highest scores across several languages. M2M-100 performs worse in SacreBLEU compared to mBART-50, but comparably similar in METEOR scores. The NLLB-200 model shows significant variability, especially for Japanese, where the SacreBLEU and METEOR scores are extremely low. 
 
-
-Consistency Across Models:
-Japanese translations consistently receive lower scores across all models.
-
-Dutch and Italian translations generally score higher across all metrics, suggesting that these languages are well-supported by the pre-trained models.
-
-Performance Variability:
-The NLLB-200 model shows significant variability, especially for Japanese, where the SacreBLEU and METEOR scores are extremely low. This indicates poor performance for this language pair with this particular model.
-The mBART50 model displays a wide range in SacreBLEU scores, with Spanish and Chinese having much lower scores compared to others, highlighting potential inconsistencies.
-
-Highest Performing Models:
-The OPUS-MT model consistently shows high scores across all languages, with the highest SacreBLEU and METEOR scores overall, especially for Ukrainian and Dutch.
-
-Based on the provided tables, the OPUS-MT model appears to be the most robust and reliable across different languages, with consistently high scores. Japanese translations, however, pose significant challenges for all models, as indicated by the consistently low scores across all metrics. The variability observed in NLLB-200, especially for Japanese, suggests that this model might need further tuning or additional data for certain language pairs.
-
+Dutch and Italian translations generally score higher across all metrics, suggesting that these languages are well-supported by the pre-trained models, while Japanese translations consistently receive lower scores across all models. 
 
 
 \begin{figure}[htbp]
@@ -488,8 +451,7 @@ Based on the provided tables, the OPUS-MT model appears to be the most robust an
     \label{fig:lang_metrics}
 \end{figure}
 
-Figure \ref{fig:lang_metrics} shows the SacreBLEU and METEOR metrics of each language.
-
+Figure \ref{fig:lang_metrics} shows the SacreBLEU and METEOR score of each language by models. The OPUS-MT and mBART-50 models are the clear winners in almost all languages. Although M2M-100 performs competitively to mBART-50 in most languages and beating mBART-50 in Spanish-to-English translation. Again, NLLB-200 performs the weakest, with extremely low scores on German, Hebrew, and Japanese.
 
 \begin{figure}[htbp]
     \centering
@@ -498,9 +460,7 @@ Figure \ref{fig:lang_metrics} shows the SacreBLEU and METEOR metrics of each lan
     \label{fig:inference_timings}
 \end{figure}
 
-Figure \ref{fig:inference_timings} shows the time to translate for each language across experimented models.
-
-It is quite unclear why mBART50 Spanish-to-English translation suffers from significantly higher timings. Re-running the experiment shows that this timing is consistent and not an anomaly.
+Figure \ref{fig:inference_timings} shows the time taken to translate for each language across experimented models. The OPUS-MT model is the fastest among the other three multilingual models, which perform similarly in timings. It is quite unclear why mBART50 Spanish-to-English translation suffers from a significantly higher timing. Re-running the experiment shows that this timing is consistent and not an anomaly.
 
 \section{Conclusion}
 
@@ -508,7 +468,13 @@ Specific languages model perform better than multilingual models in the said lan
 
 Limitations, only the first translation of the same phrases are taken.
 
-% READ THIS \cite{intento-2020} (exactly what this paper should do, maybe compare results and find insights)
+We show that one-to-one PTMs outperform multilingual PTMs on sentence translation.
+
+mBART50 performed better than both M2M-100 and NLLB-200 in these 14 languages.
+
+
+the OPUS-MT model appears to be the most robust and reliable across different languages, with consistently high scores. Japanese translations, however, pose significant challenges for all models, as indicated by the consistently low scores across all metrics. The variability observed in NLLB-200, especially for Japanese, suggests that this model might need further tuning or additional data for certain language pairs.
+
 
 \printbibliography
 \end{document}

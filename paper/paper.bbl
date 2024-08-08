@@ -1628,6 +1628,47 @@
     \field{year}{2008}
   \endentry
 
+  \entry{masoudnia-2012-moe}{article}{}
+    \name{author}{2}{}{%
+      {{hash=MS}{%
+         family={Masoudnia},
+         familyi={M\bibinitperiod},
+         given={Saeed},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=ER}{%
+         family={Ebrahimpour},
+         familyi={E\bibinitperiod},
+         given={Reza},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Springer Science}%
+      {Business Media LLC}%
+    }
+    \strng{namehash}{MSER1}
+    \strng{fullhash}{MSER1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \verb{doi}
+    \verb 10.1007/s10462-012-9338-y
+    \endverb
+    \field{issn}{1573-7462}
+    \field{number}{2}
+    \field{pages}{275–293}
+    \field{title}{Mixture of experts: a literature survey}
+    \verb{url}
+    \verb http://dx.doi.org/10.1007/s10462-012-9338-y
+    \endverb
+    \field{volume}{42}
+    \field{journaltitle}{Artificial Intelligence Review}
+    \field{month}{05}
+    \field{year}{2012}
+  \endentry
+
   \entry{okpor-2014-machine-ta}{inproceedings}{}
     \name{author}{1}{}{%
       {{hash=OMD}{%
@@ -3488,7 +3529,7 @@
     \field{year}{2002}
   \endentry
 
-  \entry{post-2018-clarity-bleu}{misc}{}
+  \entry{post-2018-sacrebleu}{misc}{}
     \name{author}{1}{}{%
       {{hash=PM}{%
          family={Post},
@@ -4739,6 +4780,57 @@
     \field{booktitle}{HLT-NAACL}
     \field{title}{When and Why are pre-trained word embeddings useful for Neural Machine Translation}
     \field{year}{2018}
+  \endentry
+
+  \entry{zhang-2020-bertscore}{misc}{}
+    \name{author}{5}{}{%
+      {{hash=ZT}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Tianyi},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=KV}{%
+         family={Kishore},
+         familyi={K\bibinitperiod},
+         given={Varsha},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=WF}{%
+         family={Wu},
+         familyi={W\bibinitperiod},
+         given={Felix},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=WKQ}{%
+         family={Weinberger},
+         familyi={W\bibinitperiod},
+         given={Kilian\bibnamedelima Q.},
+         giveni={K\bibinitperiod\bibinitdelim Q\bibinitperiod},
+      }}%
+      {{hash=AY}{%
+         family={Artzi},
+         familyi={A\bibinitperiod},
+         given={Yoav},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ZT+1}
+    \strng{fullhash}{ZTKVWFWKQAY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{Z}
+    \field{sortinithash}{Z}
+    \verb{eprint}
+    \verb 1904.09675
+    \endverb
+    \field{title}{BERTScore: Evaluating Text Generation with BERT}
+    \verb{url}
+    \verb https://arxiv.org/abs/1904.09675
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CL}
+    \field{year}{2020}
   \endentry
 \enddatalist
 \endinput
