@@ -2,7 +2,7 @@
 
 % Packages
 \usepackage{graphicx}
-\usepackage[margin=1in]{geometry}
+\usepackage[margin=1.2in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[backend=bibtex]{biblatex}
@@ -25,7 +25,7 @@
 
 
 \begin{abstract}
-    Machine translation (MT) has become an essential tool for overcoming language barriers in an increasingly globalised world. Today, there are pre-trained models (PTMs) specifically designed for automatic machine translation. This paper evaluates the performance of various pre-trained models (PTMs) for many-to-English translation. The models assessed include OPUS-MT \cite{tiedemann-2020-opus-mt}, mBART-50 \cite{liu-2020-mbart}, NLLB-200 \cite{nllb200-2020}, and M2M-100 \cite{fan-2020-m2m100}. Using a dataset curated from the Tatoeba repository, comprising 1,323 parallel sentence pairs across 14 source languages, translation quality is measured using BLEU, SacreBLEU, and METEOR scores. The results indicate that OPUS-MT, a one-to-one PTM, outperforms multilingual models in one-to-English translation tasks, with mBART-50 leading among the multilingual PTMs. These findings highlight the strengths and limitations of both specific language and multilingual PTMs in machine translation.
+    Machine translation (MT) has become an essential tool for overcoming language barriers in an increasingly globalised world. Today, there are pre-trained models (PTMs) specifically designed for automatic machine translation. This paper evaluates the performance of various pre-trained models (PTMs) for many-to-English translation. The models assessed include OPUS-MT \cite{tiedemann-2020-opus-mt}, mBART-50 \cite{liu-2020-mbart}, NLLB-200 \cite{nllb200-2020}, and M2M-100 \cite{fan-2020-m2m100}. Using a dataset curated from the Tatoeba repository, comprising 1,323 parallel sentence pairs across 14 source languages, translation quality is measured using BLEU, SacreBLEU, and METEOR scores. The results indicate that OPUS-MT, a one-to-one PTM, outperforms multilingual models in one-to-English translation tasks, with mBART-50 leading among the multilingual PTMs. These findings highlight the strengths and limitations of both specific language and multilingual PTMs in machine translation. (Findings)
 \end{abstract}
 
 \section{Introduction}
@@ -40,7 +40,7 @@ Despite these advancements, pre-trained models are often evaluated using differe
 
 Through simple experimentations, this paper aims to evaluate the performance of existing pre-trained models (PTMs) on many-to-English translation across 14 source languages. Although fine-tuning multilingual PTMs has been proven to increase model performance \cite{cooper-stickland-2021-recipes}, no pre-training or fine-tuning is performed in this study for simplicity reasons. A dataset is curated from the Tatoeba repository \cite{tatoeba}, containing 1,323 parallel sentence pairs across source and target languages. The models include a one-to-one PTMs: OPUS-MT \cite{tiedemann-2023-democratizing,tiedemann-2020-opus-mt}, and multilingual PTMs: such as mBART-50 \cite{liu-2020-mbart}, NLLB-200 \cite{nllb200-2020}, and M2M-100 \cite{fan-2020-m2m100}. The performance of these models is evaluated using the BLEU \cite{papieni-2002-bleu}, SacreBLEU \cite{post-2018-sacrebleu}, and METEOR \cite{lavie-2007-meteor}.
 
-The result indicates that OPUS-MT outperforms all other multilingual models in one-to-English translation, highlighting the superiority of specific languages PTMs compared to multilingual PTMs. mBART-50 shows the best performance among other multilingual PTMs: M2M-100 and NLLB-200.
+The result indicates that OPUS-MT outperforms all other multilingual models in one-to-English translation, highlighting the superiority of specific languages PTMs compared to multilingual PTMs. mBART-50 shows the best performance among other multilingual PTMs: M2M-100 and NLLB-200. (More findings here)
 
 \section{Literature Review}
 
@@ -278,7 +278,7 @@ All codes are written in Python 3.12.2, run locally on MacOS Sonoma 14.4.1 with 
 \begin{table}[htbp]
     \centering
     \begin{minipage}{0.49\linewidth}
-        \footnotesize
+        \scriptsize
         \begin{tabular}{|l|r|r|r|}
             \hline
             \textbf{Language} & \textbf{BLEU}   & \textbf{SacreBLEU} & \textbf{METEOR} \\
@@ -302,7 +302,7 @@ All codes are written in Python 3.12.2, run locally on MacOS Sonoma 14.4.1 with 
         \label{table:opus_result}
     \end{minipage}
     \begin{minipage}{0.49\linewidth}
-        \footnotesize
+        \scriptsize
         \begin{tabular}{|l|r|r|r|}
             \hline
             \textbf{Language} & \textbf{BLEU}   & \textbf{SacreBLEU} & \textbf{METEOR} \\
@@ -330,7 +330,7 @@ All codes are written in Python 3.12.2, run locally on MacOS Sonoma 14.4.1 with 
 \begin{table}[htbp]
     \centering
     \begin{minipage}{0.49\linewidth}
-        \footnotesize
+        \scriptsize
         \begin{tabular}{|l|r|r|r|}
             \hline
             \textbf{Language} & \textbf{BLEU}   & \textbf{SacreBLEU} & \textbf{METEOR} \\
@@ -354,7 +354,7 @@ All codes are written in Python 3.12.2, run locally on MacOS Sonoma 14.4.1 with 
         \label{table:m2m_result}
     \end{minipage}
     \begin{minipage}{0.49\linewidth}
-        \footnotesize
+        \scriptsize
         \begin{tabular}{|l|r|r|r|}
             \hline
             \textbf{Language} & \textbf{BLEU}   & \textbf{SacreBLEU} & \textbf{METEOR} \\
