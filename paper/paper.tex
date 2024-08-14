@@ -36,7 +36,7 @@ Machine translation (MT) is the task of automatically translating from one langu
 
 Since the introduction of Transformers in 2017 \cite{vaswani-2017-attention}, Natural Language Processing (NLP) and machine translation in particular reached a giant milestone. The following years saw the birth of Large Language Models (LLMs) such as BERT \cite{devlin-2019-bert}, GPT \cite{openai-2024-gpt4}, and T5 \cite{raffel-2023-t5}, which revolutionised both MT and the whole field of NLP. Then in early 2020s, several pre-trained models (PTM) that are specifically designed for machine translation emerged, OPUS-MT \cite{tiedemann-2020-opus-mt} produced numerous PTMs designed for one-to-one translations. Additionally, multilingual models: mBART-50 \cite{liu-2020-mbart}, NLLB-200 \cite{nllb200-2020}, and M2M-100 \cite{fan-2020-m2m100} have also been published, growing popularity as multilinguality has been shown to allow for sharing information among languages \cite{garcia-2020-multilingual}. Most of these models are trained on diverse set of languages, allowing for many-to-many translation: able to translate between any of the supported pair of languages. This allows the models to generalise over shared lexical and linguistic among languages, and have been shown to increase performance compared to one-to-one translation models \cite{liu-2020-mbart}.
 
-Despite these advancements, pre-trained models are often evaluated using different set of benchmarks \cite{liu-2020-mbart,nllb200-2020,fan-2020-m2m100,wei-2023-polylm}, making it difficult to gauge their relative effectiveness across various languages. Nevertheless, there does not seem to be much work on comparing or benchmarking different pre-trained models in machine translation. Intento published 'The State of Machine Translation 2024' \cite{intento-2020} providing an in-depth evaluation of popular MT engines and LLMs. However, the biggest drawback in this report is that the selected LLMs are general LLMs such as GPT, LLaMa, Mistral, instead of MT-specific LLMs.
+Despite these advancements, pre-trained models are often evaluated using different set of languages and benchmarks \cite{liu-2020-mbart,nllb200-2020,fan-2020-m2m100,wei-2023-polylm}, making it difficult to gauge their relative effectiveness across various languages. Nevertheless, there does not seem to be much work on comparing or benchmarking different pre-trained models in machine translation. Intento published 'The State of Machine Translation 2024' \cite{intento-2020} providing an in-depth evaluation of popular MT engines and LLMs. However, the biggest drawback in this report is that the selected LLMs are general LLMs such as GPT, LLaMa, Mistral, instead of MT-specific LLMs.
 
 Through simple experimentations, this paper aims to evaluate the performance of existing pre-trained models (PTMs) on many-to-English translation across 14 source languages. Although fine-tuning multilingual PTMs has been proven to increase model performance \cite{cooper-stickland-2021-recipes}, no pre-training or fine-tuning is performed in this study for simplicity reasons. A dataset is curated from the Tatoeba repository \cite{tatoeba}, containing 1,323 parallel sentence pairs across source and target languages. The models include a one-to-one PTMs: OPUS-MT \cite{tiedemann-2023-democratizing,tiedemann-2020-opus-mt}, and multilingual PTMs: such as mBART-50 \cite{liu-2020-mbart}, NLLB-200 \cite{nllb200-2020}, and M2M-100 \cite{fan-2020-m2m100}. The performance of these models is evaluated using the BLEU \cite{papieni-2002-bleu}, SacreBLEU \cite{post-2018-sacrebleu}, and METEOR \cite{lavie-2007-meteor}.
 
@@ -94,24 +94,25 @@ Tatoeba is a vast, continuously expanding database consisting sentences and thei
 
 \begin{table}[htbp]
     \centering
+    \large
     \begin{tabular}{|l|l|r|}
         \hline
-        \textbf{No.} & \textbf{Language} & \textbf{Sentence Pairs Count} \\
+        \textbf{No.} & \textbf{Language Pairs} & \textbf{Sentence Pairs Count} \\
         \hline
-        1            & Chinese           & 68,814                        \\
-        2            & Dutch             & 155,856                       \\
-        3            & Finnish           & 102,202                       \\
-        4            & French            & 405,088                       \\
-        5            & German            & 501,145                       \\
-        6            & Hebrew            & 172,082                       \\
-        7            & Hungarian         & 171,698                       \\
-        8            & Italian           & 624,160                       \\
-        9            & Japanese          & 270,116                       \\
-        10           & Polish            & 77,345                        \\
-        11           & Russian           & 722,837                       \\
-        12           & Spanish           & 265,253                       \\
-        13           & Turkish           & 710,279                       \\
-        14           & Ukrainian         & 214,244                       \\
+        1            & Chinese-English         & 68,814                        \\
+        2            & Dutch-English           & 155,856                       \\
+        3            & Finnish-English         & 102,202                       \\
+        4            & French-English          & 405,088                       \\
+        5            & German-English          & 501,145                       \\
+        6            & Hebrew-English          & 172,082                       \\
+        7            & Hungarian-English       & 171,698                       \\
+        8            & Italian-English         & 624,160                       \\
+        9            & Japanese-English        & 270,116                       \\
+        10           & Polish-English          & 77,345                        \\
+        11           & Russian-English         & 722,837                       \\
+        12           & Spanish-English         & 265,253                       \\
+        13           & Turkish-English         & 710,279                       \\
+        14           & Ukrainian-English       & 214,244                       \\
         \hline
     \end{tabular}
     \caption{List of chosen languages for evaluation}
@@ -168,7 +169,9 @@ Figure \ref{fig:word_count_box} shows a box plot of sentences word count. The me
 
 \subsubsection{OPUS-MT}
 
-\textbf{OPUS-MT} \cite{tiedemann-2023-democratizing,tiedemann-2020-opus-mt} provides over 1,000 pre-trained models for translation between numerous language pairs. The architecture is based on MARIAN-NMT \cite{mariannmt}, based on a standard transformer setup: 6 self-attentive layers in both the encoder and decoder networks, each with 8 attention heads per layer \cite{tiedemann-2020-opus-mt}. While OPUS-MT support both monolingual and multilingual PTMs, the multilingual models seem to lack proper documentation and therefore excluded from this experiment.
+\textbf{OPUS-MT} \cite{tiedemann-2023-democratizing,tiedemann-2020-opus-mt} provides over 1,000 pre-trained models for translation between numerous language pairs. The architecture is based on MARIAN-NMT \cite{mariannmt}, based on a standard transformer setup: 6 self-attentive layers in both the encoder and decoder networks, each with 8 attention heads per layer \cite{tiedemann-2020-opus-mt}.
+
+While they provide both monolingual and multilingual PTMs, only the OPUS-MT monolingual models are used in this study.
 
 \subsubsection{mBART-50}
 
@@ -182,12 +185,13 @@ Figure \ref{fig:word_count_box} shows a box plot of sentences word count. The me
     \label{fig:mbart}
 \end{figure}
 
-Figure \ref{fig:mbart} shows the architecture of mBART's key features multilingual denoising pre-training and fine-tuning. It is shown that the model achieved consistent performance gains through pre-training in low-to-medium resource sentence level MT \cite{liu-2020-mbart}. The "denoising" here refers to a pre-training technique used to improve the model's ability to generate coherent and accurate translations by training it to reconstruct original sentences from corrupted (noisy) versions.
+The mBART model is built as a typical sequence-to-sequence transformer architecture \cite{vaswani-2017-attention}, using an embedding dimension of 1024 and 16 heads within 12 layers of encoder and 12 layers of decoder, totalling to around 680M parameters \cite{liu-2020-mbart}.
+
+Figure \ref{fig:mbart} shows  mBART's key features: multilingual denoising pre-training and fine-tuning. The dataset is first corrupted by a noising function, which is applied to 35\% of words of each span text \cite{liu-2020-mbart}. During pre-training, the model will be made to denoise the texts, improving the model's ability to generate coherent and accurate translations. After the pre-training step, the model is then able to be fine-tuned for downstream tasks. It is shown that the model achieved consistent performance gains through pre-training in low-to-medium resource sentence level MT \cite{liu-2020-mbart}
 
 \subsubsection{M2M-100}
 
-\textbf{M2M-100} \cite{fan-2020-m2m100} is designed to perform direct translation between 100 languages without relying on English as an intermediate language.
-
+\textbf{M2M-100} \cite{fan-2020-m2m100} is designed to perform direct translation between any pair of 100 languages without relying on English as an intermediate language. Similarly, the architecture is of a transformer sequence-to-sequence with a typical encoder that outputs embeddings of the same length, while the decoder is an autoregressive component that sequentially produce the target sentence one token at a time. The parameters include 12 encoder layers and 12 decoder layers, 8192 FFN size and 1024 embedding dimension, totalling to a 1.2B parameter count \cite{fan-2020-m2m100}.
 
 \begin{figure}[htbp]
     \centering
@@ -196,12 +200,13 @@ Figure \ref{fig:mbart} shows the architecture of mBART's key features multilingu
     \label{fig:m2m}
 \end{figure}
 
-Figure \ref{fig:m2m} show the inner working of the M2M model. The English-centric dataset (top left) includes training data exclusively involving translations to and from English, while the many-to-many multilingual setting (top right) involves direct translation data among multiple language pairs \cite{fan-2020-m2m100}. The M2M-100 model then integrates dense and sparse language-specific parameters to enable direct translation between languages (bottom part of Figure \ref{fig:m2m}).
+Figure \ref{fig:m2m} show the inner working of the M2M model. The English-centric dataset (top left) includes training data exclusively involving translations to and from English, while the many-to-many multilingual setting (top right) involves direct translation data among multiple language pairs \cite{fan-2020-m2m100}. Finally, the model combines sparse language-specific parameters with dense parameters (bottom part of Figure \ref{fig:m2m}),
 
 \subsubsection{NLLB-200}
 
 \textbf{NLLB-200} \cite{nllb200-2020} is built to handle translation tasks across a broad spectrum of languages, including many that are low-resource or underrepresented in existing datasets. It supports translations for 200 languages, including numerous underrepresented languages, and is currently one of the most extensive multilingual machine translation models. The model employs a Mixture of Experts (MoE) architecture and achieves state-of-the-art (SoTA) results across many language pairs, even surpassing Meta's previous model, M2M-100 \cite{nllb200-2020}.
 
+The 'nllb-200-distilled-600M' variant has a total of 600M parameters, distilled from originally 54B parameters \cite{nllb200-2020}
 
 \begin{figure}[htbp]
     \centering
@@ -217,6 +222,7 @@ Figure \ref{fig:nllb} shows the Dense Transformer and MoE Transformer layers imp
 
 \subsection{Evaluation Metrics}
 
+% the most assured way to determine the best MT system from competing alternatives is to have an assessment done by competent human translators.
 
 In this project, a variant of BLEU \cite{papieni-2002-bleu} called SacreBLEU \cite{post-2018-sacrebleu} and METEOR \cite{lavie-2007-meteor} will be used in this experiment due to their popularity, simplicity, and ease-of-use.
 
@@ -226,48 +232,26 @@ While other metrics such as Crosslingual Optimized Metric for Evaluation of Tran
 
 Bilingual Evaluation Understudy (BLEU) \cite{papieni-2002-bleu} is the most commonly used metrics for machine translation (MT). It assesses how well a candidate translation matches the reference translation using precision metrics for n-grams and incorporates a brevity penalty to prevent overly short translations from achieving high scores.
 
-The n-gram precision, as presented in the original BLEU paper \cite{papieni-2002-bleu}, is calculated as:
-
-\begin{equation}
-    p_n = \frac{\sum_{C \in \{Candidates\}} \sum_{\text{n-gram} \in C} \text{Count}_{\text{clip}}(\text{n-gram})}{\sum_{C \in \{Candidates\}} \sum_{\text{n-gram} \in C} \text{Count}(\text{n-gram})}
-\end{equation}
-
-Where:
-\begin{itemize}
-    \item \( p_n \) is the precision for n-grams.
-    \item \( \sum_{C \in \{Candidates\}} \) denotes the summation over all candidate translations.
-    \item \( \sum_{\text{n-gram} \in C} \) denotes the summation over all n-grams in a candidate translation \( C \).
-    \item \( \text{Count}_{\text{clip}}(\text{n-gram}) \) is the clipped count of the n-gram, which is the count of the n-gram in the candidate translation limited by the maximum count of that n-gram in any reference translation.
-    \item \( \text{Count}(\text{n-gram}) \) is the count of the n-gram in the candidate translation.
-\end{itemize}
-
-Thus, the BLEU score is calculated as:
-
+The BLEU score is calculated as:
 \begin{equation}
     \text{BLEU} = BP \cdot \exp \left( \sum_{n=1}^{N} w_n \log p_n \right)
 \end{equation}
-
-Where:
-\begin{itemize}
-    \item \( BP \) is the brevity penalty.
-    \item \( p_n \) is the precision for n-grams.
-    \item \( w_n \) is the weight for each n-gram (often uniformly distributed, so \( w_n = \frac{1}{N} \)).
-\end{itemize}
+where \( BP \) is the brevity penalty, \( p_n \) is the precision for n-grams, and \( w_n \) is the weight for each n-gram (often uniformly distributed, so \( w_n = \frac{1}{N} \)).
 
 The brevity penalty (BP) is calculated as:
-
 \begin{equation}
     BP = \begin{cases}
         1                     & \text{if } c > r    \\
         e^{(1 - \frac{r}{c})} & \text{if } c \leq r
     \end{cases}
 \end{equation}
+where \( c \) is the length of the candidate translation and \( r \) is the effective reference length.
 
-Where:
-\begin{itemize}
-    \item \( c \) is the length of the candidate translation.
-    \item \( r \) is the effective reference length.
-\end{itemize}
+The n-gram precision, as presented in the original BLEU paper \cite{papieni-2002-bleu}, is calculated as:
+\begin{equation}
+    p_n = \frac{\sum_{C \in \{Candidates\}} \sum_{\text{n-gram} \in C} \text{Count}_{\text{clip}}(\text{n-gram})}{\sum_{C \in \{Candidates\}} \sum_{\text{n-gram} \in C} \text{Count}(\text{n-gram})}
+\end{equation}
+where \( p_n \) is the precision for n-grams, \( \sum_{C \in \{Candidates\}} \) denotes the summation over all candidate translations, \( \sum_{\text{n-gram} \in C} \) denotes the summation over all n-grams in a candidate translation \( C \). \( \text{Count}_{\text{clip}}(\text{n-gram}) \) is the clipped count of the n-gram, which is the count of the n-gram in the candidate translation limited by the maximum count of that n-gram in any reference translation. \( \text{Count}(\text{n-gram}) \) is the count of the n-gram in the candidate translation.
 
 The machine translation community's rely heavily BLEU score, however, it has several drawbacks. The metric has been reported to not correlate strongly with human judgement, showing variations in translation that could mean that a higher BLEU score does not necessarily indicate a true enhancement in translation quality \cite{callison-burch-2006-reevaluating-bleu}.
 
@@ -275,28 +259,21 @@ Furthermore, It is challenging to directly compare BLEU scores between paper \ci
 
 \subsubsection{METEOR}
 
-Metric for Evaluation of Translation with Explicit ORdering (METEOR) \cite{lavie-2007-meteor} assesses a translation by calculating a score that reflects explicit word-to-word matches between the reference and a candidate translation \cite{agarwal-2008-meteor-mbleu-mter}. It is designed to address some limitations of the BLEU score, allowing matches between simple morphological variants and synonyms.
-
+Metric for Evaluation of Translation with Explicit ORdering (METEOR) \cite{lavie-2007-meteor} assesses a translation by calculating a score that reflects explicit word-to-word matches between the reference and a candidate translation \cite{agarwal-2008-meteor-mbleu-mter}. It is designed to address some limitations of the BLEU score, allowing matches between simple morphological variants and synonyms. The formula is defined as:
 \begin{equation}
     \text{METEOR} = (1 - \gamma \cdot \text{frag}) \cdot \frac{P \cdot R}{\alpha \cdot P + (1 - \alpha) \cdot R}
 \end{equation}
-
-Where:
-\begin{itemize}
-    \item \(P\) is the precision,
-    \item \(R\) is the recall,
-    \item \(\text{frag}\) is the fragmentation penalty,
-    \item \(\gamma\) is a parameter that controls the weight of the fragmentation penalty, commonly 0.5,
-    \item \(\alpha\) is a parameter that controls the balance between precision and recall, commonly 0.9,
-\end{itemize}
+where \(P\) is the precision, \(R\) is the recall, and \(\text{frag}\) is the fragmentation penalty. \(\gamma\) is a parameter that controls the weight of the fragmentation penalty, commonly set to 0.5, and \(\alpha\) is a parameter that controls the balance between precision and recall, commonly set to 0.9,
 
 \subsection{Inference Details}
 
 OPUS-MT models are taken from the Helsinki-NLP repository. The 'mbart-large-50-many-to-many-mmt' is used, 'm2m100\_418M', and 'nllb-200-distilled-600M'. All models are taken using the transformers \cite{wolf-etal-2020-transformers} library from Hugging Face \cite{huggingface}. Batch size of 4 is used in all models. Translations are first generated and saved into CSV files, before calculating the metrics score.
 
-The sacrebleu packages from pip is used to calculate SacreBLEU \cite{post-2018-sacrebleu}. For BLEU and METEOR, the NLTK \cite{bird-2009-natural} package is used. Corpus BLEU is implemented for both SacreBLEU and BLEU in the calculations.
-\section{Evaluation}
+The sacrebleu packages from pip is used to calculate SacreBLEU \cite{post-2018-sacrebleu}. For BLEU and METEOR, the NLTK \cite{bird-2009-natural} package is used. Corpus BLEU is implemented for both SacreBLEU and BLEU in the calculations. Additionally, smoothing method 7 is used for BLEU, which interpolates two other smoothing functions: smoothing method 4, which divides by \( \frac{1}{\ln(\text{len}(T))} \), where \( T \) is the length of the translation; and smoothing method 5, which averages the \( n-1 \), \( n \), and \( n+1 \) gram matched counts \cite{nltk-bleu-docs}.
 
+All codes are written in Python 3.12.2, run locally on MacOS Sonoma 14.4.1 with M2 chip and 16 GB memory. GitHub: \url{https://github.com/stefanliemawan/eval-machine-translation}
+
+\section{Evaluation}
 
 \begin{table}[htbp]
     \centering
@@ -402,20 +379,30 @@ The sacrebleu packages from pip is used to calculate SacreBLEU \cite{post-2018-s
     \end{minipage}
 \end{table}
 
-Table \ref{table:mbart_result}, \ref{table:m2m_result}, \ref{table:nllb_result}, and \ref{table:opus_result} shows the result from all four PTMs. The BLEU score is very low in all cases due to the sentences being short (find cite). The mBART-50 model achieved best SacreBLEU and METEOR score in Italian-to-English translation, while suffers the most in Spanish-to-English (SacreBLEU) and Turkish-to-English (METEOR) translation. In addition, it slightly outperforms OPUS-MT in Polish-to-English translation on SacreBLEU score. Similarly, SacreBLEU for Italian-to-English translation outperforms other languages with the M2M-100 model, although Dutch beat Italian in METEOR score. Japanese received the worse score in both SacreBLEU and METEOR for this model. NLLB-200 scores much lower in both SacreBLEU and METEOR in most languages. It scores highest in Chinese-to-English translation in all metrics. However, Japanese-to-English translation suffers with a low score of 1.95 SacreBLEU and 0.09 METEOR. OPUS-MT model shows best performance in all languages, the highest being Ukrainian-to-English translation with 75.44 SacreBLEU and 0.86 METEOR. The lowest scores are within Chinese-to-English translation: 59.50 SacreBLEU and Japanese-to-English: 0.78 METEOR.
+Table \ref{table:opus_result}, \ref{table:mbart_result}, \ref{table:m2m_result}, and \ref{table:nllb_result}, and  shows the result from all four PTMs. All models perform similarly low on BLEU score across all languages, with NLLB-200 reaching 0.01 below more on Japanese translation. The BLEU scores are very low (below 10 BLEU) in all cases due to the sentences being short (find cite). This also highlights the superiority of SacreBLEU compared to the flawed, standard BLEU.
+
+% BLEU are notoriously unreliable for very short texts. The score will be disproportionately influenced by small differences if there isn't much text to begin with because there is a Brevity Penalty set in place to discourage the model from outputting fewer words and get a high score. 
+
+OPUS-MT model shows the best performance in all languages, consistently reaching mostly above 60 SacreBLEU and 0.8 METEOR. The highest-rated languages are Ukrainian-to-English translation with 75.44 SacreBLEU and 0.86 METEOR, while the lowest scores are achieved on Chinese-to-English translation: 59.50 SacreBLEU and Japanese-to-English: 0.78 METEOR.
+
+The mBART-50 model is the second-best-performing PTMs and the best-performing multilingual model, achieving best SacreBLEU and METEOR score in Italian-to-English translation, while suffering the most in Spanish-to-English (SacreBLEU) and Turkish-to-English (METEOR) translation. Interestingly, Spanish received the worst score in SacreBLEU while it performs decently in METEOR, and Turkish performs well in SacreBLEU score but has the worst in METEOR. Additionally, the model slightly outperforms OPUS-MT in Polish-to-English translation on SacreBLEU score (0.85 higher).
+
+Similarly, SacreBLEU for Italian-to-English translation outperforms other languages with the M2M-100 model, although Dutch beat Italian by 0.01 in METEOR score. Japanese received the worst score in both SacreBLEU and METEOR for this model. M2M-100 performs worse in SacreBLEU compared to mBART-50, but comparably similar in METEOR scores.
+
+NLLB-200 scores much lower compared to other models in both SacreBLEU and METEOR in almost all languages. It scores highest in Chinese-to-English translation in all metrics, while showing significant variability among other languages. However, Japanese-to-English translation suffers with extremely low scores of 1.95 SacreBLEU and 0.09 METEOR. Additionally, German, Hebrew, and Ukrainian also have low SacreBLEU and METEOR scores, among the other languages.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=1\linewidth]{figures/metrics_bar.png}
-    \caption{BLEU, SacreBLEU, and METEOR scores of each model on each language.}
+    \caption{BLEU, SacreBLEU, and METEOR scores of each model on each language, divided by language}
     \label{fig:result_visual}
 \end{figure}
 
-Figure \ref{fig:result_visual} shows the visualisation of all scores.
-
-All models perform similarly on BLEU score across all languages, with NLLB-200 suffering a bit more on Japanese translation. The OPUS-MT model consistently shows high scores across most languages, with the highest SacreBLEU and METEOR scores overall, especially for Ukrainian and Italian. The mBART-50 model achieved the best-performing multilingual model, showing competitive performance, often achieving the second-highest scores across several languages. M2M-100 performs worse in SacreBLEU compared to mBART-50, but comparably similar in METEOR scores. The NLLB-200 model shows significant variability, especially for Japanese, where the SacreBLEU and METEOR scores are extremely low.
+Figure \ref{fig:result_visual} shows the visualisation of all scores, categorised per language.
 
 Dutch and Italian translations generally score higher across all metrics, suggesting that these languages are well-supported by the pre-trained models. Japanese translations, however, pose significant challenges for all models, as indicated by the consistently low scores across all metrics.
+
+Japanese-to-English translation seem to have the worst score on average across the four models, but particularly bad on multilingual models. In contrast, Dutch and German, have consistently high results on all models except for NLLB-200, often reaching closely to the highest-language-score SacreBLEU and METEOR score.
 
 \begin{figure}[htbp]
     \centering
@@ -436,7 +423,55 @@ Dutch and Italian translations generally score higher across all metrics, sugges
     \label{fig:lang_metrics}
 \end{figure}
 
-Figure \ref{fig:lang_metrics} shows the SacreBLEU and METEOR scores for each language by model. The OPUS-MT and mBART-50 models are the clear winners in almost all languages. Although M2M-100 performs competitively with mBART-50 in most languages, it surpasses mBART-50 in Spanish-to-English translation. On the other hand, NLLB-200 performs the weakest, with extremely low scores in German, Hebrew, and Japanese.
+Figure \ref{fig:lang_metrics} shows the SacreBLEU and METEOR scores for each language by model. The OPUS-MT and mBART-50 models are again shown as the clear winners in almost all languages. M2M-100 also performs competitively with mBART-50 in some languages, surpassing mBART-50 in Spanish-to-English translation. All four models seem to perform consistently against each other in Chinese-to-English and Turkish-to-English translations.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.49\linewidth]{figures/average_metrics_bar.png}
+    \includegraphics[width=0.49\linewidth]{figures/average_metrics_lang_bar.png}
+    \caption{The average BLEU, SacreBLEU, and METEOR scores by model (left) and by language (right)}
+    \label{fig:average_bars}
+\end{figure}
+
+Figure \ref{fig:average_bars} visualise the average BLEU, SacreBLEU, and METEOR, for each model and each language, highlighting how the models and languages perform independently. It can be seen that mBART-50 perform more closely to OPUS-MT on METEOR score than SacreBLEU score. Language-wise, Italian, Polish, and Turkish achieves the best average SacreBLEU scores while Chinese, Polish and Turkish are shown as the top three in average METEOR scores.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/opus_bleu_comparison.png}
+    \caption{Comparison between reported OPUS-MT models performance and performance in this experiment.}
+    \label{fig:opus_comparison}
+\end{figure}
+
+Figure \ref{fig:opus_comparison} visualises the difference between each OPUS-MT models reported BLEU scores compared to the SacreBLEU result of this study. The reported BLEU is evaluated on the Tatoeba dataset \cite{tiedemann-2020-opus-mt}. It can be seen that the scores are quite aligned, with Ukrainian and Italian reaching the two highest score while Chinese, Polish, and Japanese suffers.
+
+This study experiments also resulted in moderately higher overall SacreBLEU score, however, the dataset used here is also significantly less in size than the full Tatoeba challenge dataset \cite{tiedemann-2020-tatoeba-challenge}.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|l|r|r|}
+        \hline
+        \textbf{Language} & \textbf{SacreBLEU} & \textbf{Reported BLEU} \\
+        \hline
+        Chinese           & \textit{59.5}      & \textit{36.1}          \\
+        Dutch             & 69.8               & 60.9                   \\
+        Finnish           & 66.6               & 53.4                   \\
+        French            & 69.8               & 57.5                   \\
+        German            & 69.7               & 55.4                   \\
+        Hebrew            & 66.5               & 52.0                   \\
+        Italian           & 74.1               & 70.9                   \\
+        Japanese          & 63.1               & 41.7                   \\
+        Polish            & 61.9               & 54.9                   \\
+        Russian           & 66.7               & 61.1                   \\
+        Spanish           & 71.4               & 59.6                   \\
+        Turkish           & 72.6               & 63.5                   \\
+        Ukrainian         & \textbf{75.4}      & \textbf{64.1}          \\
+        \hline
+    \end{tabular}
+    \caption{OPUS-MT result compared with reported BLEU result}
+    \label{table:opus_comparison}
+\end{table}
+
+Additionally, Table \ref{table:opus_comparison} shows the full scores of both results SacreBLEU and reported BLEU from each OPUS-MT models. The reported BLEU scores are taken from each model cards in the HuggingFace repository \cite{huggingface}.
 
 \begin{figure}[htbp]
     \centering
@@ -445,18 +480,24 @@ Figure \ref{fig:lang_metrics} shows the SacreBLEU and METEOR scores for each lan
     \label{fig:inference_timings}
 \end{figure}
 
-Figure \ref{fig:inference_timings} shows the time taken to translate for each language across experimented models. The OPUS-MT model is the fastest among the other three multilingual models, which perform similarly in timings. It is quite unclear why mBART50 Spanish-to-English translation suffers from a significantly higher timing. Re-running the experiment shows that this timing is consistent and not an anomaly.
+Lastly, Figure \ref{fig:inference_timings} shows the time taken to translate for each language across experimented models. The OPUS-MT model is the fastest among the other three multilingual models, which perform similarly in timings. It is quite unclear why mBART50 Spanish-to-English translation suffers from a significantly higher timing. Re-running the experiment shows that this timing is consistent and not an anomaly.
+
 
 \section{Conclusion}
 
-This study findings show that while multilingual models have been shown to achieve higher performance compared to one-to-one translation models \cite{liu-2020-mbart}, this does not hold on short sentences, many-to-English translations across the 14 source languages. Additionally, mBART50 performed better than PTMs M2M-100 and NLLB-200 in these 14 languages.
+This study findings show that while multilingual models have been shown to achieve higher performance compared to one-to-one translation models \cite{liu-2020-mbart}, this does not hold on short sentences, many-to-English translations across the 14 source languages.
 
-Limitations, only the first translation of the same phrases are taken.
-No fine-tuning is applied, which may affect the translation results, as fine-tuning models for specific languages can significantly improve models performance \cite{zhang-2023-fine-tuning}.
+OPUS-MT achieves the best performance across all 14 languages. mBART-50 is the second-best-performing model, beating OPUS-MT only in Polish SacreBLEU. Nevertheless, both mBART-50 and M2M-100 performs generally well on all languages. NLLB-200, however, achieves much lower scores in both SacreBLEU and METEOR for all languages except for Chinese, slightly outperforming M2M-100 but still slightly below mBART-50.
 
-\section{Future Works}
+NLLB-200 should then be avoided for use without any further fine-tuning on these 14 languages.
 
-Future works should be done by incorporating more Pre-Trained Models (PTMs) and incorporating fine-tuning for specific languages on languages-to-English translation. Evaluating with bigger datasets and longer texts can also be beneficial, as well as using language other than English as the target language.
+Chinese, Italian, Polish, Turkish have the best average scores over all four models, Ukrainian by OPUS-MT has the highest SacreBLEU and METEOR score across all the other models and languages.
+
+Limitations, only the first translation of the same phrases are taken, which may disrupts the possibility for synonyms, especially for BLEU and SacreBLEU metrics. Additionally, no fine-tuning is applied in this experiment, which may affect the translation results, as fine-tuning models for specific languages can significantly improve models performance \cite{zhang-2023-fine-tuning}.
+
+\section{Discussion}
+
+Future works should be done by incorporating more Pre-Trained Models (PTMs) and implementing fine-tuning for specific languages on languages-to-English translation. Evaluating with bigger datasets and longer texts can also be beneficial, as well as using language other than English as the target language.
 
 Furthermore, it may be beneficial to consider more general multilingual PTMs such as mBERT \cite{wu-2020-mbert-are-all} and PolyLM \cite{wei-2023-polylm}, which are trained for a wide arrange of NLP tasks instead of just machine translation.
 

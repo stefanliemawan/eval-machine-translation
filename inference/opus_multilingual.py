@@ -70,8 +70,8 @@ for src_lang, src_lang_code in LANGS.items():
     end = time.time()
     timing_df[f"translated_from_{src_lang}"] = [end - start]
 
-    translated_df.to_csv(f"result/opus.csv")
-    timing_df.to_csv(f"result/opus_timings.csv")
+    translated_df.to_csv(f"result/opus_mt.csv")
+    timing_df.to_csv(f"result/opus_mt_timings.csv")
 
 
 # not entirely sure how to use the mt model

@@ -4386,6 +4386,28 @@
     \field{year}{2022}
   \endentry
 
+  \entry{nltk-bleu-docs}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=TN}{%
+         family={Team},
+         familyi={T\bibinitperiod},
+         given={NLTK},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TN1}
+    \strng{fullhash}{TN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{title}{NLTK Documentation}
+    \verb{url}
+    \verb https://www.nltk.org/api/nltk.translate.bleu_score.html
+    \endverb
+    \field{year}{2023}
+  \endentry
+
   \entry{intento-2020}{report}{}
     \field{labeltitlesource}{title}
     \field{sortinit}{T}
