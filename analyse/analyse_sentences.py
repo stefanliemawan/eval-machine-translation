@@ -65,7 +65,7 @@ def analyse_sentence_length(df):
 
 def analyse_sentence_length_2(df):
     plt.clf()
-    plt.figure(figsize=(15, 6))
+    plt.figure(figsize=(16, 8))
 
     # Prepare data for box plot
     lengths = []
@@ -88,6 +88,8 @@ def analyse_sentence_length_2(df):
     plt.title("Word Count Distribution")
     plt.ylabel("Word Count")
     plt.xlabel(None)
+
+    plt.tight_layout()
 
     plt.savefig("./figures/word_count_box.png")
 
@@ -143,6 +145,6 @@ def analyse_embedding(df):
 
 
 # analyse_sentence_length(sentences_df)
-# analyse_sentence_length_2(sentences_df)
+analyse_sentence_length_2(sentences_df)
 # generate_word_cloud(sentences_df)
-analyse_embedding(sentences_df)
+# analyse_embedding(sentences_df)

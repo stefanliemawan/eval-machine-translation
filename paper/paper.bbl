@@ -940,6 +940,96 @@
     \field{year}{2006}
   \endentry
 
+  \entry{cettolo-etal-2017-iwslt}{inproceedings}{}
+    \name{author}{8}{}{%
+      {{hash=CM}{%
+         family={Cettolo},
+         familyi={C\bibinitperiod},
+         given={Mauro},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=FM}{%
+         family={Federico},
+         familyi={F\bibinitperiod},
+         given={Marcello},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=BL}{%
+         family={Bentivogli},
+         familyi={B\bibinitperiod},
+         given={Luisa},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=NJ}{%
+         family={Niehues},
+         familyi={N\bibinitperiod},
+         given={Jan},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={St{\"u}ker},
+         familyi={S\bibinitperiod},
+         given={Sebastian},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=SK}{%
+         family={Sudoh},
+         familyi={S\bibinitperiod},
+         given={Katsuhito},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=YK}{%
+         family={Yoshino},
+         familyi={Y\bibinitperiod},
+         given={Koichiro},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=FC}{%
+         family={Federmann},
+         familyi={F\bibinitperiod},
+         given={Christian},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \name{editor}{2}{}{%
+      {{hash=SS}{%
+         family={Sakti},
+         familyi={S\bibinitperiod},
+         given={Sakriani},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=UM}{%
+         family={Utiyama},
+         familyi={U\bibinitperiod},
+         given={Masao},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {International Workshop on Spoken Language Translation}%
+    }
+    \strng{namehash}{CM+1}
+    \strng{fullhash}{CMFMBLNJSSSKYKFC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{abstract}{%
+    The IWSLT 2017 evaluation campaign has organised three tasks. The Multilingual task, which is about training machine translation systems handling many-to-many language directions, including so-called zero-shot directions. The Dialogue task, which calls for the integration of context information in machine translation, in order to resolve anaphoric references that typically occur in human-human dialogue turns. And, finally, the Lecture task, which offers the challenge of automatically transcribing and translating real-life university lectures. Following the tradition of these reports, we will described all tasks in detail and present the results of all runs submitted by their participants.%
+    }
+    \field{booktitle}{Proceedings of the 14th International Conference on Spoken Language Translation}
+    \field{pages}{2\bibrangedash 14}
+    \field{title}{Overview of the {IWSLT} 2017 Evaluation Campaign}
+    \verb{url}
+    \verb https://aclanthology.org/2017.iwslt-1.1
+    \endverb
+    \list{location}{1}{%
+      {Tokyo, Japan}%
+    }
+    \field{year}{2017}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
   \entry{cho-2014-properties}{inproceedings}{}
     \name{author}{4}{}{%
       {{hash=CK}{%
@@ -1596,6 +1686,137 @@
     \field{year}{2001}
   \endentry
 
+  \entry{jiang-2023-mistral-7b}{misc}{}
+    \name{author}{18}{}{%
+      {{hash=JAQ}{%
+         family={Jiang},
+         familyi={J\bibinitperiod},
+         given={Albert\bibnamedelima Q.},
+         giveni={A\bibinitperiod\bibinitdelim Q\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={Sablayrolles},
+         familyi={S\bibinitperiod},
+         given={Alexandre},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=MA}{%
+         family={Mensch},
+         familyi={M\bibinitperiod},
+         given={Arthur},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=BC}{%
+         family={Bamford},
+         familyi={B\bibinitperiod},
+         given={Chris},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=CDS}{%
+         family={Chaplot},
+         familyi={C\bibinitperiod},
+         given={Devendra\bibnamedelima Singh},
+         giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+      {{hash=dlCD}{%
+         prefix={de\bibnamedelima las},
+         prefixi={d\bibinitperiod\bibinitdelim l\bibinitperiod},
+         family={Casas},
+         familyi={C\bibinitperiod},
+         given={Diego},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=BF}{%
+         family={Bressand},
+         familyi={B\bibinitperiod},
+         given={Florian},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=LG}{%
+         family={Lengyel},
+         familyi={L\bibinitperiod},
+         given={Gianna},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=LG}{%
+         family={Lample},
+         familyi={L\bibinitperiod},
+         given={Guillaume},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=SL}{%
+         family={Saulnier},
+         familyi={S\bibinitperiod},
+         given={Lucile},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=LLR}{%
+         family={Lavaud},
+         familyi={L\bibinitperiod},
+         given={Lélio\bibnamedelima Renard},
+         giveni={L\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=LMA}{%
+         family={Lachaux},
+         familyi={L\bibinitperiod},
+         given={Marie-Anne},
+         giveni={M\bibinithyphendelim A\bibinitperiod},
+      }}%
+      {{hash=SP}{%
+         family={Stock},
+         familyi={S\bibinitperiod},
+         given={Pierre},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=STL}{%
+         family={Scao},
+         familyi={S\bibinitperiod},
+         given={Teven\bibnamedelima Le},
+         giveni={T\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=LT}{%
+         family={Lavril},
+         familyi={L\bibinitperiod},
+         given={Thibaut},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=WT}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Thomas},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=LT}{%
+         family={Lacroix},
+         familyi={L\bibinitperiod},
+         given={Timothée},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=SWE}{%
+         family={Sayed},
+         familyi={S\bibinitperiod},
+         given={William\bibnamedelima El},
+         giveni={W\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{JAQ+1}
+    \strng{fullhash}{JAQSAMABCCDSCDdlBFLGLGSLLLRLMASPSTLLTWTLTSWE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \verb{eprint}
+    \verb 2310.06825
+    \endverb
+    \field{title}{Mistral 7B}
+    \verb{url}
+    \verb https://arxiv.org/abs/2310.06825
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CL}
+    \field{year}{2023}
+  \endentry
+
   \entry{mariannmt}{inproceedings}{}
     \name{author}{12}{}{%
       {{hash=JDM}{%
@@ -1995,6 +2216,27 @@
     \field{journaltitle}{Artificial Intelligence Review}
     \field{month}{05}
     \field{year}{2012}
+  \endentry
+
+  \entry{nakamura-2009-overcoming}{article}{}
+    \name{author}{1}{}{%
+      {{hash=NS}{%
+         family={Nakamura},
+         familyi={N\bibinitperiod},
+         given={Satoshi},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{NS1}
+    \strng{fullhash}{NS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
+    \field{title}{Overcoming the Language Barrier with Speech Translation Technology}
+    \field{journaltitle}{Science \& Technology Foresight Center (NISTEP)}
+    \field{year}{2009}
+    \warn{\item Invalid format of field 'month'}
   \endentry
 
   \entry{okpor-2014-machine-ta}{inproceedings}{}
@@ -4569,6 +4811,435 @@
     \field{volume}{58}
     \field{journaltitle}{Language Resources and Evaluation}
     \field{month}{12}
+    \field{year}{2023}
+  \endentry
+
+  \entry{touvron-2023-llama2}{misc}{}
+    \name{author}{68}{}{%
+      {{hash=TH}{%
+         family={Touvron},
+         familyi={T\bibinitperiod},
+         given={Hugo},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=ML}{%
+         family={Martin},
+         familyi={M\bibinitperiod},
+         given={Louis},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=SK}{%
+         family={Stone},
+         familyi={S\bibinitperiod},
+         given={Kevin},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=AP}{%
+         family={Albert},
+         familyi={A\bibinitperiod},
+         given={Peter},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=AA}{%
+         family={Almahairi},
+         familyi={A\bibinitperiod},
+         given={Amjad},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=BY}{%
+         family={Babaei},
+         familyi={B\bibinitperiod},
+         given={Yasmine},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=BN}{%
+         family={Bashlykov},
+         familyi={B\bibinitperiod},
+         given={Nikolay},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=BS}{%
+         family={Batra},
+         familyi={B\bibinitperiod},
+         given={Soumya},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=BP}{%
+         family={Bhargava},
+         familyi={B\bibinitperiod},
+         given={Prajjwal},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=BS}{%
+         family={Bhosale},
+         familyi={B\bibinitperiod},
+         given={Shruti},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=BD}{%
+         family={Bikel},
+         familyi={B\bibinitperiod},
+         given={Dan},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=BL}{%
+         family={Blecher},
+         familyi={B\bibinitperiod},
+         given={Lukas},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=FCC}{%
+         family={Ferrer},
+         familyi={F\bibinitperiod},
+         given={Cristian\bibnamedelima Canton},
+         giveni={C\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+      {{hash=CM}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Moya},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=CG}{%
+         family={Cucurull},
+         familyi={C\bibinitperiod},
+         given={Guillem},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=ED}{%
+         family={Esiobu},
+         familyi={E\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=FJ}{%
+         family={Fernandes},
+         familyi={F\bibinitperiod},
+         given={Jude},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=FJ}{%
+         family={Fu},
+         familyi={F\bibinitperiod},
+         given={Jeremy},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=FW}{%
+         family={Fu},
+         familyi={F\bibinitperiod},
+         given={Wenyin},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=FB}{%
+         family={Fuller},
+         familyi={F\bibinitperiod},
+         given={Brian},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=GC}{%
+         family={Gao},
+         familyi={G\bibinitperiod},
+         given={Cynthia},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=GV}{%
+         family={Goswami},
+         familyi={G\bibinitperiod},
+         given={Vedanuj},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=GN}{%
+         family={Goyal},
+         familyi={G\bibinitperiod},
+         given={Naman},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=HA}{%
+         family={Hartshorn},
+         familyi={H\bibinitperiod},
+         given={Anthony},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=HS}{%
+         family={Hosseini},
+         familyi={H\bibinitperiod},
+         given={Saghar},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=HR}{%
+         family={Hou},
+         familyi={H\bibinitperiod},
+         given={Rui},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=IH}{%
+         family={Inan},
+         familyi={I\bibinitperiod},
+         given={Hakan},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=KM}{%
+         family={Kardas},
+         familyi={K\bibinitperiod},
+         given={Marcin},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=KV}{%
+         family={Kerkez},
+         familyi={K\bibinitperiod},
+         given={Viktor},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=KM}{%
+         family={Khabsa},
+         familyi={K\bibinitperiod},
+         given={Madian},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=KI}{%
+         family={Kloumann},
+         familyi={K\bibinitperiod},
+         given={Isabel},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=KA}{%
+         family={Korenev},
+         familyi={K\bibinitperiod},
+         given={Artem},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=KPS}{%
+         family={Koura},
+         familyi={K\bibinitperiod},
+         given={Punit\bibnamedelima Singh},
+         giveni={P\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+      {{hash=LMA}{%
+         family={Lachaux},
+         familyi={L\bibinitperiod},
+         given={Marie-Anne},
+         giveni={M\bibinithyphendelim A\bibinitperiod},
+      }}%
+      {{hash=LT}{%
+         family={Lavril},
+         familyi={L\bibinitperiod},
+         given={Thibaut},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=LJ}{%
+         family={Lee},
+         familyi={L\bibinitperiod},
+         given={Jenya},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=LD}{%
+         family={Liskovich},
+         familyi={L\bibinitperiod},
+         given={Diana},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=LY}{%
+         family={Lu},
+         familyi={L\bibinitperiod},
+         given={Yinghai},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=MY}{%
+         family={Mao},
+         familyi={M\bibinitperiod},
+         given={Yuning},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=MX}{%
+         family={Martinet},
+         familyi={M\bibinitperiod},
+         given={Xavier},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=MT}{%
+         family={Mihaylov},
+         familyi={M\bibinitperiod},
+         given={Todor},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=MP}{%
+         family={Mishra},
+         familyi={M\bibinitperiod},
+         given={Pushkar},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=MI}{%
+         family={Molybog},
+         familyi={M\bibinitperiod},
+         given={Igor},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=NY}{%
+         family={Nie},
+         familyi={N\bibinitperiod},
+         given={Yixin},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=PA}{%
+         family={Poulton},
+         familyi={P\bibinitperiod},
+         given={Andrew},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=RJ}{%
+         family={Reizenstein},
+         familyi={R\bibinitperiod},
+         given={Jeremy},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=RR}{%
+         family={Rungta},
+         familyi={R\bibinitperiod},
+         given={Rashi},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=SK}{%
+         family={Saladi},
+         familyi={S\bibinitperiod},
+         given={Kalyan},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={Schelten},
+         familyi={S\bibinitperiod},
+         given={Alan},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=SR}{%
+         family={Silva},
+         familyi={S\bibinitperiod},
+         given={Ruan},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=SEM}{%
+         family={Smith},
+         familyi={S\bibinitperiod},
+         given={Eric\bibnamedelima Michael},
+         giveni={E\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+      {{hash=SR}{%
+         family={Subramanian},
+         familyi={S\bibinitperiod},
+         given={Ranjan},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=TXE}{%
+         family={Tan},
+         familyi={T\bibinitperiod},
+         given={Xiaoqing\bibnamedelima Ellen},
+         giveni={X\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+      {{hash=TB}{%
+         family={Tang},
+         familyi={T\bibinitperiod},
+         given={Binh},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=TR}{%
+         family={Taylor},
+         familyi={T\bibinitperiod},
+         given={Ross},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=WA}{%
+         family={Williams},
+         familyi={W\bibinitperiod},
+         given={Adina},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=KJX}{%
+         family={Kuan},
+         familyi={K\bibinitperiod},
+         given={Jian\bibnamedelima Xiang},
+         giveni={J\bibinitperiod\bibinitdelim X\bibinitperiod},
+      }}%
+      {{hash=XP}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Puxin},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=YZ}{%
+         family={Yan},
+         familyi={Y\bibinitperiod},
+         given={Zheng},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=ZI}{%
+         family={Zarov},
+         familyi={Z\bibinitperiod},
+         given={Iliyan},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=ZY}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Yuchen},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=FA}{%
+         family={Fan},
+         familyi={F\bibinitperiod},
+         given={Angela},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=KM}{%
+         family={Kambadur},
+         familyi={K\bibinitperiod},
+         given={Melanie},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=NS}{%
+         family={Narang},
+         familyi={N\bibinitperiod},
+         given={Sharan},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=RA}{%
+         family={Rodriguez},
+         familyi={R\bibinitperiod},
+         given={Aurelien},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=SR}{%
+         family={Stojnic},
+         familyi={S\bibinitperiod},
+         given={Robert},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=ES}{%
+         family={Edunov},
+         familyi={E\bibinitperiod},
+         given={Sergey},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=ST}{%
+         family={Scialom},
+         familyi={S\bibinitperiod},
+         given={Thomas},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TH+1}
+    \strng{fullhash}{THMLSKAPAABYBNBSBPBSBDBLFCCCMCGEDFJFJFWFBGCGVGNHAHSHRIHKMKVKMKIKAKPSLMALTLJLDLYMYMXMTMPMINYPARJRRSKSASRSEMSRTXETBTRWAKJXXPYZZIZYFAKMNSRASRESST1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \verb{eprint}
+    \verb 2307.09288
+    \endverb
+    \field{title}{Llama 2: Open Foundation and Fine-Tuned Chat Models}
+    \verb{url}
+    \verb https://arxiv.org/abs/2307.09288
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CL}
     \field{year}{2023}
   \endentry
 

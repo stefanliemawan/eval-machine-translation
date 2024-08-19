@@ -1,4 +1,4 @@
-\documentclass[a4paper]{article}
+\documentclass[a4paper, 11pt]{article}
 
 % Packages
 \usepackage{graphicx}
@@ -11,7 +11,6 @@
 \usepackage{amsmath}
 
 \usepackage{CJKutf8}
-
 
 \addbibresource{references.bib}
 
@@ -26,77 +25,67 @@
 
 
 \begin{abstract}
-    Machine translation (MT) has become an essential tool for overcoming language barriers in an increasingly globalised world. Today, there are pre-trained models (PTMs) specifically designed for automatic machine translation. This paper evaluates the performance of various pre-trained models (PTMs) for many-to-English translation. The models assessed include OPUS-MT \cite{tiedemann-2020-opus-mt}, mBART-50 \cite{liu-2020-mbart}, NLLB-200 \cite{nllb200-2020}, and M2M-100 \cite{fan-2020-m2m100}. Using a dataset curated from the Tatoeba repository, comprising 1,323 parallel sentence pairs across 14 source languages, translation quality is measured using BLEU, SacreBLEU, and METEOR scores. The results indicate that OPUS-MT, a one-to-one PTM, outperforms multilingual models in one-to-English translation tasks, with mBART-50 leading among the multilingual PTMs. These findings highlight the strengths and limitations of both specific language and multilingual PTMs in machine translation. (Findings)
+    Machine translation (MT) has become an essential tool for overcoming language barriers in an increasingly globalised world. Today, there are pre-trained models (PTMs) specifically designed for automatic machine translation. This paper evaluates the performance of various pre-trained models (PTMs) for many-to-English translation. The models assessed include OPUS-MT \cite{tiedemann-2020-opus-mt}, mBART-50 \cite{liu-2020-mbart}, NLLB-200 \cite{nllb200-2020}, and M2M-100 \cite{fan-2020-m2m100}. Using a dataset curated from the Tatoeba repository, comprising 1,323 parallel sentence pairs across 14 source languages, translation quality is measured using BLEU, SacreBLEU, and METEOR scores. The results indicate that OPUS-MT, a one-to-one PTM, outperforms multilingual models in one-to-English translation tasks, with mBART-50 leading among the multilingual PTMs. Chinese, Italian, Polish, and Turkish translations to English show the best performance on average across the four models used in this study, however, Ukrainian-to-English on the OPUS-MT model achieves the highest SacreBLEU and METEOR scores.
 \end{abstract}
 
 \section{Introduction}
 
-According to Ethnologue \cite{ethnologue-2024}, 7,164 languages currently exist and in use today, with 40\% of them considered endangered. As of July 2024, 243 languages are supported by Google Translate (according to Wikipedia \cite{wikipedia-google-translate}). In modern times, the need for translation services has surged due to the growing exchange of information across different regions that speak various languages \cite{okpor-2014-machine-ta}.
+According to Ethnologue \cite{ethnologue-2024}, 7,164 languages currently exist and are in use today, with 40\% of them considered endangered. With so many languages around us, the language barrier has become a known issue, especially in the current globalised world where it is essential for individuals who speak different languages to be able to communicate effectively \cite{nakamura-2009-overcoming}. Thus, the need for translation services to facilitate communication across different languages has also surged \cite{okpor-2014-machine-ta}. As of August 2024, only 243 languages are supported by Google Translate (according to Wikipedia \cite{wikipedia-google-translate}).
 
-Machine translation (MT) is the task of automatically translating from one language to another. This can be done through text or audio. It can be traced back to 1949 \cite{weaver-1999}, with the first public demonstration of an MT system on January 7, 1954, in collaboration with IBM, where 49 Russian sentences were translated into English using a limited vocabulary of 250 words and 6 grammar rules \cite{hutchins-2006-first-mt}. However, over the next several decades, growth were limited for machine translation, with 1956-1966 considered the decade of high expectation and disillusion, and 1967-1976 dubbed 'the quiet decade' \cite{hutchins-2001-mt-50-years}. Then in 1989, the dominance of the rule-based approach has been challenged by the rise of new methods and strategies, collectively referred to as ‘corpus-based’ methods (data-driven) \cite{hutchins-1994-research-methods-mt,hutchins-1998-development-mt}. Subsequently, statistics-based approaches for MT re-emerged, bolstered by the recent success of probabilistic techniques in speech recognition. Statistical machine translation \cite{lopez-2008-smt} dominated the domain between late 1990s through the early 2010s, before largely being surpassed by neural machine translation (NMT) \cite{cho-2014-properties,sutskever-2014-seq2seq}.
+Machine translation (MT) refers to the task of automatically translating from one language to another, which typically can be done through text or audio. The research and practice can be traced back to 1949 \cite{weaver-1999}, with the first public demonstration of an MT system on January 7, 1954, in collaboration with IBM, where 49 Russian sentences were translated into English using a limited vocabulary of 250 words and 6 grammar rules \cite{hutchins-2006-first-mt}. However, over the next several decades, growth was limited for machine translation, with 1956-1966 considered the decade of high expectation and disillusion, and 1967-1976 dubbed 'the quiet decade' \cite{hutchins-2001-mt-50-years}. Then in 1989, the dominance of the rule-based approach was challenged by the rise of new methods and strategies, collectively referred to as ‘corpus-based’ methods (data-driven) \cite{hutchins-1994-research-methods-mt,hutchins-1998-development-mt}. Subsequently, statistics-based approaches for MT re-emerged, bolstered by the recent success of probabilistic techniques in speech recognition. Statistical machine translation \cite{lopez-2008-smt} dominated the domain between the late 1990s through the early 2010s, before largely being surpassed by neural machine translation (NMT) \cite{cho-2014-properties,sutskever-2014-seq2seq}.
 
-Since the introduction of Transformers in 2017 \cite{vaswani-2017-attention}, Natural Language Processing (NLP) and machine translation in particular reached a giant milestone. The following years saw the birth of Large Language Models (LLMs) such as BERT \cite{devlin-2019-bert}, GPT \cite{openai-2024-gpt4}, and T5 \cite{raffel-2023-t5}, which revolutionised both MT and the whole field of NLP. Then in early 2020s, several pre-trained models (PTM) that are specifically designed for machine translation emerged, OPUS-MT \cite{tiedemann-2020-opus-mt} produced numerous PTMs designed for one-to-one translations. Additionally, multilingual models: mBART-50 \cite{liu-2020-mbart}, NLLB-200 \cite{nllb200-2020}, and M2M-100 \cite{fan-2020-m2m100} have also been published, growing popularity as multilinguality has been shown to allow for sharing information among languages \cite{garcia-2020-multilingual}. Most of these models are trained on diverse set of languages, allowing for many-to-many translation: able to translate between any of the supported pair of languages. This allows the models to generalise over shared lexical and linguistic among languages, and have been shown to increase performance compared to one-to-one translation models \cite{liu-2020-mbart}.
+Since the introduction of Transformers in 2017 \cite{vaswani-2017-attention}, Natural Language Processing (NLP) and machine translation in particular reached a giant milestone. The following years saw the birth of Large Language Models (LLMs) such as BERT \cite{devlin-2019-bert}, GPT \cite{openai-2024-gpt4}, and T5 \cite{raffel-2023-t5}, which revolutionised both MT and the whole field of NLP. Then in the early 2020s, several pre-trained models (PTM) that are specifically designed for machine translation emerged, OPUS-MT \cite{tiedemann-2020-opus-mt} produced numerous PTMs designed for one-to-one translations. Additionally, multilingual models: mBART-50 \cite{liu-2020-mbart}, NLLB-200 \cite{nllb200-2020}, and M2M-100 \cite{fan-2020-m2m100} have also been published, growing popularity as multilingualism has been shown to allow for sharing information among languages \cite{garcia-2020-multilingual}. Most of these models are trained on a diverse set of languages, allowing for many-to-many translation, which is able to translate between any of the supported pairs of languages. This allows the models to generalise over shared lexical and linguistic among languages, and have been shown to increase performance compared to one-to-one translation models \cite{liu-2020-mbart}.
 
-Despite these advancements, pre-trained models are often evaluated using different set of languages and benchmarks \cite{liu-2020-mbart,nllb200-2020,fan-2020-m2m100,wei-2023-polylm}, making it difficult to gauge their relative effectiveness across various languages. Nevertheless, there does not seem to be much work on comparing or benchmarking different pre-trained models in machine translation. Intento published 'The State of Machine Translation 2024' \cite{intento-2020} providing an in-depth evaluation of popular MT engines and LLMs. However, the biggest drawback in this report is that the selected LLMs are general LLMs such as GPT, LLaMa, Mistral, instead of MT-specific LLMs.
+Despite these advancements, pre-trained models are often evaluated using a different set of languages and benchmarks \cite{liu-2020-mbart,nllb200-2020,fan-2020-m2m100,wei-2023-polylm}, making it difficult to gauge their relative effectiveness across various languages. Nevertheless, there does not seem to be much work on comparing or benchmarking different pre-trained models in machine translation. Intento recently published 'The State of Machine Translation 2024' \cite{intento-2020} providing an in-depth evaluation of 52 MT engines and LLMs across 11 language pairs. Intento reported a lack of growth in the number of supported languages and concluded that translation quality significantly varies depending on languages \cite{intento-2020}. However, the biggest drawback in this report is that the selected LLMs are general LLMs such as GPT-4 \cite{openai-2024-gpt4}, LLaMa2 \cite{touvron-2023-llama2}, and Mistral \cite{jiang-2023-mistral-7b}, instead of MT-specific models.
 
-Through simple experimentations, this paper aims to evaluate the performance of existing pre-trained models (PTMs) on many-to-English translation across 14 source languages. Although fine-tuning multilingual PTMs has been proven to increase model performance \cite{cooper-stickland-2021-recipes}, no pre-training or fine-tuning is performed in this study for simplicity reasons. A dataset is curated from the Tatoeba repository \cite{tatoeba}, containing 1,323 parallel sentence pairs across source and target languages. The models include a one-to-one PTMs: OPUS-MT \cite{tiedemann-2023-democratizing,tiedemann-2020-opus-mt}, and multilingual PTMs: such as mBART-50 \cite{liu-2020-mbart}, NLLB-200 \cite{nllb200-2020}, and M2M-100 \cite{fan-2020-m2m100}. The performance of these models is evaluated using the BLEU \cite{papieni-2002-bleu}, SacreBLEU \cite{post-2018-sacrebleu}, and METEOR \cite{lavie-2007-meteor}.
+Furthermore, BLEU \cite{papieni-2002-bleu} has been shown to be inconsistent depending on tokenisation and parameters that are used \cite{post-2018-sacrebleu}. While most researchers do report on these specifications explicitly, different BLEU parametrisations between different papers still make a direct comparison challenging to do.
 
-The result indicates that OPUS-MT outperforms all other multilingual models in one-to-English translation, highlighting the superiority of specific languages PTMs compared to multilingual PTMs. mBART-50 shows the best performance among other multilingual PTMs: M2M-100 and NLLB-200. (More findings here)
+This study will lean towards evaluating MT-specific models rather than general LLMs. Through simple experimentations, this paper aims to evaluate the performance of existing and publicly available MT pre-trained models (PTMs) on many-to-English translation across 14 source languages. Although fine-tuning multilingual PTMs has been proven to increase translation performance \cite{cooper-stickland-2021-recipes}, no pre-training or fine-tuning is performed in this study due to simplicity reasons and resource limitations. A dataset is curated from the Tatoeba repository \cite{tatoeba}, containing 1,323 parallel sentence pairs across source and target languages. The models include a one-to-one PTMs: OPUS-MT \cite{tiedemann-2023-democratizing,tiedemann-2020-opus-mt}, and multilingual PTMs: such as mBART-50 \cite{liu-2020-mbart}, NLLB-200 \cite{nllb200-2020}, and M2M-100 \cite{fan-2020-m2m100}. The performance of these models is evaluated using the BLEU \cite{papieni-2002-bleu}, SacreBLEU \cite{post-2018-sacrebleu}, and METEOR \cite{lavie-2007-meteor}.
+
+The result indicates that OPUS-MT outperforms all other multilingual models in one-to-English translation on both SacreBLEU and METEOR scores, highlighting the superiority of specific languages PTMs compared to unfine-tuned multilingual PTMs. Among the multilingual models, mBART-50 shows the best performance, while NLLB-200 performs the worst, by a significant margin. Ukrainian-to-English translation by OPUS-MT receives the highest scores, however, Chinese, Italian, Polish, and Turkish are better on average across the four models.
 
 \section{Literature Review}
 
 \subsection{Pre-Trained Models for Machine Translation}
 
-The encoder-decoder approach \cite{cho-2014-properties} remains as the foundation architecture for many sequence-to-sequence models in machine translation. Attention mechanism has been used for Neural Machine Translation (NMT) \cite{bahdanau-2016-nmt-jointly, luong-2015-effective-attention} before the release of the transformer \cite{vaswani-2017-attention}
+Currently, pre-trained models (PTMs) have become a cornerstone in machine translation, leveraging large datasets and powerful architectures to achieve state-of-the-art performance \cite{han-2021-ptms}. Attention mechanism has been used for Neural Machine Translation (NMT) \cite{bahdanau-2016-nmt-jointly, luong-2015-effective-attention} even before the introduction of the transformer \cite{vaswani-2017-attention}. The transformer, with its encoder-decoder approach \cite{cho-2014-properties}, remains the foundational architecture for many sequence-to-sequence models in machine translation. Most PTMs support two kinds of translations: one-to-one translation and many-to-many translation (multilingual models).
 
-Currently, Pre-Trained-Models (PTMs) have become a cornerstone in machine translation, leveraging large datasets and powerful architectures to achieve state-of-the-art performance \cite{han-2021-ptms}. Most PTMs support two kinds of translations: one-to-one translation and many-to-many translation (multilingual models).
+One-to-one translation refers to a translation approach where a model is specifically trained to translate between one source language and one target language. This setup is characterised by having a dedicated model for each unique language pair. OPUS-MT \cite{tiedemann-2020-opus-mt} is a project dedicated to creating and providing free resources for machine translation, providing over a thousand PTMs of direct one-to-one translations. Additionally, Facebook Fairseq \cite{ott-2019-fairseq} similarly offers one-to-one PTMs, although they are only limited to translations between English, French, German, and Russian.
 
-One-to-One Translation refers to a translation approach where a model is specifically trained to translate between one source language and one target language. This setup is characterised by having a dedicated model for each unique language pair. OPUS-MT \cite{tiedemann-2020-opus-mt} and Facebook Fairseq \cite{ott-2019-fairseq} are examples of PTMs that support one-to-one translation. Multilingual models have also gained significant prominence, enabling many-to-many translation, where a single model can translate between multiple source and target languages \cite{aharoni-2019-massively-multilingual}.
-
-OPUS-MT \cite{tiedemann-2020-opus-mt} is a project dedicated to creating and providing free resources for machine translation,providing over a thousand of PTMs of direct one-to-one translations. In contrast, mBART \cite{liu-2020-mbart}, M2M \cite{fan-2020-m2m100}, NLLB-200 \cite{nllb200-2020}, are massively multilingual models that support many-to-many translation language.
+Many-to-many translation allows for a translation between multiple pairs of source and target languages. This is done by training a single multilingual model, typically trained on multilingual datasets. Multilingual models have recently gained significant prominence, shown to be simpler and efficient \cite{aharoni-2019-massively-multilingual}. mBART \cite{liu-2020-mbart}, M2M \cite{fan-2020-m2m100}, NLLB-200 \cite{nllb200-2020}, are examples of massively multilingual models that support many-to-many translation language.
 
 \subsection{Parallel Corpora}
 
-Corpora are large and structured sets of texts used for linguistic research and analysis. Thus, parallel corpora are defined as sets of texts in a given source language along with their translations in another target language \cite{lefer-2020-parallel-corpora}. It can be bilingual or multilingual, and are crucial for training and evaluating machine translation. Languages without or with limited parallel corpora are referred as \textbf{low-resources language}.
+Corpora are large and structured sets of texts used for linguistic research and analysis. Thus, parallel corpora are defined as sets of texts in a given source language along with their translations in another target language \cite{lefer-2020-parallel-corpora}. It can be bilingual or multilingual and is crucial for training and evaluating machine translation. Languages without or with limited parallel corpora are referred to as low-resource languages.
 
-Since the early 2000s, English has often been used as an intermediary language, meaning texts originally written in languages are first translated into English, and then from English into other languages, resulting in most target texts being translations of translations \cite{lefer-2020-parallel-corpora}. This is called indirect translation, and posed for many problems in translations as terms can be ambiguous with varying or similar meanings \cite{rosa-2017-indirect-translation-problems}.
+Since the early 2000s, English has often been used as an intermediary language, meaning texts originally written in languages are first translated into English, and then from English into other languages, resulting in most target texts being translations of translations \cite{lefer-2020-parallel-corpora}. This is called indirect translation and poses many problems in translations as terms can be ambiguous with varying or similar meanings \cite{rosa-2017-indirect-translation-problems}.
 
-Neural Machine Translation (NMT) systems require vast amounts of training data, and thus the availability of parallel corpora is crucial for building effective models \cite{koehn-2017-challenges}. The lack of extensive parallel corpora, especially for low-resource languages, leads to suboptimal performance in NMT techniques compared to their high-resource counterparts \cite{ranathunga-2023-nmt-low-res}. OPUS \cite{opus} is a comprehensive collection of open-source parallel corpora used extensively in the field of machine translation (MT). It includes corpora for 744 languages and contains over 1,210 different datasets, amassing a total of 45,945,946,108 sentence pairs. Tatoeba \cite{tatoeba} is another prominent resource in the field of MT and NLP, known for its extensive collection of translated sentences. As of July 2024, it contains 12,186,207 sentences over 423 supported languages, growing daily through volunteer contributions.
+Neural Machine Translation (NMT) systems require vast amounts of training data, and thus the availability of parallel corpora is crucial for building effective models \cite{koehn-2017-challenges}. The lack of extensive parallel corpora, especially for low-resource languages, leads to suboptimal performance in NMT techniques compared to their high-resource counterparts \cite{ranathunga-2023-nmt-low-res}. OPUS \cite{opus} is a comprehensive collection of open-source parallel corpora used extensively in the field of machine translation (MT). It includes corpora for 744 languages and contains over 1,210 different datasets, amassing a total of 45,945,946,108 sentence pairs. Tatoeba \cite{tatoeba} is another prominent resource in the field of MT and NLP, known for its extensive collection of translated sentences. As of July 2024, it contains 12,186,207 sentences over 423 supported languages, growing daily through volunteer contributions. There are currently
+86,915 members contributed through the Tatoeba website.
 
-Several datasets are often used for evaluation in machine translation. The Tatoeba Challenge \cite{tiedemann-2020-tatoeba-challenge} covers 487 languages in 4,024 language pairs, including 657 test sets sourced from Tatoeba website, covering 138 languages. The TED Talks dataset \cite{ye-2018-word-embeddings-ted} contains transcripts from TED talks for more than 50 languages. IWSLT \cite{agarwal-iwstl-2023} also contains TED talks data, but paired with English translations. Finally, WMT \cite{barrault-2020-wmt} is an annual event that organises tasks for machine translation and provides a collection of datasets for benchmarking and evaluating translation systems.
+Several datasets are often used for evaluation in machine translation. The Tatoeba Challenge \cite{tiedemann-2020-tatoeba-challenge} covers 487 languages in 4,024 language pairs, including 657 test sets sourced from the Tatoeba website, covering 138 languages. The TED Talks dataset \cite{ye-2018-word-embeddings-ted} contains transcripts from TED talks for more than 50 languages. IWSLT \cite{agarwal-iwstl-2023} also contains TED talks data, but paired with English translations. Finally, WMT (Conference on Machine Translation) \cite{barrault-2020-wmt}, previously named Workshop on Statistical Machine Translation, is an annual event that organises tasks for machine translation and provides a collection of datasets for benchmarking and evaluating translation systems.
 
-While these datasets can be used to evaluate translation performance between any language pairs, they do not contain parallel corpora between different languages. Corpus between English and French for example, contains different text to the corpus between English and Spanish. Therefore, they do not support easy evaluation for many-to-English translations. Furthermore, papers often use different datasets and versions to evaluate their model performance, making direct comparison challenging.
-
-mBart \cite{liu-2020-mbart} uses WMT19 for English-German translation and TED15 for Chinese-English translation. M2M-100 \cite{fan-2020-m2m100} uses 7 different datasets shared across languages. NLLB-200  \cite{nllb200-2020} uses FLORES dataset, designed for low-resources languages. OPUS-MT \cite{tiedemann-2023-democratizing,tiedemann-2020-opus-mt} models use datasets from Tatoeba challenges.
+While these datasets can be used to evaluate translation performance between any language pairs, they do not contain parallel corpora between multiple different languages. A corpus between English and French, for example, contains different sets of text than a corpus between English and Spanish. Therefore, they do not support easy evaluation for many-to-English translations. Furthermore, papers often use different datasets and versions to evaluate their model performance, making direct comparisons challenging. mBart \cite{liu-2020-mbart} uses WMT19 for English-German translation and TED15 for Chinese-English translation. M2M-100 \cite{fan-2020-m2m100} uses seven different datasets shared across languages. NLLB-200  \cite{nllb200-2020} uses the FLORES dataset, designed for low-resources languages. OPUS-MT \cite{tiedemann-2023-democratizing,tiedemann-2020-opus-mt} models are evaluated using the datasets from Tatoeba challenges.
 
 
 \section{Methodology}
 
 \subsection{Dataset}
 
-Tatoeba is a vast, continuously expanding database consisting sentences and their translations, built through the contributions of thousands of volunteers, offering a tool that allows users to see examples of how words are used in sentences \cite{tatoeba}. They currently have 12,132,349 sentences and 423 supported languages, with around one to two thousand new sentences added daily, on average. The English sentence dataset contains 1,905,089 sentences, the largest one in their repository, with Russian in the second place with 1,066,633 sentences. Some languages supported on the website is shown in Figure \ref{fig:tatoeba_languages} and Figure \ref{fig:tatoeba_top_bottom_languages}, sorted from the biggest corpus.
+The Tatoeba website \cite{tatoeba} includes a vast, continuously expanding database consisting of sentences and their translations, built through the contributions of thousands of volunteers. They currently have 12,132,349 sentences of over 423 supported languages, with around one to two thousand new sentences added daily, on average. The English sentence dataset contains 1,905,089 sentences, the largest one in their repository, with Russian in second place with 1,066,633 sentences. Figure \ref{fig:tatoeba_languages} shows the repository, sorted from the biggest corpus.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.9\linewidth]{images/tatoeba_languages.png}
-    \caption{Tatoeba's languages repository with 10,000+ sentences and 100,000+ sentences \cite{tatoeba}}
+    \includegraphics[width=0.65\linewidth]{images/tatoeba_languages.png}
+    \includegraphics[width=0.34\linewidth]{images/tatoeba_top_20_lang.png}
+    \caption{Tatoeba's repository by languages, sorted by sentences count \cite{tatoeba}}
     \label{fig:tatoeba_languages}
 \end{figure}
-
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.5\linewidth]{images/tatoeba_top_20_lang.png}
-    \includegraphics[width=0.46\linewidth]{images/tatoeba_bottom_20_lang.png}
-    \caption{Tatoeba top 20 and bottom 20 languages based on sentences count \cite{tatoeba}}
-    \label{fig:tatoeba_top_bottom_languages}
-\end{figure}
-
 
 \begin{table}[htbp]
     \centering
     \large
-    \begin{tabular}{|l|l|r|}
+    \begin{tabular}{llr}
         \hline
         \textbf{No.} & \textbf{Language Pairs} & \textbf{Sentence Pairs Count} \\
         \hline
@@ -115,22 +104,23 @@ Tatoeba is a vast, continuously expanding database consisting sentences and thei
         13           & Turkish-English         & 710,279                       \\
         14           & Ukrainian-English       & 214,244                       \\
         \hline
+                     & Total                   & 4,461,119                     \\
+        \hline
     \end{tabular}
     \caption{List of chosen languages for evaluation}
     \label{table:eval_languages}
 \end{table}
 
-Table \ref{table:eval_languages} show the 14 languages selected for this project. Languages are chosen based on its resources' availability in Tatoeba, as well as considering supported languages in most PTMs models. Thus, the languages chosen here can be considered as moderate to high resources languages.
+Table \ref{table:eval_languages} shows the 14 language pairs selected for this study. Languages are chosen based on the resources' availability in Tatoeba and supported languages in most PTMs. Thus, the languages chosen here can be considered moderate to high-resource languages.
 
-To build the dataset, sentences in English are first downloaded, containing 1,898,494 sentences (it is unclear why it is less than the number stated in the Tatoeba website). Then for each language, sentence pairs between English and source languages are downloaded individually and compiled. The result is a single Dataframe containing 1,323 parallel sentences in all 14 languages, this will be treated as a test set to evaluate the models performance on each language. Note that in the case of multiple reference translations are available for the same sentence in English, only the first sentence is taken while the rest is discarded. Therefore, there is only one reference for each candidate sentence.
+To build the dataset, 1,898,494 English sentences were initially downloaded, though the number is less than what is listed on the Tatoeba website for reasons that remain unclear. For each of the 14 source languages, sentence pairs in English were individually downloaded and compiled. The English corpus was then merged with each compiled source language corpus to create parallel sentences across 14 languages. In each corpus, multiple translations for the same English phrase were dropped, retaining only the first translation to ensure that each English sentence had only a single translation reference. The final dataset contains 1,323 parallel sentences in English and all 14 source languages. This corpus will be used as a test set to evaluate the models' performance in each language.
 
-Sentences typically consist of everyday phrases such as 'I have to go to sleep', 'That is intriguing', and 'Where do you live?'. They may also include single-word exclamations like 'Speak!', 'So what?', or 'Look!'. Additionally, multiple sentences such as 'You may write in any language you want. On Tatoeba, all languages are considered equal', and 'Guns don't kill people. People kill people' can be found inside the corpus. A few of them also include human names, 'Compare your answer with Tom's', 'Muiriel is 20 now'. All of the sentences are straightforward and literal, without the use of linguistic features such as metaphors or sarcasm. Therefore, machine translation process should be straightforward on this level. Figure \ref{table:parallel_sentence} shows two examples of parallel sentences in the final dataset, across all 14 languages and the original English sentence.
-
+Sentences typically consist of everyday phrases such as 'I have to go to sleep', 'That is intriguing', and 'Where do you live?'. They may also include single-word exclamations like 'Speak!', 'So what?', or 'Look!'. Additionally, multiple sentences such as 'You may write in any language you want. On Tatoeba, all languages are considered equal', and 'Guns don't kill people. People kill people' can be found inside the corpus. A few of them also include human names, 'Compare your answer with Tom's', and 'Muiriel is 20 now'. All the sentences seem to be straightforward and literal, without any use of linguistic features such as metaphors or sarcasm. Figure \ref{table:parallel_sentence} shows a couple of examples of parallel sentences in the final dataset, across all 14 languages and the original English sentence.
 
 \begin{CJK}{UTF8}{gbsn}
     \begin{table}[htbp]
         \centering
-        \begin{tabular}{|l|l|l|}
+        \begin{tabular}{lrr}
             \hline
             \textbf{Language} & \textbf{Sentence 1}                   & \textbf{Sentence 2}                   \\
             \hline
@@ -164,19 +154,21 @@ Sentences typically consist of everyday phrases such as 'I have to go to sleep',
     \label{fig:word_count_box}
 \end{figure}
 
-Figure \ref{fig:word_count_box} shows a box plot of sentences word count. The median for Dutch, Finnish, French, German, Hebrew, Italian, Polish, Russian, Spanish, Turkish, Ukrainian seems relatively low, with a moderate spread. A few to moderate count of outlier exist in all languages, suggesting occasional longer sentences, with the highest variability seen in Japanese. Note that for Chinese and Japanese the count is based on each Chinese/Japanese letter, which explains their higher interquartile range (IQR) and larger numbers of outliers.
+Figure \ref{fig:word_count_box} shows a box plot of each language sentence's word count. Note that for Chinese and Japanese the word count is counted for each Chinese/Japanese letter instead, which explains their higher range and larger numbers of outliers.
+
+Most of the languages' interquartile range (IQR) is quite low (around two) with a centre median, except for Chinese, Italian, and Japanese. Finnish and Hebrew have the lowest median, while Polish, Russian, Spanish, Turkish, and Ukrainian have a median closely similar to each other. English, Dutch, French, German, and Italian have a slightly higher median, with Italian also having a wider IQR. Lastly, Japanese and Chinese have the highest median, the widest range, and significantly more outliers.
 
 \subsection{Proposed Pre-Trained Models}
 
 \subsubsection{OPUS-MT}
 
-\textbf{OPUS-MT} \cite{tiedemann-2023-democratizing,tiedemann-2020-opus-mt} provides over 1,000 pre-trained models for translation between numerous language pairs. The architecture is based on MARIAN-NMT \cite{mariannmt}, based on a standard transformer setup: 6 self-attentive layers in both the encoder and decoder networks, each with 8 attention heads per layer \cite{tiedemann-2020-opus-mt}.
+OPUS-MT \cite{tiedemann-2023-democratizing,tiedemann-2020-opus-mt} provides over 1,000 pre-trained models for translation between numerous language pairs. The architecture is based on MARIAN-NMT \cite{mariannmt}, based on a standard transformer setup: 6 self-attentive layers in both the encoder and decoder networks, each with 8 attention heads per layer \cite{tiedemann-2020-opus-mt}.
 
-While they provide both monolingual and multilingual PTMs, only the OPUS-MT monolingual models are used in this study.
+While the framework provides both monolingual and multilingual PTMs, only the OPUS-MT monolingual models are used in this study. This is partly due to the lack of documentation on the multilingual models.
 
 \subsubsection{mBART-50}
 
-\textbf{mBART} \cite{liu-2020-mbart} is a sequence-to-sequence denoising auto-encoder model specifically designed for multilingual tasks. The mBART-50 variant supports many-to-many translations for over 50 languages.
+mBART \cite{liu-2020-mbart} is a sequence-to-sequence denoising auto-encoder model specifically designed for multilingual tasks. The mBART-50 variant supports many-to-many translations for over 50 languages.
 
 \begin{figure}[htbp]
     \centering
@@ -186,13 +178,13 @@ While they provide both monolingual and multilingual PTMs, only the OPUS-MT mono
     \label{fig:mbart}
 \end{figure}
 
-The mBART model is built as a typical sequence-to-sequence transformer architecture \cite{vaswani-2017-attention}, using an embedding dimension of 1024 and 16 heads within 12 layers of encoder and 12 layers of decoder, totalling to around 680M parameters \cite{liu-2020-mbart}.
+The mBART model is built as a typical sequence-to-sequence transformer architecture \cite{vaswani-2017-attention}, using an embedding dimension of 1024 and 16 heads within 12 layers of encoder and 12 layers of decoder, totalling around 680M parameters \cite{liu-2020-mbart}.
 
-Figure \ref{fig:mbart} shows  mBART's key features: multilingual denoising pre-training and fine-tuning. The dataset is first corrupted by a noising function, which is applied to 35\% of words of each span text \cite{liu-2020-mbart}. During pre-training, the model will be made to denoise the texts, improving the model's ability to generate coherent and accurate translations. After the pre-training step, the model is then able to be fine-tuned for downstream tasks. It is shown that the model achieved consistent performance gains through pre-training in low-to-medium resource sentence level MT \cite{liu-2020-mbart}
+Figure \ref{fig:mbart} shows mBART's key features: multilingual denoising pre-training and fine-tuning. The dataset is first corrupted by a noising function, which is applied to 35\% of words of each span text \cite{liu-2020-mbart}. During pre-training, the model will be made to denoise the texts, improving the model's ability to generate coherent and accurate translations. After the pre-training step, the model is then able to be fine-tuned for downstream tasks. It is shown that the model achieved consistent performance gains through pre-training in low-to-medium resource sentence-level translation \cite{liu-2020-mbart}
 
 \subsubsection{M2M-100}
 
-\textbf{M2M-100} \cite{fan-2020-m2m100} is designed to perform direct translation between any pair of 100 languages without relying on English as an intermediate language. Similarly, the architecture is of a transformer sequence-to-sequence with a typical encoder that outputs embeddings of the same length, while the decoder is an autoregressive component that sequentially produce the target sentence one token at a time. The parameters include 12 encoder layers and 12 decoder layers, 8192 FFN size and 1024 embedding dimension, totalling to a 1.2B parameter count \cite{fan-2020-m2m100}.
+M2M-100 \cite{fan-2020-m2m100} is designed to perform direct translation between any pair of 100 languages without relying on English as an intermediate language. Similarly, the architecture is of a transformer sequence-to-sequence with a typical encoder that outputs embeddings of the same length, while the decoder is an autoregressive component that sequentially produces the target sentence one token at a time. The parameters include 12 encoder layers and 12 decoder layers, 8192 hidden layer sizes, and 1024 embedding dimensions, totalling a 1.2B parameter count \cite{fan-2020-m2m100}.
 
 \begin{figure}[htbp]
     \centering
@@ -201,11 +193,11 @@ Figure \ref{fig:mbart} shows  mBART's key features: multilingual denoising pre-t
     \label{fig:m2m}
 \end{figure}
 
-Figure \ref{fig:m2m} show the inner working of the M2M model. The English-centric dataset (top left) includes training data exclusively involving translations to and from English, while the many-to-many multilingual setting (top right) involves direct translation data among multiple language pairs \cite{fan-2020-m2m100}. Finally, the model combines sparse language-specific parameters with dense parameters (bottom part of Figure \ref{fig:m2m}),
+Figure \ref{fig:m2m} shows the inner workings of the M2M model. The English-centric dataset (top left) includes training data exclusively involving translations to and from English, while the many-to-many multilingual setting (top right) involves direct translation data among multiple language pairs \cite{fan-2020-m2m100}. Finally, the model combines sparse language-specific parameters with dense parameters (bottom part of Figure \ref{fig:m2m}),
 
 \subsubsection{NLLB-200}
 
-\textbf{NLLB-200} \cite{nllb200-2020} is built to handle translation tasks across a broad spectrum of languages, including many that are low-resource or underrepresented in existing datasets. It supports translations for 200 languages, including numerous underrepresented languages, and is currently one of the most extensive multilingual machine translation models. The model employs a Mixture of Experts (MoE) architecture and achieves state-of-the-art (SoTA) results across many language pairs, even surpassing Meta's previous model, M2M-100 \cite{nllb200-2020}.
+NLLB-200 \cite{nllb200-2020} is built to handle translation tasks across a broad spectrum of languages, including many that are low-resource or underrepresented in existing datasets. It supports translations for 200 languages, including numerous underrepresented languages, and is currently one of the most extensive multilingual machine translation models. The model employs a Mixture of Experts (MoE) architecture and achieves state-of-the-art (SoTA) results across many language pairs, even surpassing Meta's previous model, M2M-100 \cite{nllb200-2020}.
 
 The 'nllb-200-distilled-600M' variant has a total of 600M parameters, distilled from originally 54B parameters \cite{nllb200-2020}
 
@@ -223,15 +215,11 @@ Figure \ref{fig:nllb} shows the Dense Transformer and MoE Transformer layers imp
 
 \subsection{Evaluation Metrics}
 
-% the most assured way to determine the best MT system from competing alternatives is to have an assessment done by competent human translators.
-
-In this project, a variant of BLEU \cite{papieni-2002-bleu} called SacreBLEU \cite{post-2018-sacrebleu} and METEOR \cite{lavie-2007-meteor} will be used in this experiment due to their popularity, simplicity, and ease-of-use.
-
-While other metrics such as Crosslingual Optimized Metric for Evaluation of Translation (COMET) \cite{rei-2020-comet} and BERTSCore \cite{zhang-2020-bertscore} exist, they involve using a deep neural network or a transformer to evaluate, which naturally increase computational cost and slow down calculation greatly.
+In this study, BLEU \cite{papieni-2002-bleu}, SacreBLEU \cite{post-2018-sacrebleu}, and METEOR \cite{lavie-2007-meteor} are applied as evaluation metrics due to their popularity, simplicity, and ease-of-use. While other metrics such as Crosslingual Optimized Metric for Evaluation of Translation (COMET) \cite{rei-2020-comet} and BERTSCore \cite{zhang-2020-bertscore} exist, they involve using a deep neural network or a transformer to evaluate, which naturally increase computational cost and slow down calculation greatly.
 
 \subsubsection{BLEU}
 
-Bilingual Evaluation Understudy (BLEU) \cite{papieni-2002-bleu} is the most commonly used metrics for machine translation (MT). It assesses how well a candidate translation matches the reference translation using precision metrics for n-grams and incorporates a brevity penalty to prevent overly short translations from achieving high scores.
+Bilingual Evaluation Understudy (BLEU) \cite{papieni-2002-bleu} is the most commonly used metric for machine translation (MT). It assesses how well a candidate translation matches the reference translation using precision metrics for n-grams and incorporates a brevity penalty to prevent overly short translations from achieving high scores.
 
 The BLEU score is calculated as:
 \begin{equation}
@@ -254,9 +242,7 @@ The n-gram precision, as presented in the original BLEU paper \cite{papieni-2002
 \end{equation}
 where \( p_n \) is the precision for n-grams, \( \sum_{C \in \{Candidates\}} \) denotes the summation over all candidate translations, \( \sum_{\text{n-gram} \in C} \) denotes the summation over all n-grams in a candidate translation \( C \). \( \text{Count}_{\text{clip}}(\text{n-gram}) \) is the clipped count of the n-gram, which is the count of the n-gram in the candidate translation limited by the maximum count of that n-gram in any reference translation. \( \text{Count}(\text{n-gram}) \) is the count of the n-gram in the candidate translation.
 
-The machine translation community's rely heavily BLEU score, however, it has several drawbacks. The metric has been reported to not correlate strongly with human judgement, showing variations in translation that could mean that a higher BLEU score does not necessarily indicate a true enhancement in translation quality \cite{callison-burch-2006-reevaluating-bleu}.
-
-Furthermore, It is challenging to directly compare BLEU scores between paper \cite{post-2018-sacrebleu}. Thus, the author proposed a standardised variant called SacreBLEU \cite{post-2018-sacrebleu}, designed to ensure easy, consistent, and comparable evaluation across different implementations and research studies.
+The machine translation community relies heavily upon the BLEU score, despite its several drawbacks. The metric has been reported to not correlate strongly with human judgement, showing variations in translation that could mean that a higher BLEU score does not necessarily indicate a true enhancement in translation quality \cite{callison-burch-2006-reevaluating-bleu}. Furthermore, the metric is tokenisation-dependant, making it challenging to directly compare BLEU scores between paper \cite{post-2018-sacrebleu}. Thus, the author proposed a standardised variant called SacreBLEU \cite{post-2018-sacrebleu}, which is essentially a Python script that applies its own metric-internal preprocessing and produces the same values as WMT \cite{barrault-2020-wmt}, utilising the WMT (2008–2018) and IWSLT 2017 \cite{cettolo-etal-2017-iwslt} test sets.
 
 \subsubsection{METEOR}
 
@@ -268,11 +254,11 @@ where \(P\) is the precision, \(R\) is the recall, and \(\text{frag}\) is the fr
 
 \subsection{Inference Details}
 
-OPUS-MT models are taken from the Helsinki-NLP repository. The 'mbart-large-50-many-to-many-mmt' is used, 'm2m100\_418M', and 'nllb-200-distilled-600M'. All models are taken using the transformers \cite{wolf-etal-2020-transformers} library from Hugging Face \cite{huggingface}. Batch size of 4 is used in all models. Translations are first generated and saved into CSV files, before calculating the metrics score.
+OPUS-MT models are taken from the Helsinki-NLP repository with the exception of 'tiedeman/opus-mt-he-en' for Hebrew-to-English translation. The 'mbart-large-50-many-to-many-mmt', the 'm2m100\_418M', and the 'nllb-200-distilled-600M' models are used for mBART-50 \cite{liu-2020-mbart}, M2M-100 \cite{fan-2020-m2m100}, and NLLB-200 \cite{nllb200-2020}, respectively. All models are taken using the transformers \cite{wolf-etal-2020-transformers} library from Hugging Face \cite{huggingface}. A batch size of 4 is used in all models. Translations are first generated and saved into CSV files, before calculating the metrics score.
 
-The sacrebleu packages from pip is used to calculate SacreBLEU \cite{post-2018-sacrebleu}. For BLEU and METEOR, the NLTK \cite{bird-2009-natural} package is used. Corpus BLEU is implemented for both SacreBLEU and BLEU in the calculations. Additionally, smoothing method 7 is used for BLEU, which interpolates two other smoothing functions: smoothing method 4, which divides by \( \frac{1}{\ln(\text{len}(T))} \), where \( T \) is the length of the translation; and smoothing method 5, which averages the \( n-1 \), \( n \), and \( n+1 \) gram matched counts \cite{nltk-bleu-docs}.
+For BLEU and METEOR, tokenisation and metrics calculation use the NLTK \cite{bird-2009-natural} package, specifically the \texttt{nltk.word\_tokenize}, \texttt{nltk.translate.meteor\_score}, and \texttt{nltk.translate.bleu\_score.corpus\_bleu}. Additionally, smoothing method 7 is used for the BLEU calculation, which interpolates two other smoothing functions: smoothing method 4, which divides by \( \frac{1}{\ln(\text{len}(T))} \), where \( T \) is the length of the translation; and smoothing method 5, which averages the \( n-1 \), \( n \), and \( n+1 \) gram matched counts \cite{nltk-bleu-docs}. The \texttt{sacrebleu} \cite{post-2018-sacrebleu} package from pip is used to calculate SacreBLEU \cite{post-2018-sacrebleu}.
 
-All codes are written in Python 3.12.2, run locally on MacOS Sonoma 14.4.1 with M2 chip and 16 GB memory. GitHub: \url{https://github.com/stefanliemawan/eval-machine-translation}
+All codes are written in Python 3.12.2 and run locally on MacOS Sonoma 14.4.1 with an M2 chip and 16 GB memory. Datasets and scripts will be available on GitHub: \url{https://github.com/stefanliemawan/eval-machine-translation}
 
 \section{Evaluation}
 
@@ -280,7 +266,7 @@ All codes are written in Python 3.12.2, run locally on MacOS Sonoma 14.4.1 with 
     \centering
     \begin{minipage}{0.49\linewidth}
         \footnotesize
-        \begin{tabular}{|l|r|r|r|}
+        \begin{tabular}{lrrr}
             \hline
             \textbf{Language} & \textbf{BLEU}   & \textbf{SacreBLEU} & \textbf{METEOR} \\
             \hline
@@ -304,7 +290,7 @@ All codes are written in Python 3.12.2, run locally on MacOS Sonoma 14.4.1 with 
     \end{minipage}
     \begin{minipage}{0.49\linewidth}
         \footnotesize
-        \begin{tabular}{|l|r|r|r|}
+        \begin{tabular}{lrrr}
             \hline
             \textbf{Language} & \textbf{BLEU}   & \textbf{SacreBLEU} & \textbf{METEOR} \\
             \hline
@@ -332,7 +318,7 @@ All codes are written in Python 3.12.2, run locally on MacOS Sonoma 14.4.1 with 
     \centering
     \begin{minipage}{0.49\linewidth}
         \footnotesize
-        \begin{tabular}{|l|r|r|r|}
+        \begin{tabular}{lrrr}
             \hline
             \textbf{Language} & \textbf{BLEU}   & \textbf{SacreBLEU} & \textbf{METEOR} \\
             \hline
@@ -356,7 +342,7 @@ All codes are written in Python 3.12.2, run locally on MacOS Sonoma 14.4.1 with 
     \end{minipage}
     \begin{minipage}{0.49\linewidth}
         \footnotesize
-        \begin{tabular}{|l|r|r|r|}
+        \begin{tabular}{lrrr}
             \hline
             \textbf{Language} & \textbf{BLEU}   & \textbf{SacreBLEU} & \textbf{METEOR} \\
             \hline
@@ -380,13 +366,13 @@ All codes are written in Python 3.12.2, run locally on MacOS Sonoma 14.4.1 with 
     \end{minipage}
 \end{table}
 
-Table \ref{table:opus_result}, \ref{table:mbart_result}, \ref{table:m2m_result}, and \ref{table:nllb_result}, and  shows the result from all four PTMs. All models perform similarly low on BLEU score across all languages, with NLLB-200 reaching 0.01 below more on Japanese translation. The BLEU scores are very low (below 10 BLEU) in all cases due to the sentences being short (find cite). This also highlights the superiority of SacreBLEU compared to the flawed, standard BLEU.
+Table \ref{table:opus_result}, \ref{table:mbart_result}, \ref{table:m2m_result}, and \ref{table:nllb_result}, and  shows the result from all four PTMs. All models perform similarly low on BLEU score across all languages, with NLLB-200 reaching 0.01 below on Japanese translation. The BLEU scores are very low (below 10 BLEU) in all cases due to the sentences being short (find cite). This also highlights the superiority of SacreBLEU compared to the flawed, standard BLEU.
 
-% BLEU are notoriously unreliable for very short texts. The score will be disproportionately influenced by small differences if there isn't much text to begin with because there is a Brevity Penalty set in place to discourage the model from outputting fewer words and get a high score. 
+% BLEU is notoriously unreliable for very short texts. The score will be disproportionately influenced by small differences if there isn't much text to begin with because there is a Brevity Penalty set in place to discourage the model from outputting fewer words and getting a high score. 
 
 OPUS-MT model shows the best performance in all languages, consistently reaching mostly above 60 SacreBLEU and 0.8 METEOR. The highest-rated languages are Ukrainian-to-English translation with 75.44 SacreBLEU and 0.86 METEOR, while the lowest scores are achieved on Chinese-to-English translation: 59.50 SacreBLEU and Japanese-to-English: 0.78 METEOR.
 
-The mBART-50 model is the second-best-performing PTMs and the best-performing multilingual model, achieving best SacreBLEU and METEOR score in Italian-to-English translation, while suffering the most in Spanish-to-English (SacreBLEU) and Turkish-to-English (METEOR) translation. Interestingly, Spanish received the worst score in SacreBLEU while it performs decently in METEOR, and Turkish performs well in SacreBLEU score but has the worst in METEOR. Additionally, the model slightly outperforms OPUS-MT in Polish-to-English translation on SacreBLEU score (0.85 higher).
+The mBART-50 model is the second-best-performing PTM and the best-performing multilingual model, achieving the best SacreBLEU and METEOR score in Italian-to-English translation while suffering the most in Spanish-to-English (SacreBLEU) and Turkish-to-English (METEOR) translation. Interestingly, Spanish receives the worst score in SacreBLEU while it performs decently in METEOR, and Turkish performs well in SacreBLEU score but has the worst in METEOR. Additionally, the model slightly outperforms OPUS-MT in Polish-to-English translation on SacreBLEU score (0.85 higher).
 
 Similarly, SacreBLEU for Italian-to-English translation outperforms other languages with the M2M-100 model, although Dutch beat Italian by 0.01 in METEOR score. Japanese received the worst score in both SacreBLEU and METEOR for this model. M2M-100 performs worse in SacreBLEU compared to mBART-50, but comparably similar in METEOR scores.
 
@@ -395,15 +381,15 @@ NLLB-200 scores much lower compared to other models in both SacreBLEU and METEOR
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=1\linewidth]{figures/metrics_bar.png}
-    \caption{BLEU, SacreBLEU, and METEOR scores of each model on each language, divided by language}
+    \caption{BLEU, SacreBLEU, and METEOR scores of each model on each language}
     \label{fig:result_visual}
 \end{figure}
 
-Figure \ref{fig:result_visual} shows the visualisation of all scores, categorised per language.
+Figure \ref{fig:result_visual} visualises all scores gained by each model, categorised by language.
 
-Dutch and Italian translations generally score higher across all metrics, suggesting that these languages are well-supported by the pre-trained models. Japanese translations, however, pose significant challenges for all models, as indicated by the consistently low scores across all metrics.
+Dutch, Italian, and Ukrainian translations generally score higher across all metrics, suggesting that these languages are well-supported by the pre-trained models. Japanese translations, however, pose significant challenges for all models, as indicated by the consistently low scores across all metrics.
 
-Japanese-to-English translation seem to have the worst score on average across the four models, but particularly bad on multilingual models. In contrast, Dutch and German, have consistently high results on all models except for NLLB-200, often reaching closely to the highest-language-score SacreBLEU and METEOR score.
+Japanese-to-English translation seems to have the worst score on average across the four models, but particularly bad on multilingual models. In contrast, Dutch and German have consistently high results on all models except for NLLB-200, often reaching close to the highest language SacreBLEU and METEOR scores.
 
 \begin{figure}[htbp]
     \centering
@@ -424,7 +410,7 @@ Japanese-to-English translation seem to have the worst score on average across t
     \label{fig:lang_metrics}
 \end{figure}
 
-Figure \ref{fig:lang_metrics} shows the SacreBLEU and METEOR scores for each language by model. The OPUS-MT and mBART-50 models are again shown as the clear winners in almost all languages. M2M-100 also performs competitively with mBART-50 in some languages, surpassing mBART-50 in Spanish-to-English translation. All four models seem to perform consistently against each other in Chinese-to-English and Turkish-to-English translations.
+Figure \ref{fig:lang_metrics} shows the SacreBLEU and METEOR scores for each language, categorised by model. The OPUS-MT and mBART-50 models are again shown as the clear winners in almost all languages. M2M-100 also performs competitively with mBART-50 in most languages, surpassing mBART-50 in Spanish-to-English translation. NLLB-200 is clearly shown to suffer greatly across all languages besides Chinese. All four models seem to perform consistently against each other in Chinese-to-English and Turkish-to-English translations.
 
 \begin{figure}[htbp]
     \centering
@@ -434,7 +420,7 @@ Figure \ref{fig:lang_metrics} shows the SacreBLEU and METEOR scores for each lan
     \label{fig:average_bars}
 \end{figure}
 
-Figure \ref{fig:average_bars} visualise the average BLEU, SacreBLEU, and METEOR, for each model and each language, highlighting how the models and languages perform independently. It can be seen that mBART-50 perform more closely to OPUS-MT on METEOR score than SacreBLEU score. Language-wise, Italian, Polish, and Turkish achieves the best average SacreBLEU scores while Chinese, Polish and Turkish are shown as the top three in average METEOR scores.
+Figure \ref{fig:average_bars} visualise the average BLEU, SacreBLEU, and METEOR, for each model and each language, highlighting how the models and languages perform independently. It can be seen that mBART-50 performs more closely to OPUS-MT on the METEOR score than the SacreBLEU score. Language-wise, Italian, Polish, and Turkish achieve the best average SacreBLEU scores while Chinese, Polish, and Turkish are shown as the top three in average METEOR scores.
 
 \begin{figure}[htbp]
     \centering
@@ -443,13 +429,13 @@ Figure \ref{fig:average_bars} visualise the average BLEU, SacreBLEU, and METEOR,
     \label{fig:opus_comparison}
 \end{figure}
 
-Figure \ref{fig:opus_comparison} visualises the difference between each OPUS-MT models reported BLEU scores compared to the SacreBLEU result of this study. The reported BLEU is evaluated on the Tatoeba dataset \cite{tiedemann-2020-opus-mt}. It can be seen that the scores are quite aligned, with Ukrainian and Italian reaching the two highest score while Chinese, Polish, and Japanese suffers.
+Figure \ref{fig:opus_comparison} visualises the difference between each OPUS-MT model's reported BLEU scores compared to the SacreBLEU result of this study. The reported BLEU is evaluated on the Tatoeba dataset \cite{tiedemann-2020-opus-mt}. It can be seen that the scores are quite aligned, with Ukrainian and Italian reaching the two highest scores while Chinese, Polish, and Japanese suffer.
 
-This study experiments also resulted in moderately higher overall SacreBLEU score, however, the dataset used here is also significantly less in size than the full Tatoeba challenge dataset \cite{tiedemann-2020-tatoeba-challenge}.
+This study's experiments also resulted in a moderately higher overall SacreBLEU score, however, the dataset used here is also significantly less in size than the full Tatoeba challenge dataset \cite{tiedemann-2020-tatoeba-challenge}.
 
 \begin{table}[htbp]
     \centering
-    \begin{tabular}{|l|r|r|}
+    \begin{tabular}{l r r}
         \hline
         \textbf{Language} & \textbf{SacreBLEU} & \textbf{Reported BLEU} \\
         \hline
@@ -472,7 +458,7 @@ This study experiments also resulted in moderately higher overall SacreBLEU scor
     \label{table:opus_comparison}
 \end{table}
 
-Additionally, Table \ref{table:opus_comparison} shows the full scores of both results SacreBLEU and reported BLEU from each OPUS-MT models. The reported BLEU scores are taken from each model cards in the HuggingFace repository \cite{huggingface}.
+Additionally, Table \ref{table:opus_comparison} shows the full scores of both results SacreBLEU and reported BLEU from each OPUS-MT model \cite{tiedemann-2020-opus-mt}. The reported BLEU scores are taken from each model card in the HuggingFace repository \cite{huggingface}. Unfortunately, other models are not benchmarked on the Tatoeba dataset, not evaluated on the source languages used in this study, and use different metrics \cite{liu-2020-mbart,fan-2020-m2m100,nllb200-2020}, and therefore cannot be directly compared to the results of this study.
 
 \begin{figure}[htbp]
     \centering
@@ -481,26 +467,29 @@ Additionally, Table \ref{table:opus_comparison} shows the full scores of both re
     \label{fig:inference_timings}
 \end{figure}
 
-Lastly, Figure \ref{fig:inference_timings} shows the time taken to translate for each language across experimented models. The OPUS-MT model is the fastest among the other three multilingual models, which perform similarly in timings. It is quite unclear why mBART50 Spanish-to-English translation suffers from a significantly higher timing. Re-running the experiment shows that this timing is consistent and not an anomaly.
+Lastly, Figure \ref{fig:inference_timings} shows the time taken to translate all 1,323 sentences for each language across experimented models. The OPUS-MT model is the fastest among the other three multilingual models. M2M-100 and NLLB-200 achieve similar timings, while mBart-50 has slightly longer timings on average. It is unknown why mBART50 suffers from a significantly higher timing on the Spanish-to-English translation. Re-running the experiment shows that this timing is consistent and not an anomaly.
 
 
 \section{Conclusion}
 
-This study findings show that while multilingual models have been shown to achieve higher performance compared to one-to-one translation models \cite{liu-2020-mbart}, this does not hold on short sentences, many-to-English translations across the 14 source languages.
+This study's findings show that while multilingual models have been shown to achieve higher performance compared to one-to-one translation models \cite{liu-2020-mbart}, this does not hold on short sentences, many-to-English translations across the 14 source languages, with regard to unfine-tuned multilingual models in this study.
 
-OPUS-MT achieves the best performance across all 14 languages. mBART-50 is the second-best-performing model, beating OPUS-MT only in Polish SacreBLEU. Nevertheless, both mBART-50 and M2M-100 performs generally well on all languages. NLLB-200, however, achieves much lower scores in both SacreBLEU and METEOR for all languages except for Chinese, slightly outperforming M2M-100 but still slightly below mBART-50.
+OPUS-MT achieves the best performance across all 14 languages. mBART-50 is the second-best-performing model, beating OPUS-MT only in Polish SacreBLEU. Nevertheless, both mBART-50 and M2M-100 perform generally well in all languages. NLLB-200, however, achieves much lower scores in both SacreBLEU and METEOR for all languages except for Chinese, slightly outperforming M2M-100 but still slightly below mBART-50. NLLB-200 should then be avoided for use without any further fine-tuning on these languages. Bear in mind that the distilled version is used in this study instead of the larger 3.3 billion parameters model variant.
 
-NLLB-200 should then be avoided for use without any further fine-tuning on these 14 languages.
+Chinese, Italian, Polish, and Turkish have the best average scores over all four models. Ukrainian by OPUS-MT has the highest SacreBLEU and METEOR scores across all the other models and languages. These results show that these languages are well-supported on the four pre-trained models (PTMs) evaluated in this study, achieving decent results without any fine-tuning.
 
-Chinese, Italian, Polish, Turkish have the best average scores over all four models, Ukrainian by OPUS-MT has the highest SacreBLEU and METEOR score across all the other models and languages.
-
-Limitations, only the first translation of the same phrases are taken, which may disrupts the possibility for synonyms, especially for BLEU and SacreBLEU metrics. Additionally, no fine-tuning is applied in this experiment, which may affect the translation results, as fine-tuning models for specific languages can significantly improve models performance \cite{zhang-2023-fine-tuning}.
 
 \section{Discussion}
 
-Future works should be done by incorporating more Pre-Trained Models (PTMs) and implementing fine-tuning for specific languages on languages-to-English translation. Evaluating with bigger datasets and longer texts can also be beneficial, as well as using language other than English as the target language.
+When the dataset is curated, only the first translation of the same English phrases is taken, the others are discarded. This ignores several possible translation references which may include synonyms or different phrasings, thus affecting the evaluation score, especially for BLEU and SacreBLEU metrics.
 
-Furthermore, it may be beneficial to consider more general multilingual PTMs such as mBERT \cite{wu-2020-mbert-are-all} and PolyLM \cite{wei-2023-polylm}, which are trained for a wide arrange of NLP tasks instead of just machine translation.
+The dataset consists of mostly short sentences. Whether the result of this study stays consistent for longer sentences or documents is not known and should be further looked into. Moreover, the linguistic depth of the sentences is considered low and does not require deep understanding.
+
+As Tatoeba \cite{tatoeba} is run mostly by volunteers, there are also several limitations with its corpus. The quality of sentences can vary significantly depending on the contributors' language proficiency and the level of community engagement for specific languages. Moreover, not all sentences are reviewed or verified by native speakers or trusted users.
+
+The languages chosen are mostly high-resource languages, while models such as NLLB-200 \cite{nllb200-2020} are specifically designed to address the problem with low-resource languages. Data leakage is also a possibility, as sentences included in this dataset are fairly common phrases, it is highly likely that the model has seen these during training.
+
+Future works should incorporate more Pre-Trained Models (PTMs) and implement fine-tuning multilingual models for specific languages on languages-to-English translation as it can significantly improve performance \cite{zhang-2023-fine-tuning}. Furthermore, it may be beneficial to consider more general multilingual PTMs such as mBERT \cite{wu-2020-mbert-are-all} and PolyLM \cite{wei-2023-polylm}, which are trained for a wide range of NLP tasks instead of just machine translation.
 
 \printbibliography
 \end{document}
