@@ -431,7 +431,8 @@ Figure \ref{fig:average_bars} visualise the average BLEU, SacreBLEU, and METEOR,
 
 Figure \ref{fig:opus_comparison} visualises the difference between each OPUS-MT model's reported BLEU scores compared to the SacreBLEU result of this study. The reported BLEU is evaluated on the Tatoeba dataset \cite{tiedemann-2020-opus-mt}. It can be seen that the scores are quite aligned, with Ukrainian and Italian reaching the two highest scores while Chinese, Polish, and Japanese suffer.
 
-This study's experiments also resulted in a moderately higher overall SacreBLEU score, however, the dataset used here is also significantly less in size than the full Tatoeba challenge dataset \cite{tiedemann-2020-tatoeba-challenge}.
+While this study's experiments resulted in a moderately higher overall SacreBLEU, the dataset used here is also significantly smaller than the full Tatoeba challenge dataset \cite{tiedemann-2020-tatoeba-challenge} that are used in the OPUS-MT reported BLEU. In contrast, this study employs the same set of parallel sentences for all languages, which should lead to more consistent results. Nevertheless, a direct comparison between these results is not fully pertinent.
+
 
 \begin{table}[htbp]
     \centering
@@ -483,7 +484,7 @@ Chinese, Italian, Polish, and Turkish have the best average scores over all four
 
 When the dataset is curated, only the first translation of the same English phrases is taken, the others are discarded. This ignores several possible translation references which may include synonyms or different phrasings, thus affecting the evaluation score, especially for BLEU and SacreBLEU metrics.
 
-The dataset consists of mostly short sentences. Whether the result of this study stays consistent for longer sentences or documents is not known and should be further looked into. Moreover, the linguistic depth of the sentences is considered low and does not require deep understanding.
+The dataset consists of mostly short sentences, with little or none linguistic depth. Whether the result of this study stays consistent for longer sentences or documents is not known and should be further looked into. The Tatoeba dataset \cite{tiedemann-2020-tatoeba-challenge} consisting of short sentences has been reported to be too optimistic when evaluated with other datasets that are more realistic \cite{tiedemann-2020-opus-mt}.
 
 As Tatoeba \cite{tatoeba} is run mostly by volunteers, there are also several limitations with its corpus. The quality of sentences can vary significantly depending on the contributors' language proficiency and the level of community engagement for specific languages. Moreover, not all sentences are reviewed or verified by native speakers or trusted users.
 
