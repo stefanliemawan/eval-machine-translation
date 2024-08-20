@@ -940,6 +940,49 @@
     \field{year}{2006}
   \endentry
 
+  \entry{cettolo-2012-wit3}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=CM}{%
+         family={Cettolo},
+         familyi={C\bibinitperiod},
+         given={Mauro},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=GC}{%
+         family={Girardi},
+         familyi={G\bibinitperiod},
+         given={Christian},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=FM}{%
+         family={Federico},
+         familyi={F\bibinitperiod},
+         given={Marcello},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {European Association for Machine Translation}%
+    }
+    \strng{namehash}{CMGCFM1}
+    \strng{fullhash}{CMGCFM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{booktitle}{Proceedings of the 16th Annual conference of the European Association for Machine Translation}
+    \field{pages}{261\bibrangedash 268}
+    \field{title}{{WIT}3: Web Inventory of Transcribed and Translated Talks}
+    \verb{url}
+    \verb https://www.aclweb.org/anthology/2012.eamt-1.60
+    \endverb
+    \list{location}{1}{%
+      {Trento, Italy}%
+    }
+    \field{year}{2012}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
   \entry{cettolo-etal-2017-iwslt}{inproceedings}{}
     \name{author}{8}{}{%
       {{hash=CM}{%
@@ -4650,19 +4693,18 @@
     \field{year}{2023}
   \endentry
 
-  \entry{intento-2020}{report}{}
+  \entry{intento-2024}{report}{}
     \field{labeltitlesource}{title}
     \field{sortinit}{T}
     \field{sortinithash}{T}
-    \field{note}{Independent multi-domain evaluation of commercial Machine Translation engines}
-    \field{title}{The State of Machine Translation 2020}
+    \field{title}{The State of Machine Translation 2024}
     \verb{url}
-    \verb https://try.inten.to/mt_report_2020
+    \verb https://inten.to/machine-translation-report-2024/
     \endverb
     \list{institution}{1}{%
       {Intento}%
     }
-    \field{year}{2020}
+    \field{year}{2024}
   \endentry
 
   \entry{tiedemann-2020-tatoeba-challenge}{inproceedings}{}

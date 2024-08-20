@@ -17,7 +17,7 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated field_info (elt_size=4) to 13260 items from 5000.
+Reallocated field_info (elt_size=4) to 13400 items from 5000.
 Database file #1: paper-blx.bib
 Database file #2: references.bib
 Biblatex version: 3.19
@@ -29,45 +29,45 @@ Warning--you've exceeded 500, the entry-string-size, for entry openai-2024-gpt4
 while executing--line 2727 of file biblatex.bst
 *Please notify the bibstyle designer*
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 59 entries,
+You've used 60 entries,
             6399 wiz_defined-function locations,
-            1589 strings with 38884 characters,
-and the built_in function-call counts, 1623754 in all, are:
-= -- 158389
-> -- 12194
-< -- 2569
-+ -- 65169
-- -- 5775
-* -- 113599
-:= -- 224523
+            1596 strings with 39158 characters,
+and the built_in function-call counts, 1634196 in all, are:
+= -- 159267
+> -- 12399
+< -- 2662
++ -- 65496
+- -- 5839
+* -- 114250
+:= -- 225579
 add.period$ -- 0
-call.type$ -- 59
-change.case$ -- 1565
-chr.to.int$ -- 157
-cite$ -- 116
-duplicate$ -- 181642
-empty$ -- 120990
-format.name$ -- 10659
-if$ -- 300704
+call.type$ -- 60
+change.case$ -- 1632
+chr.to.int$ -- 160
+cite$ -- 118
+duplicate$ -- 182763
+empty$ -- 121803
+format.name$ -- 10748
+if$ -- 302894
 int.to.chr$ -- 0
-int.to.str$ -- 167
+int.to.str$ -- 171
 missing$ -- 0
-newline$ -- 5962
-num.names$ -- 3485
-pop$ -- 33656
+newline$ -- 6004
+num.names$ -- 3588
+pop$ -- 34030
 preamble$ -- 1
-purify$ -- 3090
+purify$ -- 3165
 quote$ -- 0
-skip$ -- 15604
+skip$ -- 15968
 stack$ -- 0
-substring$ -- 305380
-swap$ -- 18907
-text.length$ -- 2269
-text.prefix$ -- 58
+substring$ -- 306827
+swap$ -- 19138
+text.length$ -- 2305
+text.prefix$ -- 59
 top$ -- 1
-type$ -- 1994
+type$ -- 2028
 warning$ -- 0
-while$ -- 29166
+while$ -- 29296
 width$ -- 0
-write$ -- 5904
+write$ -- 5945
 (There were 2 warnings)
