@@ -31,7 +31,7 @@ while executing--line 2727 of file biblatex.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 You've used 59 entries,
             6399 wiz_defined-function locations,
-            1589 strings with 38889 characters,
+            1589 strings with 38884 characters,
 and the built_in function-call counts, 1623754 in all, are:
 = -- 158389
 > -- 12194

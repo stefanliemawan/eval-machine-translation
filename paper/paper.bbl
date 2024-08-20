@@ -5531,7 +5531,7 @@
     \field{year}{2024}
   \endentry
 
-  \entry{wolf-etal-2020-transformers}{inproceedings}{}
+  \entry{wolf-2020-transformers}{inproceedings}{}
     \name{author}{22}{}{%
       {{hash=WT}{%
          family={Wolf},
