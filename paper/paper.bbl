@@ -4274,6 +4274,90 @@
     \field{year}{2002}
   \endentry
 
+  \entry{popovic-2015-chrf}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=PM}{%
+         family={Popovi{\'c}},
+         familyi={P\bibinitperiod},
+         given={Maja},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \name{editor}{8}{}{%
+      {{hash=BO}{%
+         family={Bojar},
+         familyi={B\bibinitperiod},
+         given={Ond{\v{r}}ej},
+         giveni={O\bibinitperiod},
+      }}%
+      {{hash=CR}{%
+         family={Chatterjee},
+         familyi={C\bibinitperiod},
+         given={Rajan},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=FC}{%
+         family={Federmann},
+         familyi={F\bibinitperiod},
+         given={Christian},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=HB}{%
+         family={Haddow},
+         familyi={H\bibinitperiod},
+         given={Barry},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=HC}{%
+         family={Hokamp},
+         familyi={H\bibinitperiod},
+         given={Chris},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=HM}{%
+         family={Huck},
+         familyi={H\bibinitperiod},
+         given={Matthias},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=LV}{%
+         family={Logacheva},
+         familyi={L\bibinitperiod},
+         given={Varvara},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=PP}{%
+         family={Pecina},
+         familyi={P\bibinitperiod},
+         given={Pavel},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computational Linguistics}%
+    }
+    \strng{namehash}{PM1}
+    \strng{fullhash}{PM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{booktitle}{Proceedings of the Tenth Workshop on Statistical Machine Translation}
+    \verb{doi}
+    \verb 10.18653/v1/W15-3049
+    \endverb
+    \field{pages}{392\bibrangedash 395}
+    \field{title}{chr{F}: character n-gram {F}-score for automatic {MT} evaluation}
+    \verb{url}
+    \verb https://aclanthology.org/W15-3049
+    \endverb
+    \list{location}{1}{%
+      {Lisbon, Portugal}%
+    }
+    \field{month}{09}
+    \field{year}{2015}
+  \endentry
+
   \entry{post-2018-sacrebleu}{misc}{}
     \name{author}{1}{}{%
       {{hash=PM}{%
@@ -4283,8 +4367,8 @@
          giveni={M\bibinitperiod},
       }}%
     }
-    \strng{namehash}{PM1}
-    \strng{fullhash}{PM1}
+    \strng{namehash}{PM2}
+    \strng{fullhash}{PM2}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{sortinit}{P}
