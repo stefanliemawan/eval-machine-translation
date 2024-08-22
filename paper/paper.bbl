@@ -1073,6 +1073,28 @@
     \warn{\item Invalid format of field 'month'}
   \endentry
 
+  \entry{chatgpt-2024-bleu}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=C}{%
+         family={ChatGPT},
+         familyi={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{C1}
+    \strng{fullhash}{C1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{note}{OpenAI}
+    \field{title}{Explanation on BLEU's Limitations on Short Sentences}
+    \verb{url}
+    \verb https://www.openai.com/chatgpt
+    \endverb
+    \field{year}{2024}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
   \entry{cho-2014-properties}{inproceedings}{}
     \name{author}{4}{}{%
       {{hash=CK}{%
@@ -1192,6 +1214,96 @@
     \verb http://dx.doi.org/10.18653/v1/2021.eacl-main.301
     \endverb
     \field{year}{2021}
+  \endentry
+
+  \entry{denkowski-lavie-2014-meteor-universal}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=DM}{%
+         family={Denkowski},
+         familyi={D\bibinitperiod},
+         given={Michael},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=LA}{%
+         family={Lavie},
+         familyi={L\bibinitperiod},
+         given={Alon},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \name{editor}{8}{}{%
+      {{hash=BO}{%
+         family={Bojar},
+         familyi={B\bibinitperiod},
+         given={Ond{\v{r}}ej},
+         giveni={O\bibinitperiod},
+      }}%
+      {{hash=BC}{%
+         family={Buck},
+         familyi={B\bibinitperiod},
+         given={Christian},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=FC}{%
+         family={Federmann},
+         familyi={F\bibinitperiod},
+         given={Christian},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=HB}{%
+         family={Haddow},
+         familyi={H\bibinitperiod},
+         given={Barry},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=KP}{%
+         family={Koehn},
+         familyi={K\bibinitperiod},
+         given={Philipp},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=MC}{%
+         family={Monz},
+         familyi={M\bibinitperiod},
+         given={Christof},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=PM}{%
+         family={Post},
+         familyi={P\bibinitperiod},
+         given={Matt},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=SL}{%
+         family={Specia},
+         familyi={S\bibinitperiod},
+         given={Lucia},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computational Linguistics}%
+    }
+    \strng{namehash}{DMLA1}
+    \strng{fullhash}{DMLA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{booktitle}{Proceedings of the Ninth Workshop on Statistical Machine Translation}
+    \verb{doi}
+    \verb 10.3115/v1/W14-3348
+    \endverb
+    \field{pages}{376\bibrangedash 380}
+    \field{title}{Meteor Universal: Language Specific Translation Evaluation for Any Target Language}
+    \verb{url}
+    \verb https://aclanthology.org/W14-3348
+    \endverb
+    \list{location}{1}{%
+      {Baltimore, Maryland, USA}%
+    }
+    \field{month}{06}
+    \field{year}{2014}
   \endentry
 
   \entry{devlin-2019-bert}{misc}{}
@@ -2141,6 +2253,45 @@
     \field{year}{2020}
   \endentry
 
+  \entry{lommel-2016-blues}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=LA}{%
+         family={Lommel},
+         familyi={L\bibinitperiod},
+         given={Arle},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \true{moreeditor}
+    \name{editor}{2}{}{%
+      {{hash=RG}{%
+         family={Rehm},
+         familyi={R\bibinitperiod},
+         given={Georg},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=BA}{%
+         family={Burchardt},
+         familyi={B\bibinitperiod},
+         given={Aljoscha},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LA1}
+    \strng{fullhash}{LA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{booktitle}{Proceedings of the LREC 2016 Workshop “Translation Evaluation – From Fragmented Tools and Data Sets to an Integrated Ecosystem”}
+    \field{title}{Blues for BLEU: Reconsidering the Validity of Reference-Based MT Evaluation}
+    \list{location}{1}{%
+      {Portorož, Slovenia}%
+    }
+    \field{year}{2016}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
   \entry{lopez-2008-smt}{article}{}
     \name{author}{1}{}{%
       {{hash=LA}{%
@@ -2154,8 +2305,8 @@
       {Association for Computing Machinery}%
     }
     \keyw{Natural language processing, machine translation}
-    \strng{namehash}{LA1}
-    \strng{fullhash}{LA1}
+    \strng{namehash}{LA2}
+    \strng{fullhash}{LA2}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{sortinit}{L}
@@ -4009,25 +4160,6 @@
     \field{year}{2024}
   \endentry
 
-  \entry{opus}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=O}{%
-         family={OPUS},
-         familyi={O\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{O1}
-    \strng{fullhash}{O1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{O}
-    \field{sortinithash}{O}
-    \field{howpublished}{\url{https://opus.nlpl.eu/}}
-    \field{note}{Accessed: 2024-07-29}
-    \field{title}{OPUS: The Open Parallel Corpus}
-    \field{year}{2024}
-  \endentry
-
   \entry{ott-2019-fairseq}{inproceedings}{}
     \name{author}{8}{}{%
       {{hash=OM}{%
@@ -4707,6 +4839,96 @@
     \field{year}{2024}
   \endentry
 
+  \entry{tiedemann-2012-opus-parallel}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=TJ}{%
+         family={Tiedemann},
+         familyi={T\bibinitperiod},
+         given={J{\"o}rg},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \name{editor}{9}{}{%
+      {{hash=CN}{%
+         family={Calzolari},
+         familyi={C\bibinitperiod},
+         given={Nicoletta},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=CK}{%
+         family={Choukri},
+         familyi={C\bibinitperiod},
+         given={Khalid},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=DT}{%
+         family={Declerck},
+         familyi={D\bibinitperiod},
+         given={Thierry},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=DMU}{%
+         family={Do{\u{g}}an},
+         familyi={D\bibinitperiod},
+         given={Mehmet\bibnamedelima U{\u{g}}ur},
+         giveni={M\bibinitperiod\bibinitdelim U\bibinitperiod},
+      }}%
+      {{hash=MB}{%
+         family={Maegaard},
+         familyi={M\bibinitperiod},
+         given={Bente},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=MJ}{%
+         family={Mariani},
+         familyi={M\bibinitperiod},
+         given={Joseph},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=MA}{%
+         family={Moreno},
+         familyi={M\bibinitperiod},
+         given={Asuncion},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=OJ}{%
+         family={Odijk},
+         familyi={O\bibinitperiod},
+         given={Jan},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=PS}{%
+         family={Piperidis},
+         familyi={P\bibinitperiod},
+         given={Stelios},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {European Language Resources Association (ELRA)}%
+    }
+    \strng{namehash}{TJ1}
+    \strng{fullhash}{TJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{abstract}{%
+    This paper presents the current status of OPUS, a growing language resource of parallel corpora and related tools. The focus in OPUS is to provide freely available data sets in various formats together with basic annotation to be useful for applications in computational linguistics, translation studies and cross-linguistic corpus studies. In this paper, we report about new data sets and their features, additional annotation tools and models provided from the website and essential interfaces and on-line services included in the project.%
+    }
+    \field{booktitle}{Proceedings of the Eighth International Conference on Language Resources and Evaluation ({LREC}'12)}
+    \field{pages}{2214\bibrangedash 2218}
+    \field{title}{Parallel Data, Tools and Interfaces in {OPUS}}
+    \verb{url}
+    \verb http://www.lrec-conf.org/proceedings/lrec2012/pdf/463_Paper.pdf
+    \endverb
+    \list{location}{1}{%
+      {Istanbul, Turkey}%
+    }
+    \field{month}{05}
+    \field{year}{2012}
+  \endentry
+
   \entry{tiedemann-2020-tatoeba-challenge}{inproceedings}{}
     \name{author}{1}{}{%
       {{hash=TJ}{%
@@ -5283,6 +5505,26 @@
     \field{eprinttype}{arXiv}
     \field{eprintclass}{cs.CL}
     \field{year}{2023}
+  \endentry
+
+  \entry{tuetschek-2021-meteor-issue-nltk}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=t}{%
+         family={tuetschek},
+         familyi={t\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{t1}
+    \strng{fullhash}{t1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{howpublished}{\url{https://github.com/nltk/nltk/issues/2655}}
+    \field{note}{Accessed: 2024-08-22}
+    \field{title}{METEOR scores very different from Meteor-1.5 \#2655}
+    \field{year}{2021}
+    \warn{\item Invalid format of field 'month'}
   \endentry
 
   \entry{vaswani-2017-attention}{inproceedings}{}
